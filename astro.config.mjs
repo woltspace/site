@@ -14,6 +14,13 @@ export default defineConfig({
       disable404Route: true,
       description: 'a place for builders to build',
       favicon: '/favicon.svg',
+      // Docs pages share the site's card too.
+      head: [
+        { tag: 'meta', attrs: { property: 'og:image', content: 'https://woltspace.com/og-image.png' } },
+        { tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+        { tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+        { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://woltspace.com/og-image.png' } },
+      ],
       customCss: ['./src/styles/woltspace.css'],
       components: {
         Header: './src/components/Header.astro',

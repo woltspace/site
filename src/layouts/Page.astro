@@ -5,7 +5,8 @@
 import Scene from '../components/Scene.astro';
 import type { Critter } from '../lib/pixels';
 interface Props { title: string; description: string; path: string; canonical?: string; ogImage?: string; article?: boolean; critter?: Critter; wide?: boolean }
-const { title, description, path, canonical, ogImage, article = false, critter, wide = false } = Astro.props;
+// Pages without their own share card use the site's (same as the home page).
+const { title, description, path, canonical, ogImage = '/og-image.png', article = false, critter, wide = false } = Astro.props;
 const nav = [['wolts', '/wolts'], ['dam', '/dam'], ['blog', '/blog'], ['docs', '/docs/getting-started/']];
 const site = 'https://woltspace.com';
 ---
@@ -26,6 +27,7 @@ const site = 'https://woltspace.com';
   {ogImage && <meta property="og:image:width" content="1200">}
   {ogImage && <meta property="og:image:height" content="630">}
   {ogImage && <meta name="twitter:card" content="summary_large_image">}
+  {ogImage && <meta name="twitter:image" content={site + ogImage}>}
   <script is:inline>
     // Same light/dark choice as the rest of the site.
     (function () {
