@@ -22,7 +22,7 @@ export default defineConfig({
         { icon: 'github', label: 'GitHub', href: 'https://github.com/jerpint/woltspace' },
       ],
       editLink: {
-        baseUrl: 'https://github.com/jerpint/woltspace-site/edit/main/',
+        baseUrl: 'https://github.com/woltspace/site/edit/main/',
       },
       sidebar: [
         {
