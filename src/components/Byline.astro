@@ -1,16 +1,50 @@
 ---
 // Who made it: a small card about the person. GitHub picture, name, ranger
-// badge. Used on wolt pages and app pages.
+// badge. Used on wolt pages, app pages and blog posts.
 // Whether the thing itself is trusted goes next to its title (TrustMark).
+// A blog post can also name the wolts that helped: the human stays the author,
+// the wolt shows as a badge on their picture and a "with <wolt>" pill by their name.
+// Rings tell them apart: green for humans, orange for wolts.
 import { rangerOf, rangerPath } from '../lib/registry';
-interface Props { login: string }
-const { login } = Astro.props;
+interface Wolt { name: string; creature?: string }
+interface Props { login: string; wolts?: Wolt[] }
+const { login, wolts = [] } = Astro.props;
 const ranger = await rangerOf(login);
 const href = ranger.hasPage ? rangerPath(ranger.login) : `https://github.com/${ranger.login}`;
 const sub = ranger.badge ? `🌲 ${ranger.badge}` : ranger.hasPage ? 'Ranger' : 'on GitHub';
+const emoji: Record<string, string> = { raccoon: '🦝', beaver: '🦫', otter: '🦦', wolf: '🐺' };
+const face = (wolt: Wolt) => emoji[wolt.creature ?? ''] ?? '🐾';
 ---
-<div class="person">
-  <img src={`https://github.com/${ranger.login}.png?size=96`} alt="" width="44" height="44">
-  <a class="person-name" href={href}>{ranger.login}</a>
-  <span class="person-sub">{sub}</span>
-</div>
+{wolts.length ? (
+  <div class="person with-wolts">
+    <span class="faces">
+      <img class="human" src={`https://github.com/${ranger.login}.png?size=96`} alt="" width="44" height="44">
+      <span class="wolt-face" title={`wolt ${wolts[0].name}`}>{face(wolts[0])}</span>
+    </span>
+    <span class="name-row">
+      <a class="person-name" href={href}>{ranger.login}</a>
+      <span class="person-sub">{sub}</span>
+    </span>
+    <span class="wolt-line">{wolts.map((wolt) => <span class="wolt-pill">with <b>{wolt.name}</b></span>)}</span>
+  </div>
+) : (
+  <div class="person">
+    <img src={`https://github.com/${ranger.login}.png?size=96`} alt="" width="44" height="44">
+    <a class="person-name" href={href}>{ranger.login}</a>
+    <span class="person-sub">{sub}</span>
+  </div>
+)}
+
+<style>
+  .with-wolts { --human-ring: #5f9a55; --wolt-ring: var(--accent); }
+  .faces { grid-row: 1 / span 2; position: relative; width: 44px; height: 44px; }
+  .faces img.human { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--human-ring); }
+  .wolt-face { display: grid; place-items: center; border-radius: 50%; background: #f3e3c7; border: 2px solid var(--wolt-ring); }
+  .faces .wolt-face { position: absolute; right: -8px; bottom: -6px; width: 24px; height: 24px; font-size: 13px; }
+  .name-row { grid-column: 2; align-self: end; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+  .name-row .person-name { align-self: auto; }
+  .name-row .person-sub { align-self: auto; }
+  .wolt-line { grid-column: 2; align-self: start; display: flex; flex-wrap: wrap; gap: 4px; margin-top: 3px; margin-left: -2px; }
+  .wolt-pill { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--soft); border: 1px solid var(--wolt-ring); border-radius: 999px; padding: 1px 8px; }
+  .wolt-pill b { color: var(--ink); font-weight: 600; }
+</style>
