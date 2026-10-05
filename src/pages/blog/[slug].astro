@@ -1,0 +1,21 @@
+---
+import { render } from 'astro:content';
+import Page from '../../layouts/Page.astro';
+import Byline from '../../components/Byline.astro';
+import { posts, day } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  return (await posts()).map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<Page title={post.data.title} description={post.data.description} path={`/blog/${post.id}`} article critter="raccoon">
+  <p class="back"><a href="/">woltspace</a> / <a href="/blog">blog</a></p>
+  <p class="stamp">{day(post.data.date)}{post.data.draft && <span class="draft"> · draft, not published</span>}</p>
+  <h1>{post.data.title}</h1>
+  <Byline login={post.data.author} wolts={post.data.wolts} />
+  <article class="prose"><Content /></article>
+  <hr>
+  <p class="hint"><a href="/blog">More posts</a></p>
+</Page>

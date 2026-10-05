@@ -3,7 +3,9 @@
 // what they shared in the main column.
 import Page from '../../layouts/Page.astro';
 import ShareCard from '../../components/ShareCard.astro';
+import PostCard from '../../components/PostCard.astro';
 import { loadShare, rangerPath } from '../../lib/registry';
+import { posts } from '../../lib/blog';
 
 export async function getStaticPaths() {
   const { rangers } = await loadShare();
@@ -11,7 +13,8 @@ export async function getStaticPaths() {
 }
 const { ranger } = Astro.props;
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
-const stats = `${plural(ranger.wolts.length, 'wolt')} · ${plural(ranger.apps.length, 'app')}`;
+const written = (await posts()).filter((post) => post.data.author.toLowerCase() === ranger.login.toLowerCase());
+const stats = [plural(ranger.wolts.length, 'wolt'), plural(ranger.apps.length, 'app'), written.length ? plural(written.length, 'post') : ''].filter(Boolean).join(' · ');
 ---
 <Page title={ranger.login} description={`Wolts and apps shared by ${ranger.login}.`} path={rangerPath(ranger.login)} wide>
   <p class="back"><a href="/">woltspace</a> / <a href="/rangers">rangers</a> / {ranger.login}</p>
@@ -31,6 +34,9 @@ const stats = `${plural(ranger.wolts.length, 'wolt')} · ${plural(ranger.apps.le
 
       {ranger.apps.length > 0 && <h2 class="label">Apps</h2>}
       {ranger.apps.length > 0 && <ul class="cards">{ranger.apps.map((app) => <ShareCard app={app} showRanger={false} />)}</ul>}
+
+      {written.length > 0 && <h2 class="label" style="margin-top:32px">Posts</h2>}
+      {written.length > 0 && <ul class="list">{written.map((post) => <PostCard post={post} showAuthor={false} />)}</ul>}
     </div>
   </div>
 </Page>

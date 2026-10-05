@@ -1,0 +1,12 @@
+---
+// A blog post in a list.
+import type { CollectionEntry } from 'astro:content';
+import { day } from '../lib/blog';
+interface Props { post: CollectionEntry<'blog'>; showAuthor?: boolean }
+const { post, showAuthor = true } = Astro.props;
+---
+<li><a class="item" href={`/blog/${post.id}`}>
+  <p class="stamp">{day(post.data.date)}{showAuthor && ` · ${post.data.author}`}{post.data.draft && <span class="draft"> · draft</span>}</p>
+  <h2>{post.data.title}</h2>
+  <p>{post.data.description}</p>
+</a></li>
