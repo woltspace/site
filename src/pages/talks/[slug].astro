@@ -1,0 +1,38 @@
+---
+import Page from '../../layouts/Page.astro';
+import { talks, talkDay } from '../../lib/talks';
+export function getStaticPaths() { return talks.map((t) => ({ params: { slug: t.slug }, props: { t } })); }
+const { t } = Astro.props;
+---
+<Page title={t.title} description={t.summary} path="/talks">
+  <p class="back"><a href="/">woltspace</a> / <a href="/talks">talks</a></p>
+  <p class="stamp">{talkDay(t.date)} · {t.event}{t.upcoming && <span class="draft"> · upcoming</span>}</p>
+  <h1>{t.title}</h1>
+  <p class="lead">{t.summary}</p>
+
+  <h2 class="talk-h">Slides</h2>
+  {t.slidesUrl && <p><a class="talk-btn" href={t.slidesUrl}>Open the slides →</a></p>}
+  {t.slideImages && (
+    <div class="talk-slides">
+      {t.slideImages.files.map((f) => <a href={`/media/${t.slideImages!.folder}/${f}.png`}><img src={`/media/${t.slideImages!.folder}/${f}.png`} alt={f.replace(/^slide-\d+-/, '')} loading="lazy" /></a>)}
+    </div>
+  )}
+
+  <h2 class="talk-h">Recording</h2>
+  {t.youtube
+    ? <div class="talk-video"><iframe src={`https://www.youtube-nocookie.com/embed/${t.youtube}`} title={`${t.title} (recording)`} loading="lazy" allowfullscreen></iframe></div>
+    : <p class="talk-soon">Recording coming.</p>}
+
+  <h2 class="talk-h">The text</h2>
+  {t.text ? <div class="prose" set:html={t.text} /> : <p class="talk-soon">The words prepared for this talk, coming.</p>}
+</Page>
+<style>
+  .talk-h { margin: 34px 0 12px; font-size: 20px; }
+  .talk-btn { display: inline-block; padding: 10px 16px; border: 2px solid var(--accent); border-radius: 8px; color: var(--accent); font-weight: 700; text-decoration: none; }
+  .talk-btn:hover { background: var(--accent); color: #fff; }
+  .talk-slides { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .talk-slides img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  .talk-video { position: relative; aspect-ratio: 16 / 9; }
+  .talk-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 10px; }
+  .talk-soon { color: var(--soft); font-style: italic; }
+</style>
