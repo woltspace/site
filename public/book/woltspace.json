@@ -1,0 +1,10 @@
+{
+  "name": "book-of-wolt",
+  "description": "An animated, mobile-friendly field guide to Woltspace.",
+  "stack": "html",
+  "port": 4025,
+  "start": "python3 server.py",
+  "keeper": "pixie",
+  "emoji": "\ud83d\udcd6",
+  "public": true
+}

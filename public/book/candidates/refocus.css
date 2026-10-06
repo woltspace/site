@@ -1,0 +1,64 @@
+/* Refocus draft (2026-10-06): chapter 6 live demo, chapter 7 axe or teeth. */
+.demo,.swarms{background:linear-gradient(#2a2119,#18100a)}
+.demo .label,.swarms .label{max-width:46%}
+.demo-grid{position:absolute;z-index:20;left:5%;right:5%;top:42%;bottom:7%;display:grid;grid-template-columns:1fr 1.3fr;gap:3vw;align-items:center}
+.demo-go{display:flex;flex-direction:column;gap:12px;padding:28px 30px;border:4px solid var(--amber);background:#fff8e6;color:var(--ink);text-decoration:none;box-shadow:8px 8px 0 var(--terra)}
+.demo-go small{font:800 13px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:var(--terra)}
+.demo-go b{font:400 clamp(26px,3.4vw,48px)/1 var(--display)}
+.demo-links{display:flex;gap:10px;flex-wrap:wrap}
+.demo-links .pill{background:none;width:auto;height:auto;font:700 12px/1 'JetBrains Mono',monospace;font-style:normal;padding:6px 9px;border:2px solid var(--ink)}
+.demo-go:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 var(--terra)}
+.demo-video{margin:0}
+.demo-video video{width:100%;display:block;border:4px solid var(--cream);background:#000}
+.demo-video figcaption{margin-top:8px;font:12px/1.4 'JetBrains Mono',monospace;color:#cbbfae}
+.swarm-grid{position:absolute;z-index:20;left:5%;right:5%;top:48%;display:grid;grid-template-columns:1fr auto 1fr;gap:3vw;align-items:center}
+.swarm-card{padding:26px;border:4px solid var(--cream);display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;color:var(--cream)}
+.swarm-card .big{font-size:clamp(56px,8vw,110px);line-height:1}
+.swarm-card b{font:800 clamp(16px,1.8vw,24px)/1 'JetBrains Mono',monospace;letter-spacing:.12em}
+.swarm-card span{font:14px/1.4 'JetBrains Mono',monospace;color:#cbbfae}
+.swarm-card.evil{background:#3a1410;border-color:#e0442a}
+.swarm-card.team{background:#fff8e6;color:var(--ink);border-color:var(--amber);box-shadow:8px 8px 0 var(--terra)}
+.swarm-card.team span{color:#5c4d3c}
+.vs{font:400 clamp(28px,3vw,44px)/1 var(--display);color:var(--amber)}
+.swarm-close{position:absolute;z-index:20;left:5%;right:5%;bottom:7%;margin:0;text-align:center;font:400 clamp(20px,2.4vw,34px)/1.2 var(--display);color:var(--cream)}
+.swarm-close small{display:block;margin-top:6px;font:12px/1 'JetBrains Mono',monospace;color:#cbbfae}
+@media (max-width:760px){
+  .demo .label,.swarms .label{max-width:90%}
+  .demo-grid{top:36%;grid-template-columns:1fr;gap:18px;bottom:auto}
+  .swarm-grid{top:36%;grid-template-columns:1fr;gap:12px}
+  .vs{text-align:center}
+  .swarm-close{position:static;padding:0 5% 30px}
+}
+/* Chapter 3: the phone joins the dam scene (you <-> your wolt <-> other wolts) */
+.tg-phone{position:absolute;inset:0;z-index:25;background:none;pointer-events:none}
+.together .tg-phone .pixel-phone{left:auto;right:6%;top:14%;bottom:auto;width:min(260px,23vw);height:min(430px,47vh);transform:rotate(4deg)}
+@media (max-width:760px){.together .tg-phone .pixel-phone{right:16px;top:22%;bottom:auto;width:min(230px,56vw);height:min(400px,46vh);transform:rotate(3deg)}}
+/* Chapter 4: Woltspace today (app wall + 3 badges) */
+.today-badges{position:absolute;z-index:30;right:4.5%;bottom:6%;display:flex;gap:14px}
+.today-badges .tb{display:flex;flex-direction:column;gap:5px;min-width:190px;padding:12px 14px;background:#fff8e6;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);color:var(--ink)}
+.today-badges .tb i{font-style:normal;font-size:24px;line-height:1}
+.today-badges .tb b{font:800 13px/1 'JetBrains Mono',monospace;letter-spacing:.1em;color:var(--terra)}
+.today-badges .tb span{font:12px/1.3 'JetBrains Mono',monospace}
+@media (max-width:760px){.today-badges{left:12px;right:12px;bottom:12px;gap:8px}.today-badges .tb{min-width:0;flex:1;padding:8px}.today-badges .tb span{font-size:10px}.today-badges .tb b{font-size:10px}}
+/* Chapter 3: keep the wolt-to-wolt bubbles clear of the phone */
+.together .from-beaver{left:30%;top:52%}
+.together .from-raccoon{left:54%;right:auto;top:56%}
+@media (max-width:760px){
+  .together .from-beaver{left:4%;top:70%}
+  .together .from-raccoon{left:auto;right:4%;top:75%}
+}
+/* Chapter 3: one colour per speaker. Beaver = green everywhere (phone reply + dam), raccoon = blue, human = cream */
+.together .from-beaver{background:#8ed081}
+.together .from-beaver b{color:#2e602b}
+.together .from-raccoon{background:#a9c8e8}
+.together .from-raccoon b{color:#1f4a78}
+/* Chapter 3: one story, in order. You text the beaver, it answers, then the wolts talk. 10 s loop. */
+@keyframes seq-1{0%,4%{opacity:0;transform:translateY(8px)}8%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes seq-2{0%,16%{opacity:0;transform:translateY(8px)}20%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes seq-3{0%,32%{opacity:0;transform:translateY(8px)}36%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes seq-4{0%,46%{opacity:0;transform:translateY(8px)}50%,94%{opacity:1;transform:none}100%{opacity:0}}
+.together .tg-phone .iwcl-message.incoming{animation:seq-1 10s linear infinite}
+.together .tg-phone .iwcl-message.reply{animation:seq-2 10s linear infinite}
+.together .from-beaver{animation:seq-3 10s linear infinite}
+.together .from-raccoon{animation:seq-4 10s linear infinite}
+@media (prefers-reduced-motion:reduce){.together .tg-phone .iwcl-message,.together .from-beaver,.together .from-raccoon{animation:none;opacity:1;transform:none}}
