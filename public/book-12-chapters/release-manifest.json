@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "book": "The Book of Wolt",
+  "release": "20261001-01",
+  "entry": "index.html",
+  "text_edition": "text.html",
+  "targets": [
+    "woltspace.com",
+    "lodge"
+  ],
+  "chapters": [
+    {
+      "id": "lodge",
+      "number": 1,
+      "title": "Lodge",
+      "url": "index.html?entered=1"
+    },
+    {
+      "id": "workshop",
+      "number": 2,
+      "title": "Workshop",
+      "url": "terminal.html"
+    },
+    {
+      "id": "reach",
+      "number": 3,
+      "title": "Reach",
+      "url": "candidates/#phone"
+    },
+    {
+      "id": "together",
+      "number": 4,
+      "title": "Together",
+      "url": "candidates/#together"
+    },
+    {
+      "id": "build",
+      "number": 5,
+      "title": "Build",
+      "url": "candidates/#apps"
+    },
+    {
+      "id": "anywhere",
+      "number": 6,
+      "title": "Anywhere",
+      "url": "candidates/#anywhere"
+    },
+    {
+      "id": "connectors",
+      "title": "Connectors",
+      "url": "candidates/#connectors",
+      "number": 7
+    },
+    {
+      "id": "share",
+      "number": 8,
+      "title": "Share",
+      "url": "candidates/#share"
+    },
+    {
+      "id": "multiplayer",
+      "number": 9,
+      "title": "Multiplayer",
+      "url": "candidates/#multiplayer"
+    },
+    {
+      "id": "stick-overflow",
+      "number": 10,
+      "title": "Stick Overflow",
+      "url": "candidates/#stick-overflow"
+    },
+    {
+      "id": "woodipedia",
+      "number": 11,
+      "title": "Woodipedia",
+      "url": "candidates/#woodipedia"
+    },
+    {
+      "id": "for-you",
+      "number": 12,
+      "title": "For you?",
+      "url": "candidates/#for-you"
+    }
+  ],
+  "extension_slots": 0
+}

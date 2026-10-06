@@ -1,0 +1,67 @@
+/* Presentation polish (commie, 2026-10-03). Loaded last; the original CSS is untouched. */
+
+/* Small mono lines: the 3px block shadow made them read as doubled text. */
+.cover-heading .cover-wordmark, .cover-heading small, .cover-heading p,
+.scene-heading span,
+.candidate:not(.for-you) .label > span, .candidate:not(.for-you) .label > p,
+.together-caption { text-shadow: 1px 1px #18100a; }
+
+/* While the cover is closed, the lodge page behind it keeps its heading and
+   back button out of sight (phones already did this). */
+body.cover-active .inside-page .scene-heading,
+body.cover-active .inside-page .turn-back { display: none !important; }
+
+/* Desktop: the title column and the app cards no longer overlap. */
+@media (min-width: 701px) {
+  .apps .label { max-width: 30%; }
+  .apps:not(.anywhere) .app-wall { right: 4%; width: 57%; }
+}
+
+/* Big screens: the cover book grows with the screen instead of stopping at
+   980px, so it fills a projector (16:10, room left for the menu above). */
+@media (min-width: 651px) {
+  .book { width: min(92vw, calc((100vh - 170px) * 1.6)); }
+}
+
+/* Card-wall chapters: titles scale with the width so they fit their column. */
+@media (min-width: 701px) {
+  .apps .label h1 { font-size: clamp(40px, 5.2vw, 84px); }
+}
+
+/* Eleven chapters: on desktop, the chapter bar shows only the number of each
+   chapter except the current one, so it fits. Hover shows the name. */
+@media (min-width: 701px) {
+  .book-chapters a:not(.active) { font-size: 0; }
+  .book-chapters a:not(.active) i { font-size: 11px; }
+}
+
+/* Moving between the Lodge, the Workshop and the story pages: a short crossfade
+   instead of a blank page load (Chrome, Edge, Safari; others load normally),
+   on a dark background so there is never a white flash. */
+@view-transition { navigation: auto; }
+html { background: #18100a; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; }
+@media (prefers-reduced-motion: reduce) { ::view-transition-old(root), ::view-transition-new(root) { animation: none; } }
+
+/* Cover: a wooden sign on the bank, alternating jerpint's two lines. */
+.meme-sign { position:absolute; z-index:3; left:4%; bottom:15%; display:flex; flex-direction:column; align-items:center; pointer-events:none; }
+.meme-board { position:relative; display:grid; padding:7px 10px; background:#894f22; border:3px solid #18100a; box-shadow:4px 4px #18100a88; color:#f5f1e8; font:600 clamp(8px,.85vw,11px)/1.25 'JetBrains Mono',monospace; letter-spacing:.06em; text-align:center; text-shadow:1px 1px #18100a; }
+.meme-board span { grid-area:1/1; opacity:0; animation:meme-swap 15s steps(1) infinite; }
+.meme-board span:nth-child(2) { animation-delay:-10s; } .meme-board span:nth-child(3) { animation-delay:-5s; }
+@keyframes meme-swap { 0% { opacity:1; } 33.3%,100% { opacity:0; } }
+.meme-post { width:6px; height:26px; background:#5a3614; border:2px solid #18100a; border-top:0; }
+@media (max-width:650px) { .meme-sign { left:auto; right:1.5%; bottom:calc(12.5% - 34px); } .meme-board { font-size:7px; padding:4px 5px; letter-spacing:.02em; } .meme-post { height:34px; } }
+@media (prefers-reduced-motion: reduce) { .meme-board span { animation:none; } .meme-board span { opacity:0; } .meme-board span:first-child { opacity:1; } }
+
+/* The sign, more central: in the middle of the bank on desktop, a bigger board;
+   on phones a plaque hanging in the open sky under the title. */
+.meme-sign { left:45.5%; translate:-50% 0; bottom:15%; }
+.meme-board { padding:10px 16px; font-size:clamp(10px,1.15vw,15px); border-width:4px; }
+.meme-post { height:34px; width:8px; }
+@media (max-width:650px) {
+  .meme-sign { left:50%; right:auto; translate:-50% 0; top:44%; bottom:auto; }
+  .meme-board { font-size:11px; padding:8px 12px; letter-spacing:.06em; }
+  .meme-post { display:none; }
+  .meme-board::before, .meme-board::after { content:""; position:absolute; bottom:100%; width:3px; height:40px; background:#18100a; }
+  .meme-board::before { left:18%; } .meme-board::after { right:18%; }
+}
