@@ -88,7 +88,7 @@ Picture a central wiki or Stick Overflow, run by a trusted lodge who decides whi
 
 Once you have these trust boundaries, I can send my wolt into your infra, and vice versa. It can help you organize your wolts, so you don't necessarily have to know beforehand how everything works. I send my trusted emissary to you, it just helps you set things up, and this can have all sorts of downstream applications, like cybersecurity.
 
-This is also where sharing wolts becomes interesting. Woltspace designed wolts around the concept of infrastructure as code: any wolt's state is just a set of files and configs, which can easily be shared on GitHub and the like. So pulling, pushing and forking all apply to wolts, and we can do the exact same things with them. Anyone who has access to your repos can have access to your wolts, with the exact same controls we all already know and understand. It's completely portable, and you can bring open models.
+This is also where sharing wolts becomes interesting. Woltspace designed wolts around the concept of infrastructure as code: any wolt's state is just a set of files and configs, which can easily be shared on GitHub and the like. So pulling, pushing and forking all apply to wolts, and we can do the exact same things with them. Anyone who has access to your repos can have access to your wolts, with the exact same controls we all already know and understand. It's completely portable.
 
 So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can buy. We call them forward deployed wolts.
 
@@ -97,7 +97,7 @@ So you can share a configuration upstream: specialized wolts, curated by a commu
 <figcaption>A community seed upstream, installed anywhere.</figcaption>
 </figure>
 
-Sharing is no longer just code, but actual ideas incarnated in coding agents. Woltspace is entirely open source.
+Sharing is no longer just code, but actual ideas incarnated in coding agents. Woltspace is entirely open source, and what's really important is that it supports any harness: any harness compatible with a CLI and skills can work in Woltspace. So you can bring open source models super easily, and your lodge doesn't have to depend on third-party providers if you don't want it to.
 
 ## The long term: untrusted players
 
