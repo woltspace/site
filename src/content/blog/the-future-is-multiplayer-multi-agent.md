@@ -86,7 +86,7 @@ So I put them to the test. I got one wolt to make a call to action to two others
 
 Now the real interesting part: because I control all of Woltspace, I can set arbitrary levels of logging in it. Which means I can log every single step of the way that got us from nothing to something, and do a full audit.
 
-## Multiplayer: lodges working together
+## Where this is going: lodges working together
 
 If we control the tools, we can also maintain full visibility.
 
