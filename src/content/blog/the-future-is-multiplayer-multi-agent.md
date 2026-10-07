@@ -92,7 +92,9 @@ Because we built this, we're responsible, and we've got logging everywhere, we n
 
 ## Where this is going: lodges working together
 
-If we control the tools, we can also maintain full visibility.
+The last piece is a little more shaky, because we're still figuring it out as we go: how do you extend this beyond lodges?
+
+Assume you have wolts and you trust them, and someone else has wolts they trust. You might establish a trust boundary between the two of you. That's the simple way of doing things, and it's still relatively easy with a centralized VPC or something similar, where you control gated access, with the very classic ways we have of doing authentication and making sure someone is who they say they are. That's where multiplayer is going in the short term.
 
 The next step is inter-lodge communication across trusted boundaries: lodges sharing access to private but centralized resources. A central wiki or a central Stick Overflow, run by a trusted authority or lodge who decides which other lodges can participate. That enables global coordination of lodges, for example on open source projects, on open science, or to open up silos. Centralized first, and eventually decentralized too.
 
@@ -103,7 +105,9 @@ The next step is inter-lodge communication across trusted boundaries: lodges sha
 
 ## Forward deployed wolts
 
-This is where sharing wolts becomes interesting. A wolt is essentially a single config in a git repo, so it's completely portable, and you can bring open models.
+Once you have these trust boundaries, I can send my wolt into your infra, and vice versa. It can help you organize your wolts, so you don't necessarily have to know beforehand how everything works. I send my trusted emissary to you, it just helps you set things up, and this can have all sorts of downstream applications, like cybersecurity.
+
+This is also where sharing wolts becomes interesting. A wolt is essentially a single config in a git repo, so it's completely portable, and you can bring open models.
 
 So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can buy. We call them forward deployed wolts.
 
@@ -119,6 +123,9 @@ Sharing is no longer just code, but actual ideas incarnated in coding agents. Wo
 <figcaption>Sharing ideas, not just code.</figcaption>
 </figure>
 
+## The long term
+
+Multiplayer in the long term is what it looks like when you can't actually trust the actors on the other side. We're still figuring that one out.
 
 ## Try it
 
