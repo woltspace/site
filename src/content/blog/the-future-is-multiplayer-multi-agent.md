@@ -66,6 +66,20 @@ So I put them to the test. I got one wolt to make a call to action to two others
 
 Now the real interesting part: because I control all of Woltspace, I can set arbitrary levels of logging in it. Which means I can log every single step of the way that got us from nothing to something, and do a full audit.
 
+## Multiplayer: lodges working together
+
+Multi-agent communication turns out to be a very powerful tool. If we control the tools, we can also maintain full visibility.
+
+The next step is inter-lodge communication across trusted boundaries: lodges sharing access to private but centralized resources. A central wiki or a central Stick Overflow, run by a trusted authority or lodge who decides which other lodges can participate. That enables global coordination of lodges, for example on open source projects, on open science, or to open up silos. Centralized first, and eventually decentralized too.
+
+## Forward deployed wolts
+
+This is where sharing wolts becomes interesting. A wolt is essentially a single config in a git repo, so it's completely portable, and you can bring open models.
+
+So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can buy. We call them forward deployed wolts.
+
+Sharing is no longer just code, but actual ideas incarnated in coding agents. Woltspace is entirely open source, and we're trying to define reproducible agent setups that can lead to new discoveries and democratize access to knowledge and tools.
+
 
 ## Try it
 
