@@ -88,7 +88,7 @@ Picture a central wiki or Stick Overflow, run by a trusted lodge who decides whi
 
 Once you have these trust boundaries, I can send my wolt into your infra, and vice versa. It can help you organize your wolts, so you don't necessarily have to know beforehand how everything works. I send my trusted emissary to you, it just helps you set things up, and this can have all sorts of downstream applications, like cybersecurity.
 
-This is also where sharing wolts becomes interesting. A wolt is essentially a single config in a git repo, so it's completely portable, and you can bring open models.
+This is also where sharing wolts becomes interesting. Woltspace designed wolts around the concept of infrastructure as code: any wolt's state is just a set of files and configs, which can easily be shared on GitHub and the like. So pulling, pushing and forking all apply to wolts, and we can do the exact same things with them. Anyone who has access to your repos can have access to your wolts, with the exact same controls we all already know and understand. It's completely portable, and you can bring open models.
 
 So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can buy. We call them forward deployed wolts.
 
