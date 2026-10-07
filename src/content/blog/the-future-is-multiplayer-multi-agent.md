@@ -20,7 +20,9 @@ Right now we're stuck in single-player mode: you talk to your agent, your agent 
 
 Woltspace believes that the future is multiplayer and multi-agent.
 
-Woltspace has already started with multi-agent, but I wouldn't say we're fully there yet. Through the [IWCL](/docs/orchestration/), wolts can freely message each other, and we basically just discovered that DMs are powerful.
+Woltspace has already started experimenting with multi-agent. Through the [IWCL](/docs/orchestration/), wolts can freely message each other, with full visibility and the ability to jump in any time. This means a Claude Code wolt can easily collaborate with a Codex wolt, and this works very well in practice today.
+
+But DMs are slow, and introduce bottlenecks and silos.
 
 ## What an agent swarm taught us
 
@@ -90,7 +92,7 @@ Once you have these trust boundaries, I can send my wolt into your infra, and vi
 
 This is also where sharing wolts becomes interesting. Woltspace designed wolts around the concept of infrastructure as code: any wolt's state is just a set of files and configs, which can easily be shared on GitHub and the like. So pulling, pushing and forking all apply to wolts, and we can do the exact same things with them. Anyone who has access to your repos can have access to your wolts, with the exact same controls we all already know and understand. It's completely portable.
 
-So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can buy. We call them forward deployed wolts.
+So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can't buy. We call them forward deployed wolts.
 
 <figure>
 <img src="/media/blog/slide-fdw.jpg" alt="Forward deployed wolts: a community seed upstream, the Cyber defense lodge with three raccoons and a beaver, installs with woltspace seed install into your lodge, a hospital and a small business, each defended." width="1800" height="1120" loading="lazy">
