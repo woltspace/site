@@ -7,7 +7,7 @@ import type { Critter } from '../lib/pixels';
 interface Props { title: string; description: string; path: string; canonical?: string; ogImage?: string; article?: boolean; critter?: Critter; wide?: boolean }
 // Pages without their own share card use the site's (same as the home page).
 const { title, description, path, canonical, ogImage = '/og-image.png', article = false, critter, wide = false } = Astro.props;
-const nav = [['wolts', '/wolts'], ['dam', '/dam'], ['blog', '/blog'], ['docs', '/docs/getting-started/']];
+const nav = [['wolts', '/wolts'], ['dam', '/dam'], ['blog', '/blog'], ['talks', '/talks'], ['docs', '/docs/getting-started/']];
 const site = 'https://woltspace.com';
 ---
 <!DOCTYPE html>

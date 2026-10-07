@@ -1,0 +1,18 @@
+---
+import Page from '../../layouts/Page.astro';
+import { talks, talkDay } from '../../lib/talks';
+---
+<Page title="Talks" description="Talks about woltspace: slides, recordings and the words behind them." path="/talks">
+  <p class="back"><a href="/">woltspace</a> / talks</p>
+  <h1>Talks</h1>
+  <p class="lead">Slides, recordings, and the words behind them.</p>
+  <ul class="list">
+    {talks.map((t) => (
+      <li><a class="item" href={`/talks/${t.slug}`}>
+        <p class="stamp">{talkDay(t.date)}{t.event && ` · ${t.event}`}{t.upcoming && <span class="draft"> · upcoming</span>}</p>
+        <h2>{t.title}</h2>
+        <p>{t.summary}</p>
+      </a></li>
+    ))}
+  </ul>
+</Page>
