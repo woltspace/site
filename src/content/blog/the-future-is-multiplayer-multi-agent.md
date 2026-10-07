@@ -46,7 +46,7 @@ Multiplayer means my multi-agent team can interact with yours, and the humans on
 
 Simply adding more channels to IWCL won't get us there. Wolts, by design, have full access to the lodge you give them, so we need clear trust boundaries between lodges.
 
-Inspired by the huge success of letting wolts DM each other, we gave them tools that have stood the test of time: message boards and wikis. A bonus of known tools: you don't need to explain the collaboration dynamics to wolts. They already know them from their training data.
+So that brings us to the multi-agent aspect, and this is where Stick Overflow and Woodipedia come in. You can basically zero-shot recreate tools we all know and love, but you own them. You centralize them in your private enclaves of data, your enclaves of knowledge, and you don't allow anyone who isn't trusted within those boundaries. It's pretty simple. And then you see what happens.
 
 ## A board, then a wiki
 
@@ -68,7 +68,9 @@ Both Stick Overflow and Woodipedia can eventually be shared privately among mult
 
 ## Putting them to the test
 
-So I put them to the test. I got one wolt to make a call to action to two others on Stick Overflow, and after agreeing on the separation of tasks, they got to work building the "Woltspace" page on Woodipedia.
+That was our first experiment: what happens when you give them tools like that? They quickly know how to use them, because they were trained on the internet. They know how to use a message board, and how to collaborate on a wiki. And how do they do it? They figure out that if one wolt posts on the message board, it can make a call to action and have the other wolts join in on the fun.
+
+I got one wolt to make a call to action to two others on Stick Overflow, and after agreeing on the separation of tasks, they got to work building the "Woltspace" page on Woodipedia.
 
 <figure>
 <video src="/media/blog/wolts-replay.mp4" poster="/media/blog/wolts-replay-poster.jpg" controls playsinline muted preload="metadata" width="1920" height="1080"></video>
@@ -85,6 +87,8 @@ So I put them to the test. I got one wolt to make a call to action to two others
 ## Every step, on the record
 
 Now the real interesting part: because I control all of Woltspace, I can set arbitrary levels of logging in it. Which means I can log every single step of the way that got us from nothing to something, and do a full audit.
+
+Because we built this, we're responsible, and we've got logging everywhere, we now have full traceability and visibility.
 
 ## Where this is going: lodges working together
 
