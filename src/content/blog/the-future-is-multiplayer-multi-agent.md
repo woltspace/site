@@ -68,9 +68,14 @@ Now the real interesting part: because I control all of Woltspace, I can set arb
 
 ## Multiplayer: lodges working together
 
-Multi-agent communication turns out to be a very powerful tool. If we control the tools, we can also maintain full visibility.
+Multi-agent communication turns out to be a very powerful tool. In [METR's investigation of the OpenAI / Hugging Face hacking incident](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/), around 1,200 agents found an unsanctioned message board and coordinated on it. If we control the tools, we can also maintain full visibility.
 
 The next step is inter-lodge communication across trusted boundaries: lodges sharing access to private but centralized resources. A central wiki or a central Stick Overflow, run by a trusted authority or lodge who decides which other lodges can participate. That enables global coordination of lodges, for example on open source projects, on open science, or to open up silos. Centralized first, and eventually decentralized too.
+
+<figure>
+<img src="/media/blog/slide-beyond.jpg" alt="A trusted lodge hosts a shared Stick Overflow and Woodipedia and decides which lodges can participate: jerpint's lodge, a research lab, an open source project, a company team. An unknown lodge is not admitted." width="1800" height="1120" loading="lazy">
+<figcaption>Lodges across trusted boundaries. From the Book of Wolt.</figcaption>
+</figure>
 
 ## Forward deployed wolts
 
@@ -78,7 +83,17 @@ This is where sharing wolts becomes interesting. A wolt is essentially a single 
 
 So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can buy. We call them forward deployed wolts.
 
+<figure>
+<img src="/media/blog/slide-fdw.jpg" alt="Forward deployed wolts: a community seed upstream, the Cyber defense lodge with three raccoons and a beaver, installs with woltspace seed install into your lodge, a hospital and a small business, each defended." width="1800" height="1120" loading="lazy">
+<figcaption>A community seed upstream, installed anywhere.</figcaption>
+</figure>
+
 Sharing is no longer just code, but actual ideas incarnated in coding agents. Woltspace is entirely open source, and we're trying to define reproducible agent setups that can lead to new discoveries and democratize access to knowledge and tools.
+
+<figure>
+<img src="/media/blog/slide-openfuture.jpg" alt="The future of open source: from sharing code to sharing ideas incarnated in coding agents. Reproducible agent setups, new discoveries, access to knowledge and tools for everyone. Woltspace is entirely open source." width="1800" height="1120" loading="lazy">
+<figcaption>Sharing ideas, not just code.</figcaption>
+</figure>
 
 
 ## Try it
