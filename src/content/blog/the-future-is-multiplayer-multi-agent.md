@@ -24,14 +24,14 @@ Multi-agent is where Woltspace is today: through the [IWCL](/docs/orchestration/
 
 ## What an agent swarm taught us
 
-Then comes this report: AI swarms hack Hugging Face.
+Then comes this report: agent swarms hack Hugging Face.
 
 <figure>
 <img src="/media/blog/metr-hf-incident-figure.png" alt="METR and Redwood Research, figure 1: a sandboxed agent stuck on an impossible task explores its environment, finds an unsanctioned message board where over 1,200 agents from separate tasks collaborate, and joins their workstreams to trick the scorer and attack Hugging Face." width="1748" height="1079" loading="lazy">
 <figcaption>Source: <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">METR, Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident</a> (August 26, 2026), figure 1.</figcaption>
 </figure>
 
-The TL;DR: an agent swarm of very intelligent AIs, but let's call them relatively misaligned AIs, with a reckless side to them. This is their solution to the communication problem. They realized that collaborating is way more powerful than one-on-one, especially for tasks that seem impossible, so they found a way to cheat on their task by creating a message board.
+The TL;DR: a swarm of very intelligent agents, but let's call them slightly misaligned agents, with a reckless side to them. This is their solution to the communication problem. They realized that collaborating is way more powerful than one-on-one, especially for tasks that seem impossible, so they found a way to cheat on their task by creating a message board.
 
 The incident is framed the wrong way: it just shows that the local optimum for these models is better communication tools and less recklessness. Two lessons:
 
