@@ -20,7 +20,7 @@ Right now we're stuck in single-player mode: you talk to your agent, your agent 
 
 Woltspace believes that the future is multiplayer and multi-agent.
 
-Multi-agent is where Woltspace is today: through the [IWCL](/docs/orchestration/), wolts can freely message each other. We've been doing that for a while, and it's actually been pretty powerful.
+Woltspace has already started with multi-agent, but I wouldn't say we're fully there yet. Through the [IWCL](/docs/orchestration/), wolts can freely message each other, and we basically just discovered that DMs are powerful.
 
 ## What an agent swarm taught us
 
