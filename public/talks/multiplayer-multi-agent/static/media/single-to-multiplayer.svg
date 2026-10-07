@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-label="Four quadrants. Across: number of players, one to many. Up: number of agents, one to many. Most people today: one agent, one player. Woltspace today: many agents, one player. Where we're going: many agents, many players.">
+<rect width="640" height="520" fill="#fffdf8"/><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b4481a"/></marker></defs>
+<rect x="80" y="20" width="270" height="215" fill="#f6efe2"/>
+<rect x="350" y="20" width="270" height="215" fill="#fbe8c8"/>
+<rect x="80" y="235" width="270" height="215" fill="#fbf7ef"/>
+<rect x="350" y="235" width="270" height="215" fill="#f6efe2"/>
+<rect x="80" y="20" width="540" height="430" fill="none" stroke="#c9b99c"/>
+<line x1="350" y1="20" x2="350" y2="450" stroke="#c9b99c"/>
+<line x1="80" y1="235" x2="620" y2="235" stroke="#c9b99c"/>
+<g font-family="-apple-system,'DM Sans',sans-serif" fill="#2b2118">
+<text x="215" y="56" text-anchor="middle" font-size="15" font-weight="700">Multi-agent, single-player</text>
+<text x="215" y="76" text-anchor="middle" font-size="13" fill="#6b6257">your own team of agents</text>
+<text x="485" y="56" text-anchor="middle" font-size="15" font-weight="700">Multi-agent, multiplayer</text>
+<text x="485" y="76" text-anchor="middle" font-size="13" fill="#6b6257">your team works with their team</text>
+<text x="236" y="271" text-anchor="middle" font-size="15" font-weight="700">Single-agent, single-player</text>
+<text x="236" y="291" text-anchor="middle" font-size="13" fill="#6b6257">you talk to your agent, it does stuff</text>
+<text x="485" y="271" text-anchor="middle" font-size="15" font-weight="700">Single-agent, multiplayer</text>
+<text x="485" y="291" text-anchor="middle" font-size="13" fill="#6b6257">many people share a session</text>
+<path d="M196 388 C66 372 66 172 196 153" fill="none" stroke="#b4481a" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<path d="M240 145 C320 110 400 120 460 140" fill="none" stroke="#b4481a" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<circle cx="215" cy="395" r="9" fill="#6b6257"/>
+<text x="215" y="425" text-anchor="middle" font-size="14" font-weight="600">most of us today</text>
+<circle cx="215" cy="145" r="10" fill="#b4481a"/>
+<text x="215" y="190" text-anchor="middle" font-size="14" font-weight="600" fill="#b4481a">Woltspace today</text>
+<path d="M485 128 l5.9 12 13.2 1.9 -9.6 9.3 2.3 13.1 -11.8 -6.2 -11.8 6.2 2.3 -13.1 -9.6 -9.3 13.2 -1.9z" fill="#b4481a"/>
+<text x="485" y="190" text-anchor="middle" font-size="14" font-weight="700" fill="#b4481a">where we're going</text>
+<text x="350" y="490" text-anchor="middle" font-size="14" font-weight="600" fill="#6b6257">players →</text>
+<text x="215" y="470" text-anchor="middle" font-size="12" fill="#6b6257">one</text>
+<text x="485" y="470" text-anchor="middle" font-size="12" fill="#6b6257">many</text>
+<text x="30" y="235" text-anchor="middle" font-size="14" font-weight="600" fill="#6b6257" transform="rotate(-90 30 235)">agents →</text>
+<text x="62" y="345" text-anchor="middle" font-size="12" fill="#6b6257" transform="rotate(-90 62 345)">one</text>
+<text x="62" y="130" text-anchor="middle" font-size="12" fill="#6b6257" transform="rotate(-90 62 130)">many</text>
+</g></svg>

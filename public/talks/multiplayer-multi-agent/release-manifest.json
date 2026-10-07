@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "book": "The Book of Wolt",
+  "release": "20261006-refocus-04",
+  "entry": "index.html",
+  "text_edition": "text.html",
+  "targets": [
+    "woltspace.com",
+    "lodge"
+  ],
+  "chapters": [
+    {
+      "id": "cover",
+      "number": 0,
+      "title": "Cover",
+      "url": "index.html"
+    },
+    {
+      "id": "lodge",
+      "number": 1,
+      "title": "Lodge",
+      "url": "index.html?entered=1"
+    },
+    {
+      "id": "workshop",
+      "number": 2,
+      "title": "Wolt",
+      "url": "terminal.html"
+    },
+    {
+      "id": "build",
+      "number": 3,
+      "title": "Today",
+      "url": "candidates/#apps"
+    },
+    {
+      "id": "together",
+      "number": 4,
+      "title": "Together",
+      "url": "candidates/#together"
+    },
+    {
+      "id": "stage",
+      "number": 5,
+      "title": "METR",
+      "url": "candidates/#stage"
+    },
+    {
+      "id": "multiplayer",
+      "number": 6,
+      "title": "Multiplayer",
+      "url": "candidates/#multiplayer"
+    },
+    {
+      "id": "demo",
+      "number": 7,
+      "title": "Live demo",
+      "url": "candidates/#demo"
+    },
+    {
+      "id": "future",
+      "number": 8,
+      "title": "Blog",
+      "url": "candidates/#future"
+    },
+    {
+      "id": "beyond",
+      "number": 9,
+      "title": "Where next",
+      "url": "candidates/#beyond"
+    },
+    {
+      "id": "fdw",
+      "number": 10,
+      "title": "FDW",
+      "url": "candidates/#fdw"
+    },
+    {
+      "id": "share",
+      "number": 11,
+      "title": "Share",
+      "url": "candidates/#share"
+    },
+    {
+      "id": "openfuture",
+      "number": 12,
+      "title": "Open source",
+      "url": "candidates/#openfuture"
+    },
+    {
+      "id": "cta",
+      "number": 13,
+      "title": "Your turn",
+      "url": "candidates/#cta"
+    }
+  ],
+  "extension_slots": 0
+}
