@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#18100a">
+<title>The future of multiplayer multi-agent collaboration</title>
+<meta name="description" content="The future of multiplayer multi-agent collaboration: a talk by jerpint. Loads once, then works offline.">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+/* One page, loaded once (jerpint 2026-10-06): every chapter page is loaded at the start
+   in its own frame; turning a slide only switches which frame shows. No reloads. */
+html,body{margin:0;height:100%;background:#18100a;overflow:hidden}
+/* Fade out, then fade in: two scenes never show at once. */
+.book-frame{position:fixed;left:0;top:0;width:100%;height:100%;transform-origin:0 0;border:0;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility 0s linear .18s;background:#18100a}
+.book-frame.on{opacity:1;visibility:visible;transition:opacity .22s ease .18s,visibility 0s linear .18s}
+</style></head><body>
+<iframe class="book-frame" data-frame="cover" title="The future of multiplayer multi-agent collaboration: cover" allow="fullscreen"></iframe>
+<iframe class="book-frame" data-frame="lodge" title="The future of multiplayer multi-agent collaboration: the lodge" allow="fullscreen"></iframe>
+<iframe class="book-frame" data-frame="terminal" title="The future of multiplayer multi-agent collaboration: the wolt" allow="fullscreen"></iframe>
+<iframe class="book-frame" data-frame="candidates" title="The future of multiplayer multi-agent collaboration: the slides" allow="fullscreen"></iframe>
+<script>
+(function () {
+  const slugs = { lodge: 'lodge', workshop: 'wolt', '#apps': 'today', '#together': 'together', '#stage': 'stage', '#share': 'share', '#multiplayer': 'multiplayer', '#demo': 'demo', '#future': 'future', '#swarms': 'axe', '#beyond': 'beyond', '#fdw': 'fdw', '#openfuture': 'openfuture', '#cta': 'cta' };
+  const urlForSlug = { cover: 'index.html', lodge: 'index.html?entered=1', wolt: 'terminal.html' };
+  Object.entries(slugs).forEach(([key, slug]) => { if (key.startsWith('#')) urlForSlug[slug] = `candidates/${key}`; });
+  const frames = {};
+  document.querySelectorAll('.book-frame').forEach(frame => { frames[frame.dataset.frame] = frame; });
+  const base = new URL('./', location.href);
+  let active = null;
+
+  function frameFor(url) {
+    if (url.pathname.endsWith('/terminal.html')) return 'terminal';
+    if (url.pathname.includes('/candidates/')) return 'candidates';
+    if (url.pathname.endsWith('/text.html') || url.pathname.endsWith('/turn.html')) return null;
+    return url.searchParams.has('entered') ? 'lodge' : 'cover';
+  }
+  function slugFor(url, name) {
+    if (name === 'lodge' || name === 'cover') return name;
+    if (name === 'terminal') return 'wolt';
+    return slugs[url.hash] || 'today';
+  }
+  function show(name, url) {
+    const frame = frames[name];
+    if (name === 'candidates' && frame.contentWindow.location.hash !== url.hash) frame.contentWindow.location.hash = url.hash;
+    Object.values(frames).forEach(other => other.classList.toggle('on', other === frame));
+    if (active !== frame) frame.contentWindow.dispatchEvent(new CustomEvent('book:show', { detail: url.href }));
+    active = frame;
+    frame.contentWindow.focus();
+    const slug = slugFor(url, name);
+    if (location.hash !== `#${slug}`) history.replaceState(null, '', `#${slug}`);
+  }
+
+  window.bookShell = {
+    go(target) {
+      const url = new URL(target, base);
+      const name = frameFor(url);
+      if (!name) { location.href = url.href; return; }
+      show(name, url);
+    },
+    async fullscreen() {
+      document.fullscreenElement ? await document.exitFullscreen() : await document.documentElement.requestFullscreen();
+    },
+  };
+
+  // Every chapter loads now, once.
+  const start = new URL(urlForSlug[location.hash.slice(1)] || 'index.html', base);
+  frames.cover.src = 'index.html';
+  frames.lodge.src = 'index.html?entered=1';
+  frames.terminal.src = 'terminal.html';
+  frames.candidates.src = frameFor(start) === 'candidates' ? `candidates/${start.hash}` : 'candidates/#apps';
+  const startFrame = frames[frameFor(start)];
+  startFrame.addEventListener('load', () => show(frameFor(start), start), { once: true });
+
+  // A typed or pasted #slug jumps straight to that chapter.
+  addEventListener('hashchange', () => {
+    const target = urlForSlug[location.hash.slice(1)];
+    if (target) window.bookShell.go(target);
+  });
+
+  // Big screens (jerpint 2026-10-06, 2560x1440 at 100%): every page is drawn at laptop height
+  // (982 px) and the whole frame is scaled up, so text, sprites and slides all grow together.
+  const DESIGN_HEIGHT = 982;
+  function fit() {
+    const scale = innerWidth > 760 ? Math.max(1, innerHeight / DESIGN_HEIGHT) : 1;
+    Object.values(frames).forEach(frame => {
+      frame.style.width = `${innerWidth / scale}px`;
+      frame.style.height = `${innerHeight / scale}px`;
+      frame.style.transform = scale === 1 ? '' : `scale(${scale})`;
+    });
+  }
+  addEventListener('resize', fit);
+  fit();
+
+  // Keys pressed while the shell itself has focus go to the page on show.
+  document.addEventListener('keydown', event => {
+    if (!active) return;
+    const next = ['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key);
+    const previous = ['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key);
+    if (!next && !previous) return;
+    event.preventDefault();
+    active.contentDocument.querySelector(`.mobile-pager [data-direction="${next ? 'next' : 'previous'}"]`)?.click();
+  });
+})();
+</script>
+</body></html>

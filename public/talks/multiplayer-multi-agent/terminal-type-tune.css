@@ -1,0 +1,48 @@
+.terminal pre {
+  font-size: clamp(11px, min(1.3vw, 1.85vh), 18px);
+  line-height: 1.32;
+}
+
+.candidate-link {
+  position: absolute;
+  z-index: 10;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 9px 12px;
+  border: 3px solid #18100a;
+  background: #ffca4e;
+  color: #18100a;
+  box-shadow: 4px 4px #18100a;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font: 600 9px var(--mono);
+}
+
+@media (max-width: 650px) {
+  .back {
+    top: max(10px, env(safe-area-inset-top));
+    bottom: auto;
+  }
+
+  .candidate-link {
+    top: max(10px, env(safe-area-inset-top));
+    left: auto;
+    right: max(9px, env(safe-area-inset-right));
+    transform: none;
+  }
+
+  .terminal pre {
+    font-size: clamp(10px, 3vw, 12px);
+    line-height: 1.28;
+  }
+}
+
+@media (max-width: 380px) {
+  .terminal pre { font-size: 10px; }
+}
+
+
+/* Readable from the room, but not huge (jerpint 2026-10-07). */
+@media (min-width: 761px) { .terminal pre { font-size: clamp(14px, min(1.6vw, 2.4vh), 26px); } }
