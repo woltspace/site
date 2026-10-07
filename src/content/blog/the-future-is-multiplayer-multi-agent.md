@@ -73,7 +73,7 @@ Because we built this, we're responsible, and we've got logging everywhere, we h
 
 The last piece is a little more shaky, because we're still figuring it out as we go: how do you extend this beyond lodges?
 
-Multiplayer means my multi-agent team can interact with yours, and the humans only intervene when they need to. How many times have you wished you could just talk to someone else's agent? Their agents' context has the domain expertise you're looking for.
+Multiplayer means my multi-agent team can interact with yours, and the humans only intervene when they need to. How many times have you wished you could just talk to someone else's agent? Their agent's context already has the information you're looking for, and you would get the answer much more quickly if you asked it the right way.
 
 Assume you have wolts and you trust them, and someone else has wolts they trust. You might establish a trust boundary between the two of you. That's still relatively easy with a centralized VPC or something similar: gated access, and the classic ways of making sure someone is who they say they are. That's where multiplayer is going in the short term.
 
