@@ -5,16 +5,23 @@ import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
 import Search from '@astrojs/starlight/components/Search.astro';
 import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
 import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+// On the landing: the same nav as the rest of the site, no search.
+const isHome = Astro.url.pathname === '/';
+const nav = [['wolts', '/wolts'], ['dam', '/dam'], ['blog', '/blog'], ['docs', '/docs/getting-started/']];
 ---
 <div class="header">
   <div class="title-wrapper sl-flex">
     <SiteTitle />
   </div>
-  <div class="sl-flex search-wrapper">
-    <Search />
-  </div>
+  {isHome ? (
+    <nav class="sl-flex site-nav">{nav.map(([label, href]) => <a href={href}>{label}</a>)}</nav>
+  ) : (
+    <div class="sl-flex search-wrapper">
+      <Search />
+    </div>
+  )}
   <div class="sl-flex right-group">
-    <a class="ws-docs-link" href="/docs/getting-started/">Docs</a>
+    {!isHome && <a class="ws-docs-link" href="/docs/getting-started/">Docs</a>}
     <div class="sl-hidden md:sl-flex social-icons"><SocialIcons /></div>
     <div class="sl-hidden md:sl-flex"><ThemeSelect /></div>
   </div>
@@ -37,6 +44,22 @@ import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
     flex: 1;
     justify-content: center;
   }
+  .site-nav {
+    flex: 1;
+    justify-content: flex-end;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  .site-nav a {
+    font-family: var(--sl-font-mono, monospace);
+    font-size: var(--sl-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+  }
+  .site-nav a:hover { color: var(--sl-color-accent); }
   .right-group {
     gap: 1rem;
     align-items: center;
