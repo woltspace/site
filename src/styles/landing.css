@@ -171,3 +171,4 @@ main:has(.ws-landing) footer.sl-flex{display:none}
 @media(max-width:540px){.ws-landing .onboardie-beaver{width:48px;height:48px}.ws-landing .onboardie-term{font-size:11px}}
 .ws-landing .onboardie-sub{font-family:var(--font-display);font-size:15px;line-height:1.2;color:var(--ink-3)}
 .ws-landing .demo-cta{display:inline-block;margin-top:20px}
+.sl-markdown-content .ws-landing .intro-headline.lead-line{margin:28px 0 0}
