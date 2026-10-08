@@ -159,16 +159,7 @@ main:has(.ws-landing) footer.sl-flex{display:none}
 /* one intentional pill: the GitHub repo */
 .ws-landing .gh-pill{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:6px 12px;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink);text-decoration:none;font-family:var(--font-mono);font-size:12px;font-weight:600;transition:background .15s,color .15s}
 .ws-landing .gh-pill:hover{background:var(--ink);color:var(--surface)}
-/* Meet Onboardie: the business card's call to action */
-.ws-landing .onboardie-card{display:flex;align-items:center;gap:16px;margin:24px 0 40px;padding:16px 18px;background:var(--surface);border:1.5px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--terra);text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
-.ws-landing .onboardie-card:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--terra)}
-.ws-landing .onboardie-beaver{width:64px;height:64px;image-rendering:pixelated;flex:none}
-.ws-landing .onboardie-text{display:grid;gap:6px;min-width:0;flex:1}
-.ws-landing .onboardie-title{font-family:var(--font-display);font-size:22px;line-height:1.1}
-.ws-landing .onboardie-term{font-family:var(--font-mono);font-size:12px;line-height:1.5;color:var(--ink-2,var(--ink));overflow-wrap:anywhere}
-.ws-landing .onboardie-term b{color:var(--terra)}
-.ws-landing .onboardie-go{font-size:22px;color:var(--terra);flex:none}
-@media(max-width:540px){.ws-landing .onboardie-beaver{width:48px;height:48px}.ws-landing .onboardie-term{font-size:11px}}
-.ws-landing .onboardie-sub{font-family:var(--font-display);font-size:15px;line-height:1.2;color:var(--ink-3)}
+/* Meet Onboardie: the card itself is components/WoltCard.astro */
+.ws-landing .onboardie-wrap{margin:24px 0 40px}
 .ws-landing .demo-cta{display:inline-block;margin-top:20px}
 .sl-markdown-content .ws-landing .intro-headline.lead-line{margin:28px 0 0}

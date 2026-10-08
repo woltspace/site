@@ -1,0 +1,40 @@
+---
+// The "Meet Onboardie" card from the business card: picture, "Meet <name>.", one
+// line under it, then what to type in a chat. Used on the home page and /wolts.
+// Works in both shells: the landing (Starlight) and Page.astro use different
+// palette names, so every colour falls back from one to the other.
+import { critters, type Critter } from '../lib/pixels';
+interface Props { href: string; name: string; sub?: string; lines: string[]; type?: string; emoji?: string; image?: string }
+const { href, name, sub, lines, type = '', emoji = '', image } = Astro.props;
+const sprite = !image && type in critters ? critters[type as Critter].svg : null;
+---
+<a class="wolt-card" href={href}>
+  {image
+    ? <img class="wc-pic" src={image} alt="" width="64" height="64">
+    : sprite ? <span class="wc-pic" set:html={sprite} /> : <span class="wc-pic wc-emoji">{emoji || '🐾'}</span>}
+  <span class="wc-text">
+    <span class="wc-title">Meet {name}.</span>
+    {sub && <span class="wc-sub">{sub}</span>}
+    <span class="wc-term">{lines.map((line, i) => <>{i > 0 && <br />}<b>&gt;</b> {line}</>)}</span>
+    <slot />
+  </span>
+  <span class="wc-go" aria-hidden="true">→</span>
+</a>
+
+<style>
+  .wolt-card { display: flex; align-items: center; gap: 16px; padding: 16px 18px; height: 100%; box-sizing: border-box;
+    background: var(--surface, var(--card)); border: 1.5px solid var(--ink); border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--terra, var(--accent)); text-decoration: none; color: var(--ink);
+    transition: transform .15s, box-shadow .15s; }
+  .wolt-card:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--terra, var(--accent)); }
+  .wc-pic { width: 64px; height: 64px; image-rendering: pixelated; flex: none; display: grid; place-items: center; }
+  .wc-pic :global(svg) { width: 100%; height: 100%; }
+  .wc-emoji { font-size: 44px; line-height: 1; }
+  .wc-text { display: grid; gap: 6px; min-width: 0; flex: 1; }
+  .wc-title { font-family: 'Preahvihear', sans-serif; font-size: 22px; line-height: 1.1; }
+  .wc-sub { font-family: 'Preahvihear', sans-serif; font-size: 15px; line-height: 1.2; color: var(--ink-3, var(--soft)); }
+  .wc-term { font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+  .wc-term b { color: var(--terra, var(--accent)); }
+  .wc-go { font-size: 22px; color: var(--terra, var(--accent)); flex: none; }
+  @media (max-width: 540px) { .wc-pic { width: 48px; height: 48px; } .wc-term { font-size: 11px; } }
+</style>

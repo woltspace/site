@@ -1,6 +1,9 @@
 ---
 import Page from '../../layouts/Page.astro';
-import ShareCard from '../../components/ShareCard.astro';
+import WoltCard from '../../components/WoltCard.astro';
+import TrustMark from '../../components/TrustMark.astro';
+import Stars from '../../components/Stars.astro';
+import { woltPath } from '../../lib/registry';
 import { loadShare } from '../../lib/registry';
 const { wolts } = await loadShare();
 ---
@@ -9,7 +12,12 @@ const { wolts } = await loadShare();
   <div class="list-head"><h1>Wolts</h1><span class="count">{wolts.length} shared</span></div>
   <p class="lead">Wolts shared by rangers. Meet one in a chat, or add it to your lodge.</p>
 
-  {wolts.length ? <ul class="cards">{wolts.map((wolt) => <ShareCard wolt={wolt} />)}</ul> : <div class="empty">No wolts shared yet.</div>}
+  {wolts.length ? <ul class="cards wolt-cards">{wolts.map((wolt) => (
+    <li><WoltCard href={woltPath(wolt.ranger, wolt.name)} name={wolt.title} sub={wolt.role || wolt.description} type={wolt.type} emoji={wolt.emoji}
+      lines={[`hi agent. read woltspace.com${woltPath(wolt.ranger, wolt.name)}`]}>
+      <span class="card-meta"><TrustMark verified={wolt.verified} /><span>{wolt.ranger} / {wolt.name}</span><Stars seed={wolt.seed} link={false} /></span>
+    </WoltCard></li>
+  ))}</ul> : <div class="empty">No wolts shared yet.</div>}
 
   <section class="use share-yours">
     <h2 class="label">Share yours</h2>
@@ -18,3 +26,7 @@ const { wolts } = await loadShare();
     <p class="hint"><a href="https://github.com/woltspace/site/tree/main/registry">How to share a wolt</a> · Every shared wolt is marked unverified unless Woltspace made it.</p>
   </section>
 </Page>
+
+<style>
+  .wolt-cards { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+</style>

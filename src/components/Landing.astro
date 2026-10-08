@@ -3,6 +3,7 @@
 // Markup + scripts moved verbatim from the old standalone landing.html;
 // styles live in src/styles/landing.css, palette tokens in woltspace.css.
 import '../styles/landing.css';
+import WoltCard from './WoltCard.astro';
 ---
 <div class="ws-landing">
 <div id="bg-nature-wrap">
@@ -30,15 +31,10 @@ import '../styles/landing.css';
     <a class="gh-pill" href="https://github.com/jerpint/woltspace"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>jerpint/woltspace</span></a>
   </header>
   <h2 class="intro-headline lead-line">Give your coding agents a <span class="intro-kw">lodge.</span></h2>
-  <a class="onboardie-card" href="/jerpint/onboardie">
-    <img class="onboardie-beaver" src="/media/onboardie-beaver.png" alt="" width="64" height="64">
-    <span class="onboardie-text">
-      <span class="onboardie-title">Meet Onboardie.</span>
-      <span class="onboardie-sub">Meet her in any chat.</span>
-      <span class="onboardie-term"><b>&gt;</b> hi agent. read woltspace.com/jerpint/onboardie<br><b>&gt;</b> help your human get started</span>
-    </span>
-    <span class="onboardie-go" aria-hidden="true">→</span>
-  </a>
+  <div class="onboardie-wrap">
+    <WoltCard href="/jerpint/onboardie" name="Onboardie" sub="Meet her in any chat." image="/media/onboardie-beaver.png"
+      lines={['hi agent. read woltspace.com/jerpint/onboardie', 'help your human get started']} />
+  </div>
 <section style="margin-top:0;margin-bottom:48px">
     <p class="intro-body">Wolts are coding agents with a home, a memory, and room to build. Sessions end; wolts always pick up where you left off.</p>
     <a class="docs-cta demo-cta" href="https://demo.woltspace.com">Try the demo lodge →</a>
@@ -55,7 +51,7 @@ import '../styles/landing.css';
 
       <div class="install-tabs" role="tablist" aria-label="Installation method">
         <button type="button" role="tab" id="install-tab-ai" data-install-tab="ai" aria-selected="true" aria-controls="install-panel-ai" tabindex="0">
-          <span>Install with AI</span>
+          <span>Install with agents</span>
         </button>
         <button type="button" role="tab" id="install-tab-terminal" data-install-tab="terminal" aria-selected="false" aria-controls="install-panel-terminal" tabindex="-1">
           <span>Use the terminal</span>
@@ -66,12 +62,12 @@ import '../styles/landing.css';
         <div class="install-choice-heading">
           <h4>Let your coding agent handle it</h4>
         </div>
-        <p class="install-copy">Paste this into Claude Code or Codex. It will check your Mac, explain each step, and open the lodge.</p>
+        <p class="install-copy">Paste this into Claude Code, Codex or the Claude app. It reads the install in the README and asks you before each step.</p>
         <div class="install-cmd ai-prompt">
-          <code>Install Woltspace on this computer. Follow https://woltspace.com/install-with-ai.txt</code>
-          <button class="copy-btn" onclick="copyText('Install Woltspace on this computer. Follow https://woltspace.com/install-with-ai.txt', 'copy-ai-label')" aria-label="Copy install prompt"><span id="copy-ai-label" aria-live="polite">Copy</span></button>
+          <code>Read github.com/jerpint/woltspace and help me get started with the install</code>
+          <button class="copy-btn" onclick="copyText('Read github.com/jerpint/woltspace and help me get started with the install', 'copy-ai-label')" aria-label="Copy install prompt"><span id="copy-ai-label" aria-live="polite">Copy</span></button>
         </div>
-        <p class="install-note">Requires Claude Code or Codex with terminal access. Windows setup uses WSL and is still a work in progress.</p>
+        <p class="install-note">Runs on macOS and Linux. Windows through WSL2 is still a work in progress.</p>
       </div>
 
       <div class="install-panel" role="tabpanel" id="install-panel-terminal" aria-labelledby="install-tab-terminal" hidden>
