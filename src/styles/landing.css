@@ -155,3 +155,11 @@ main:has(.ws-landing) footer.sl-flex{display:none}
 .ws-landing .install-next{display:flex;align-items:center;gap:16px;margin-top:16px;flex-wrap:wrap}
 .ws-landing .docs-cta{font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra);text-decoration:none;padding:9px 16px;border:1.5px solid var(--terra);border-radius:7px;transition:background 0.15s,color 0.15s}
 .ws-landing .docs-cta:hover{background:var(--terra);color:#fff}
+
+/* one intentional pill: the GitHub repo */
+.ws-landing .gh-pill{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:6px 12px;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink);text-decoration:none;font-family:var(--font-mono);font-size:12px;font-weight:600;transition:background .15s,color .15s}
+.ws-landing .gh-pill:hover{background:var(--ink);color:var(--surface)}
+/* Meet Onboardie: the card itself is components/WoltCard.astro */
+.ws-landing .onboardie-wrap{margin:24px 0 40px}
+.ws-landing .demo-cta{display:inline-block;margin-top:20px}
+.sl-markdown-content .ws-landing .intro-headline.lead-line{margin:28px 0 0}
