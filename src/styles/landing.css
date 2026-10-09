@@ -163,3 +163,10 @@ main:has(.ws-landing) footer.sl-flex{display:none}
 .ws-landing .onboardie-wrap{margin:24px 0 40px}
 .ws-landing .demo-cta{display:inline-block;margin-top:20px}
 .sl-markdown-content .ws-landing .intro-headline.lead-line{margin:28px 0 0}
+/* Rotating headline word, on its own line (a long word never rewraps the headline):
+   slides up and fades, the width follows */
+.ws-landing .kw-rot{display:inline-block;position:relative;vertical-align:bottom;overflow:hidden;height:1.3em;transition:width .45s}
+.ws-landing .kw-rot span{display:inline-block;white-space:nowrap;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.ws-landing .kw-rot span.out{transform:translateY(-100%);opacity:0}
+.ws-landing .kw-rot span.in{transform:translateY(100%);opacity:0}
+@media(prefers-reduced-motion:reduce){.ws-landing .kw-rot,.ws-landing .kw-rot span{transition:none}}
