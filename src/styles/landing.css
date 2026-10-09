@@ -163,3 +163,26 @@ main:has(.ws-landing) footer.sl-flex{display:none}
 .ws-landing .onboardie-wrap{margin:24px 0 40px}
 .ws-landing .demo-cta{display:inline-block;margin-top:20px}
 .sl-markdown-content .ws-landing .intro-headline.lead-line{margin:28px 0 0}
+
+/* Hero: the typed headline is the title, in a terminal window card (jerpint 10-09) */
+.ws-landing .hero{margin:48px 0 8px;border:1.5px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--terra);overflow:hidden;background:var(--ws-terminal);animation:fadeUp 0.7s ease both}
+.ws-landing .term-bar{display:flex;align-items:center;gap:6px;padding:9px 14px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08)}
+.ws-landing .term-bar i{width:10px;height:10px;border-radius:50%}
+.ws-landing .term-bar .r{background:#f55}.ws-landing .term-bar .y{background:#fb3}.ws-landing .term-bar .g{background:#3d3}
+.ws-landing .term-bar span{flex:1;text-align:center;margin-right:42px;font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.06em}
+.ws-landing .term-body{padding:22px 28px 26px}
+.sl-markdown-content .ws-landing p.term-cmd{margin:0 0 14px;font-family:var(--font-mono);font-size:13px;color:rgba(255,255,255,.5)}
+.ws-landing .term-cmd b{color:var(--terra)}
+.ws-landing .hero-l1{white-space:nowrap}
+.sl-markdown-content .ws-landing .hero-title{font-family:var(--font-display);font-size:clamp(22px,calc((100vw - 78px) / 11.4),46px);font-weight:300;line-height:1.18;letter-spacing:-0.02em;color:#f4ece2;margin:0;cursor:default}
+.ws-landing .kw-type{font-family:var(--font-mono);font-weight:500;letter-spacing:-.03em;color:#ff9a5c;white-space:nowrap}
+.ws-landing .kw-caret{display:inline-block;width:.5em;height:.95em;margin-left:.06em;vertical-align:-.12em;background:#ff9a5c;animation:kwBlink 1.05s steps(1) infinite}
+.ws-landing .kw-caret.busy{animation:none}
+@keyframes kwBlink{50%{opacity:0}}
+.ws-landing .hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:26px}
+.ws-landing .hero-cta{font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#fff;background:var(--terra);text-decoration:none;padding:10px 18px;border:1.5px solid var(--terra);border-radius:7px;transition:filter .15s}
+.ws-landing .hero-cta:hover{filter:brightness(1.12)}
+.ws-landing .hero-ctas .gh-pill{margin-top:0;padding:10px 16px;border-radius:7px;color:#f4ece2;border-color:rgba(255,255,255,.45)}
+.ws-landing .hero-ctas .gh-pill:hover{background:#f4ece2;color:var(--ws-terminal)}
+@media(max-width:540px){.ws-landing .hero{margin-top:28px}.ws-landing .term-body{padding:16px 16px 18px}.ws-landing .hero-cta,.ws-landing .hero-ctas .gh-pill{flex:1 1 0;text-align:center;justify-content:center;white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){.ws-landing .kw-caret{animation:none}}

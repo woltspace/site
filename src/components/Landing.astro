@@ -22,22 +22,23 @@ import WoltCard from './WoltCard.astro';
   <div class="scene-critter scene-otter-swim" id="sc-otter1"></div>
 </div>
 <div class="page-wrap">
-  <header class="site-header">
-    <div class="brand">
-      <span class="brand-emoji">🦫</span>
-      <h1 class="brand-name">woltspace</h1>
+  <header class="hero hero-term">
+    <div class="term-bar" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i><span>~/lodge</span></div>
+    <div class="term-body">
+      <p class="term-cmd" aria-hidden="true"><b>$</b> woltspace start</p>
+      <h1 class="hero-title"><span class="hero-l1">Give your coding agents</span> <br class="kw-br"><span class="kw-type" data-words="a lodge.|resources.|statefulness.|collaboration.|a scaffold.|a home.">a lodge.</span><span class="kw-caret" aria-hidden="true"></span></h1>
+      <div class="hero-ctas">
+        <a class="hero-cta" href="https://demo.woltspace.com">Try the demo lodge →</a>
+        <a class="gh-pill" href="https://github.com/jerpint/woltspace"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+      </div>
     </div>
-    <p class="brand-tagline">gnaw. build. repeat.</p>
-    <a class="gh-pill" href="https://github.com/jerpint/woltspace"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>jerpint/woltspace</span></a>
   </header>
-  <h2 class="intro-headline lead-line">Give your coding agents a <span class="intro-kw">lodge.</span></h2>
   <div class="onboardie-wrap">
     <WoltCard href="/jerpint/onboardie" name="Onboardie" sub="Meet her in any chat." image="/media/onboardie-beaver.png"
       lines={['hi agent. read woltspace.com/jerpint/onboardie', 'help your human get started']} />
   </div>
 <section style="margin-top:0;margin-bottom:48px">
     <p class="intro-body">Wolts are coding agents with a home, a memory, and room to build. Sessions end; wolts always pick up where you left off.</p>
-    <a class="docs-cta demo-cta" href="https://demo.woltspace.com">Try the demo lodge →</a>
   </section>
 
 
@@ -160,6 +161,29 @@ import WoltCard from './WoltCard.astro';
 <footer><p>🦫 gnaw. build. repeat.</p></footer>
 </div>
 <script is:inline>
+  // The headline's last word is typed like a terminal (jerpint's list). Server HTML says
+  // "a lodge.", so readers without scripts and crawlers get that line. Text only, no HTML.
+  document.querySelectorAll('.kw-type').forEach(function (kw) {
+    var words = kw.dataset.words.split('|'), i = 0;
+    var still = matchMedia('(prefers-reduced-motion: reduce)');
+    var caret = kw.nextElementSibling;
+    function next() {
+      i = (i + 1) % words.length;
+      if (still.matches) { kw.textContent = words[i]; return setTimeout(next, 2600); }
+      caret.classList.add('busy');
+      (function erase() {
+        if (kw.textContent.length) { kw.textContent = kw.textContent.slice(0, -1); return setTimeout(erase, 35); }
+        var n = 0;
+        (function type() {
+          kw.textContent = words[i].slice(0, ++n);
+          if (n < words[i].length) return setTimeout(type, 75);
+          caret.classList.remove('busy'); setTimeout(next, 2200);
+        })();
+      })();
+    }
+    setTimeout(next, 1300);
+  });
+
 function copyText(value, labelId){
   var label=document.getElementById(labelId);
   var button=label.closest('button');
@@ -225,8 +249,8 @@ console.log('🦫 wolt beaver builder');
 console.log('gnaw. build. repeat.\nwoltspace.com');
 
 // 🦫 click h1 five times for beaver mode
-const h1=document.querySelector('.brand-name');let bClicks=0,bTimer;
-h1.addEventListener('click',()=>{bClicks++;clearTimeout(bTimer);bTimer=setTimeout(()=>{bClicks=0},1500);if(bClicks>=5){bClicks=0;document.querySelector('.brand-tagline').textContent='🦫🦫🦫 BEAVER MODE 🦫🦫🦫';for(let i=0;i<20;i++){setTimeout(()=>{const b=document.createElement('span');b.textContent='🦫';b.style.cssText=`position:fixed;font-size:${1.5+Math.random()*2}rem;left:${Math.random()*95}vw;top:-3rem;pointer-events:none;z-index:9999;animation:beavFall ${2+Math.random()*2}s linear forwards;`;document.body.appendChild(b);setTimeout(()=>b.remove(),5000)},i*100)}}});
+const h1=document.querySelector('.hero-title');let bClicks=0,bTimer;
+h1.addEventListener('click',()=>{bClicks++;clearTimeout(bTimer);bTimer=setTimeout(()=>{bClicks=0},1500);if(bClicks>=5){bClicks=0;document.querySelector('footer p').textContent='🦫🦫🦫 BEAVER MODE 🦫🦫🦫';for(let i=0;i<20;i++){setTimeout(()=>{const b=document.createElement('span');b.textContent='🦫';b.style.cssText=`position:fixed;font-size:${1.5+Math.random()*2}rem;left:${Math.random()*95}vw;top:-3rem;pointer-events:none;z-index:9999;animation:beavFall ${2+Math.random()*2}s linear forwards;`;document.body.appendChild(b);setTimeout(()=>b.remove(),5000)},i*100)}}});
 
 // Procedural pixel art landscape
 (function(){var S=5,W=Math.ceil(window.innerWidth/S)+6,H=42,BANK=28,RIVER=34;
