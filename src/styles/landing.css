@@ -186,3 +186,38 @@ main:has(.ws-landing) footer.sl-flex{display:none}
 .ws-landing .hero-ctas .gh-pill:hover{background:#f4ece2;color:var(--ws-terminal)}
 @media(max-width:540px){.ws-landing .hero{margin-top:28px}.ws-landing .term-body{padding:16px 16px 18px}.ws-landing .hero-cta,.ws-landing .hero-ctas .gh-pill{flex:1 1 0;text-align:center;justify-content:center;white-space:nowrap}}
 @media(prefers-reduced-motion:reduce){.ws-landing .kw-caret{animation:none}}
+/* Install card on phones: tighter, and the command line breaks only between words (jerpint 10-09) */
+@media(max-width:540px){
+.ws-landing .install-card{padding:16px 14px 14px;margin-top:24px}
+.ws-landing .install-picker-intro{margin-bottom:12px}
+.ws-landing .install-label{margin-bottom:6px}
+.ws-landing .install-heading{font-size:21px;margin:0}
+.sl-markdown-content .ws-landing .install-picker-intro p.install-copy{display:none}
+.ws-landing .install-tabs button{min-height:42px;padding:6px}
+.ws-landing .install-panel{min-height:0;padding:14px 12px}
+.ws-landing .install-panel h4{font-size:17px}
+.sl-markdown-content .ws-landing .install-panel p.install-copy{font-size:13px;margin-bottom:10px}
+.sl-markdown-content .ws-landing .install-cmd code{font-size:12px;padding:12px}
+.ws-landing .install-next{margin-top:12px}
+}
+@media(max-width:360px){.sl-markdown-content .ws-landing .install-cmd code{font-size:11px}}
+/* Command boxes like a chat app's code block: label + discreet Copy in a header strip, light syntax colours (jerpint 10-09) */
+.ws-landing .install-cmd{position:relative;flex-direction:column;padding-top:32px}
+.ws-landing .install-cmd::before{content:attr(data-lang);position:absolute;top:0;left:0;right:0;height:32px;line-height:32px;padding:0 14px;font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,.45);background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.08)}
+.sl-markdown-content .ws-landing .install-cmd code{overflow-wrap:break-word;word-break:normal}
+.ws-landing .install-cmd .copy-btn{position:absolute;top:0;right:0;z-index:1;display:flex;align-items:center;gap:6px;height:32px;min-height:0;min-width:0;padding:0 12px;background:transparent;color:rgba(255,255,255,.6);font-size:11px;font-weight:500;letter-spacing:0;text-transform:none;border:0;border-radius:0}
+.ws-landing .install-cmd .copy-btn:hover{background:transparent;color:#fff}
+.ws-landing .install-cmd .copy-btn.copied{background:transparent;color:#7fd18b}
+.sl-markdown-content .ws-landing .install-cmd a.tok-url{color:#ffb27a;text-decoration:underline;text-decoration-color:rgba(255,178,122,.45);text-underline-offset:3px}
+.sl-markdown-content .ws-landing .install-cmd a.tok-url:hover{text-decoration-color:#ffb27a}
+.ws-landing .install-cmd .tok-cmd{color:#8fd4a0}
+.ws-landing .install-cmd .tok-flag{color:#9fb8ff}
+/* Open the install prompt straight in Claude or ChatGPT, logos so it's obvious (jerpint 10-09) */
+.ws-landing .ai-open{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px}
+.sl-markdown-content .ws-landing .ai-open a.ai-btn{display:flex;align-items:center;justify-content:center;gap:9px;padding:11px 12px;border:1.5px solid var(--ink);border-radius:9px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;transition:transform .12s,box-shadow .12s}
+.sl-markdown-content .ws-landing .ai-open a.ai-btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
+.ws-landing .ai-open .ai-claude{color:#D97757}
+@media(max-width:540px){.ws-landing .ai-open{gap:8px}.ws-landing .ai-pre{display:none}}
+.ws-landing .term-cmd .tok-cmd{color:#f4ece2}
+.ws-landing .term-cmd .tok-sub{color:#8fd4a0}
+.sl-markdown-content .ws-landing p.install-copy.ai-or{text-align:center;margin:0 0 10px}
