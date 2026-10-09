@@ -219,5 +219,5 @@ main:has(.ws-landing) footer.sl-flex{display:none}
 .ws-landing .ai-open .ai-claude{color:#D97757}
 @media(max-width:540px){.ws-landing .ai-open{gap:8px}.ws-landing .ai-pre{display:none}}
 .ws-landing .term-cmd .tok-cmd{color:#f4ece2}
-.ws-landing .term-cmd .tok-sub{color:#8fd4a0}
+.ws-landing .term-cmd .tok-sub{color:#ff9a5c}
 .sl-markdown-content .ws-landing p.install-copy.ai-or{text-align:center;margin:0 0 10px}
