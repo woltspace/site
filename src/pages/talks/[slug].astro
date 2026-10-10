@@ -10,24 +10,37 @@ const { t } = Astro.props;
   <h1>{t.title}</h1>
   <p class="lead">{t.summary}</p>
 
-  <h2 class="talk-h">Slides</h2>
-  {t.slidesUrl && <p><a class="talk-btn" href={t.slidesUrl}>Open the slides →</a></p>}
-  {t.slideImages && (
-    <div class="talk-slides">
-      {t.slideImages.files.map((f) => <a href={`/media/${t.slideImages!.folder}/${f}.png`}><img src={`/media/${t.slideImages!.folder}/${f}.png`} alt={f.replace(/^slide-\d+-/, '')} loading="lazy" /></a>)}
-    </div>
-  )}
-
-  <h2 class="talk-h">Recording</h2>
+  <h2 class="talk-h">Recording{t.length && <span class="talk-len"> · {t.length}</span>}</h2>
   {t.youtube
     ? <div class="talk-video"><iframe src={`https://www.youtube-nocookie.com/embed/${t.youtube}`} title={`${t.title} (recording)`} loading="lazy" allowfullscreen></iframe></div>
     : <p class="talk-soon">Recording coming.</p>}
+  {(t.slidesUrl || t.blog) && (
+    <p class="talk-links">
+      {t.blog && <a class="talk-btn" href={t.blog}>Read the blog post →</a>}
+      {t.slidesUrl && <a class="talk-btn" href={t.slidesUrl}>Open the slides →</a>}
+    </p>
+  )}
 
-  <h2 class="talk-h">The text</h2>
-  {t.text ? <div class="prose" set:html={t.text} /> : <p class="talk-soon">The words prepared for this talk, coming.</p>}
+  {t.slideImages && (
+    <>
+      <h2 class="talk-h">Slides</h2>
+      <div class="talk-slides">
+        {t.slideImages.files.map((f) => <a href={`/media/${t.slideImages!.folder}/${f}.png`}><img src={`/media/${t.slideImages!.folder}/${f}.png`} alt={f.replace(/^slide-\d+-/, '')} loading="lazy" /></a>)}
+      </div>
+    </>
+  )}
+
+  {t.text && (
+    <>
+      <h2 class="talk-h">The text</h2>
+      <div class="prose" set:html={t.text} />
+    </>
+  )}
 </Page>
 <style>
   .talk-h { margin: 34px 0 12px; font-size: 20px; }
+  .talk-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .talk-len { color: var(--soft); font-weight: 400; }
   .talk-btn { display: inline-block; padding: 10px 16px; border: 2px solid var(--accent); border-radius: 8px; color: var(--accent); font-weight: 700; text-decoration: none; }
   .talk-btn:hover { background: var(--accent); color: #fff; }
   .talk-slides { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
