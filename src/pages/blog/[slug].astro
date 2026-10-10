@@ -4,6 +4,7 @@ import Page from '../../layouts/Page.astro';
 import Byline from '../../components/Byline.astro';
 import { posts, day } from '../../lib/blog';
 import { talkForPost } from '../../lib/talks';
+import TalkCard from '../../components/TalkCard.astro';
 
 export async function getStaticPaths() {
   return (await posts()).map((post) => ({ params: { slug: post.id }, props: { post } }));
@@ -17,19 +18,8 @@ const talk = talkForPost(`/blog/${post.id}/`);
   <p class="stamp">{day(post.data.date)}{post.data.draft && <span class="draft"> · draft, not published</span>}</p>
   <h1>{post.data.title}</h1>
   <Byline login={post.data.author} wolts={post.data.wolts} />
-  {talk && talk.youtube && (
-    <a class="talk-box" href={`/talks/${talk.slug}`}>
-      <span class="talk-play" aria-hidden="true">▶</span>
-      <span><b>Rather watch?</b> This post is based on the talk “{talk.title}”. <u>Watch the talk{talk.length && ` (${talk.length})`}</u></span>
-    </a>
-  )}
+  {talk && talk.youtube && <TalkCard talk={talk} />}
   <article class="prose"><Content /></article>
   <hr>
   <p class="hint"><a href="/blog">More posts</a></p>
 </Page>
-<style>
-  .talk-box { display: flex; align-items: center; gap: 14px; margin: 22px 0 6px; padding: 14px 16px; border: 2px solid var(--accent); border-radius: 10px; color: inherit; text-decoration: none; }
-  .talk-box:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
-  .talk-box u { color: var(--accent); font-weight: 700; text-decoration: none; white-space: nowrap; }
-  .talk-play { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 15px; padding-left: 3px; }
-</style>

@@ -92,20 +92,22 @@ Once you have these trust boundaries, I can send my wolt into your infra, and vi
 
 This is also where sharing wolts becomes interesting. Woltspace designed wolts around the concept of infrastructure as code: any wolt's state is just a set of files and configs, which can easily be shared on GitHub and the like. So pulling, pushing and forking all apply to wolts, and we can do the exact same things with them. Anyone who has access to your repos can have access to your wolts, with the exact same controls we all already know and understand. It's completely portable.
 
-So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can't buy. We call them forward deployed wolts.
+So you can share a configuration upstream: specialized wolts, curated by a community to be good at something, for example cyber. Anyone in the world can then install a lodge with the best raccoon defenders money can't buy. We call them forward deployed wolts. Sharing is no longer just code, but actual ideas incarnated in coding agents.
 
 <figure>
 <img src="/media/blog/slide-fdw.jpg" alt="Forward deployed wolts: a community seed upstream, the Cyber defense lodge with three raccoons and a beaver, installs with woltspace seed install into your lodge, a hospital and a small business, each defended." width="1800" height="1120" loading="lazy">
 <figcaption>A community seed upstream, installed anywhere.</figcaption>
 </figure>
 
-Sharing is no longer just code, but actual ideas incarnated in coding agents. Woltspace is entirely open source, and what's really important is that it supports any harness: any harness compatible with a CLI and skills can work in Woltspace. So you can bring open source models super easily, and your lodge doesn't have to depend on third-party providers if you don't want it to.
-
 ## The long term: untrusted players
 
 And finally, the crux. It's still an open question, and it's what we're really excited to think about at Woltspace: how do you do this with untrusted players?
 
 Clearly the internet is going to be run by agents, at least the public web. So how do you set up trust brokers, proof of work, and all these different concepts that have been promised to us before? How do agents change this game? Because now you actually do have mechanisms where you can act semantically on certain results. You can send an agent on your behalf to verify if something is worthy of you, for a small fee. And then you can have some kind of arbitrage with an independent third-party agent that doesn't have any skin in the game.
+
+## Open source, any harness
+
+Woltspace is entirely open source, and what's really important is that it supports any harness: any harness compatible with a CLI and skills can work in Woltspace. So you can bring open source models super easily, and your lodge doesn't have to depend on third-party providers if you don't want it to.
 
 ## Try it
 

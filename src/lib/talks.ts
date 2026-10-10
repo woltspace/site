@@ -12,6 +12,7 @@ export interface Talk {
   slidesUrl?: string;    // a slide deck that is its own page, e.g. /talks/<deck>/book.html
   slideImages?: { folder: string; files: string[] };
   youtube?: string;
+  thumb?: string;        // thumbnail for the blog card, e.g. /media/talks/<name>.jpg (default: YouTube's)
   length?: string;       // e.g. '18 min', shown next to the recording links
   blog?: string;         // path of the blog post based on this talk, e.g. /blog/<name>/ (both pages link to each other)
   text?: string;
@@ -25,6 +26,7 @@ export const talks: Talk[] = [
     summary: 'Woltspace believes that the future is multiplayer and multi-agent.',
     slidesUrl: '/talks/multiplayer-multi-agent/book.html',
     youtube: 'ZoMFJQN2irU',
+    thumb: '/media/talks/multiplayer-multi-agent-thumb.jpg',
     length: '18 min',
     blog: '/blog/the-future-is-multiplayer-multi-agent/',
   },
