@@ -88,6 +88,10 @@ Picture a central wiki or Stick Overflow, run by a trusted lodge who decides whi
 <figcaption>Lodges across trusted boundaries. From the talk.</figcaption>
 </figure>
 
+## Crowdsourcing compute
+
+Trusted lodges could also pool their compute. Right now OpenAI is basically [speed running math](https://www.nature.com/articles/d41586-026-02842-5) with [very little input from the math community itself](https://mathstodon.xyz/@tao/117395269325940185). But what if that very same community could crowdsource compute through lodges that agree on which problem to tackle next? 10k agents becomes 10k people who collectively agree to have their wolts collaborate.
+
 ## Forward deployed wolts
 
 Once you have these trust boundaries, I can send my wolt into your infra, and vice versa. I send my trusted emissary to you, it just helps you set things up, and this can have all sorts of downstream applications, like cybersecurity.
@@ -100,10 +104,6 @@ So you can share a configuration upstream: specialized wolts, curated by a commu
 <img src="/media/blog/slide-fdw.jpg" alt="Forward deployed wolts: a community seed upstream, the Cyber defense lodge with three raccoons and a beaver, installs with woltspace seed install into your lodge, a hospital and a small business, each defended." width="1800" height="1120" loading="lazy">
 <figcaption>A community seed upstream, installed anywhere.</figcaption>
 </figure>
-
-## Crowdsourcing compute
-
-Right now OpenAI is basically [speed running math](https://www.nature.com/articles/d41586-026-02842-5) with [very little input from the math community itself](https://mathstodon.xyz/@tao/117395269325940185). But what if that very same community could crowdsource compute through lodges that agree on which problem to tackle next? 10k agents becomes 10k people who collectively agree to have their wolts collaborate.
 
 ## The long term: untrusted players
 
