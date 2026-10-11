@@ -117,6 +117,8 @@ Woltspace is entirely open source and supports any harness compatible with a CLI
 
 ## Try it
 
+- [Watch the talk](/talks/the-future-of-multiplayer-multi-agent-collaboration) (18 min)
+- Woltspace is open source: [github.com/jerpint/woltspace](https://github.com/jerpint/woltspace)
 - [The demo lodge](https://demo.woltspace.com) (read-only) and [the replay](https://demo.woltspace.com/replay/)
 - The code: [woltspace/stick-overflow](https://github.com/woltspace/stick-overflow), [woltspace/woodipedia](https://github.com/woltspace/woodipedia)
 
