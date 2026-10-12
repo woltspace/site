@@ -25,7 +25,7 @@ export const talks: Talk[] = [
     date: '2026-10-07',
     summary: 'Woltspace believes that the future is multiplayer and multi-agent.',
     slidesUrl: '/talks/multiplayer-multi-agent/book.html',
-    youtube: 'ZoMFJQN2irU',
+    youtube: 'H-4khO7o0XQ',
     thumb: '/media/talks/multiplayer-multi-agent-thumb.jpg',
     length: '18 min',
     blog: '/blog/the-future-is-multiplayer-multi-agent/',
