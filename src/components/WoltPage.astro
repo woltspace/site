@@ -1,7 +1,6 @@
 ---
 // One template for every shared wolt. Served at /<ranger>/<wolt>.
 import Page from '../layouts/Page.astro';
-import Warning from './Warning.astro';
 import Byline from './Byline.astro';
 import Stars from './Stars.astro';
 import TrustMark from './TrustMark.astro';
@@ -28,7 +27,6 @@ const skillCount = `${wolt.skills.length} ${wolt.skills.length === 1 ? 'skill' :
 <Page title={heading} description={wolt.description || `${wolt.title}, a wolt shared by ${wolt.ranger}.`} path={path} canonical={canonical} ogImage={ogImage} critter={critter} wide>
   <p class="back"><a href="/">woltspace</a> / <a href="/wolts">wolts</a> / <a href={rangerPath(wolt.ranger)}>{wolt.ranger}</a> / {wolt.name}</p>
 
-  {!wolt.verified && <Warning kind="wolt" ranger={wolt.ranger} />}
 
   <!-- Everything about the wolt, in one block: who it is, what it is, how far it's trusted. -->
   <header class="wolt-head">
