@@ -39,7 +39,7 @@ const skillCount = `${wolt.skills.length} ${wolt.skills.length === 1 ? 'skill' :
     <Stars seed={wolt.seed} class="person-stars wolt-stars" />
   </header>
   <p class="tags">
-    <TrustMark verified={wolt.verified} ranger={wolt.ranger} />
+    <TrustMark verified={wolt.verified} ranger={wolt.ranger} link />
     {wolt.type && <span class="tag">{wolt.emoji} {wolt.type}</span>}
     <span class="tag">{skillCount}</span>
   </p>
