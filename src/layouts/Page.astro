@@ -215,15 +215,17 @@ const site = 'https://woltspace.com';
   .count { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--faint); }
 
   /* A ranger page: the person on the side, what they shared in the main column. */
-  .ranger-grid { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 0 40px; align-items: start; margin-top: 20px; }
+  .ranger-grid { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0 40px; align-items: start; margin-top: 20px; }
   .ranger-card { display: flex; flex-direction: column; gap: 16px; }
-  .ranger-card img { width: 160px; height: 160px; border-radius: 50%; border: 1px solid var(--line); }
+  .ranger-card img { width: 128px; height: 128px; border-radius: 50%; border: 1px solid var(--line); }
   .ranger-id { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
   .ranger-card h1 { margin: 0; font-size: 34px; line-height: 1.1; display: flex; align-items: center; gap: 8px; overflow-wrap: anywhere; }
   .ranger-card h1 .trust-mark svg { width: 20px; height: 20px; }
   .ranger-card .stats { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--soft); margin: 0; }
   .ranger-gh { font-size: 14px; color: var(--soft); }
   .ranger-main .label { margin-top: 4px; }
+  /* One wolt fills the row instead of leaving an empty column next to it. */
+  .ranger-main .cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   @media (max-width: 760px) {
     .ranger-grid { grid-template-columns: minmax(0, 1fr); }
     .ranger-card { flex-direction: row; align-items: center; gap: 16px; margin-bottom: 28px; }
