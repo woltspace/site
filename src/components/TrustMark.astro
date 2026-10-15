@@ -5,8 +5,8 @@
 interface Props { verified: boolean; ranger: string }
 const { verified, ranger } = Astro.props;
 const tip = verified
-  ? `Verified ranger: Woltspace knows who @${ranger} is. It's still their code, so read it before you install.`
-  : `Third party: maintained by @${ranger}. It was reviewed to get listed, but they can change it at any time. Use at your own risk.`;
+  ? `@${ranger} is a verified ranger. Still, read their code before you use it.`
+  : `@${ranger} is a third-party contributor. Read their code and use at your own risk.`;
 ---
 <span class:list={['trust', { unverified: !verified }]}>by {ranger}<span class="trust-mark" tabindex="0" role="img" aria-label={tip}>{verified
   ? <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
