@@ -1,6 +1,13 @@
 ---
-// Next to a wolt's or app's name: who shared it, and whether that ranger is verified (src/data/rangers.json).
+// Next to a wolt's or app's name: who shared it, and a mark: a green check when that ranger is verified
+// (src/data/rangers.json), a yellow "!" when not. No words; hovering (or tapping) the mark explains it.
+// TODO: a pixel-art version of the mark, drawn with care like the critter sprites.
 interface Props { verified: boolean; ranger: string }
 const { verified, ranger } = Astro.props;
+const tip = verified
+  ? `Verified ranger: Woltspace knows who @${ranger} is. It's still their code, so read it before you install.`
+  : `Not verified: shared by @${ranger}, and nobody at Woltspace has checked it. Read it before you use it.`;
 ---
-{verified ? <span class="trust">by {ranger} · ✓ verified</span> : <span class="trust unverified">⚠ unverified</span>}
+<span class:list={['trust', { unverified: !verified }]}>by {ranger}<span class="trust-mark" tabindex="0" role="img" aria-label={tip}>{verified
+  ? <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  : <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M12 6.5v7" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.5" fill="#fff"/></svg>}<span class="trust-tip" aria-hidden="true">{tip}</span></span></span>
