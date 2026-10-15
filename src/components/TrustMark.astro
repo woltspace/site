@@ -1,5 +1,6 @@
 ---
-// Next to a wolt's or app's name: made by Woltspace, or not checked by anyone.
-interface Props { verified: boolean }
+// Next to a wolt's or app's name: who shared it, and whether that ranger is verified (src/data/rangers.json).
+interface Props { verified: boolean; ranger: string }
+const { verified, ranger } = Astro.props;
 ---
-{Astro.props.verified ? <span class="trust">✓ by Woltspace</span> : <span class="trust unverified">⚠ unverified</span>}
+{verified ? <span class="trust">by {ranger} · ✓ verified</span> : <span class="trust unverified">⚠ unverified</span>}

@@ -53,8 +53,8 @@ ask GitHub for its star count.) To change a page, change the file in a new pull 
   chat reads there can change at any time. That is why the page warns.
 - Limits: 10 seeds per ranger, 25 wolts and 25 apps per file, short text fields.
 - Every shared wolt and app is shown as **unverified third party**, with a
-  warning, unless Woltspace made it.
-- Badges (`src/data/rangers.json`) are handed out by Woltspace.
+  warning, unless its ranger is verified.
+- Badges and verified rangers (`src/data/rangers.json`) are handed out by Woltspace.
 - Names of site pages (docs, wolts, dam, rangers, blog...) cannot be rangers.
 - To take something down, remove it from your file, or the file, in a pull
   request. Woltspace can remove any entry.
