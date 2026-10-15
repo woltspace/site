@@ -216,18 +216,21 @@ const site = 'https://woltspace.com';
 
   /* A ranger page: the person on the side, what they shared in the main column. */
   .ranger-grid { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 0 40px; align-items: start; margin-top: 20px; }
-  .ranger-card { display: flex; flex-direction: column; gap: 6px; }
-  .ranger-card img { width: 160px; height: 160px; border-radius: 50%; border: 1px solid var(--line); margin-bottom: 8px; }
-  .ranger-card h1 { margin: 0; font-size: 34px; }
-  .ranger-card .badge { align-self: flex-start; justify-self: start; }
-  .ranger-card .stats { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--soft); margin: 8px 0 0; }
+  .ranger-card { display: flex; flex-direction: column; gap: 16px; }
+  .ranger-card img { width: 160px; height: 160px; border-radius: 50%; border: 1px solid var(--line); }
+  .ranger-id { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+  .ranger-card h1 { margin: 0; font-size: 34px; line-height: 1.1; display: flex; align-items: center; gap: 8px; overflow-wrap: anywhere; }
+  .ranger-card h1 .trust-mark svg { width: 20px; height: 20px; }
+  .ranger-card .stats { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--soft); margin: 0; }
+  .ranger-gh { font-size: 14px; color: var(--soft); }
   .ranger-main .label { margin-top: 4px; }
   @media (max-width: 760px) {
     .ranger-grid { grid-template-columns: minmax(0, 1fr); }
-    .ranger-card { display: grid; grid-template-columns: 72px 1fr; gap: 0 14px; align-items: center; margin-bottom: 24px; }
-    .ranger-card img { width: 72px; height: 72px; margin: 0; grid-row: 1 / span 4; }
-    .ranger-card h1 { font-size: 28px; }
-    .ranger-card .stats { margin: 2px 0 0; }
+    .ranger-card { flex-direction: row; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .ranger-card img { width: 80px; height: 80px; flex: none; }
+    .ranger-id { gap: 6px; }
+    .ranger-card h1 { font-size: 26px; }
+    .ranger-card h1 .trust-mark svg { width: 18px; height: 18px; }
   }
   .wolt-id { min-width: 0; }
   .wolt-path { margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--soft); overflow-wrap: anywhere; }

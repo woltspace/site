@@ -2,6 +2,7 @@
 // A ranger's page, like a profile on Hugging Face: the person on the side,
 // what they shared in the main column.
 import Page from '../../layouts/Page.astro';
+import TrustMark from '../../components/TrustMark.astro';
 import ShareCard from '../../components/ShareCard.astro';
 import PostCard from '../../components/PostCard.astro';
 import { loadShare, rangerPath } from '../../lib/registry';
@@ -22,10 +23,12 @@ const stats = [plural(ranger.wolts.length, 'wolt'), plural(ranger.apps.length, '
   <div class="ranger-grid">
     <aside class="ranger-card">
       <img src={`https://github.com/${ranger.login}.png?size=320`} alt="" width="160" height="160">
-      <h1>{ranger.login}</h1>
-      {ranger.badge ? <span class="badge ranger">🌲 {ranger.badge}</span> : <span class="badge">Ranger</span>}
-      <p class="stats">{stats}</p>
-      <a class="hint" href={`https://github.com/${ranger.login}`}>github.com/{ranger.login}</a>
+      <div class="ranger-id">
+        <h1>{ranger.login}<TrustMark verified={ranger.verified} ranger={ranger.login} bare /></h1>
+        {ranger.badge ? <span class="badge ranger">🌲 {ranger.badge}</span> : <span class="badge">Ranger</span>}
+        <p class="stats">{stats}</p>
+        <a class="ranger-gh" href={`https://github.com/${ranger.login}`}>github.com/{ranger.login}</a>
+      </div>
     </aside>
 
     <div class="ranger-main">
