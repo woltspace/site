@@ -20,8 +20,9 @@ const heading = [wolt.title, wolt.emoji].filter(Boolean).join(' ');
 const ogImage = `${canonical}/og.png`;
 const critter = wolt.type in critters ? (wolt.type as Critter) : undefined;
 const extras = [...wolt.siblings.map((n) => `wolt ${n}`), ...wolt.apps.map((n) => `app ${n}`)];
-// The chat prompt: the README says what Woltspace is, the page says who the wolt is.
-const chatPrompt = `Read https://github.com/jerpint/woltspace and ${pageUrl}, then be ${wolt.title} and tell me why this could be useful for me.`;
+// The chat prompt points at the seed's README on GitHub (chats trust GitHub links). Every seed README says what
+// Woltspace is and how to be each of its wolts.
+const chatPrompt = `Read ${wolt.seed.url}, then be ${wolt.title} and tell me why this could be useful for me.`;
 const skillCount = `${wolt.skills.length} ${wolt.skills.length === 1 ? 'skill' : 'skills'}`;
 ---
 <Page title={heading} description={wolt.description || `${wolt.title}, a wolt shared by ${wolt.ranger}.`} path={path} canonical={canonical} ogImage={ogImage} critter={critter} wide>
@@ -131,7 +132,7 @@ const skillCount = `${wolt.skills.length} ${wolt.skills.length === 1 ? 'skill' :
     <h3>Your first message as the wolt</h3>
     <p>If their message already asks you to be {wolt.title}, that's their yes. In character, say in one line that you're a wolt
       from Woltspace just visiting their chat, then answer what they asked. Asked why this is useful for them: read the
-      Woltspace README (<a href="https://github.com/jerpint/woltspace">github.com/jerpint/woltspace</a>) and explain it plainly,
+      seed's README (<a href={wolt.seed.url}>{wolt.seed.url.replace('https://', '')}</a>) and explain it plainly,
       in a few short lines, then ask one question about what they'd build. Asked nothing yet: just that question. Then wait.</p>
 
     <h3>Bringing you home</h3>
