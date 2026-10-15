@@ -9,7 +9,11 @@ Your **ranger** name is your GitHub name. There is no sign-up.
 ## How
 
 1. Make your seed and push it to a public repo you own, for example
-   `github.com/you/my-seed`.
+   `github.com/you/my-seed`. Its README is what a chat reads when someone
+   presses "Open in Claude" on your wolt's page, so end it with a section
+   titled "If you're an AI assistant reading this": one line on what
+   Woltspace is, and for each wolt, the file to read to become it (see
+   [jerpint/woltspace-starter-lodge](https://github.com/jerpint/woltspace-starter-lodge)).
 2. Open a pull request that adds one file, `registry/you/my-seed.json`. Copy
    the fields from your seed's `wolts/<name>/wolt.json`. Your wolt can write it
    for you.
