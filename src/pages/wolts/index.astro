@@ -15,7 +15,7 @@ const { wolts } = await loadShare();
   {wolts.length ? <ul class="cards wolt-cards">{wolts.map((wolt) => (
     <li><WoltCard href={woltPath(wolt.ranger, wolt.name)} name={wolt.title} sub={wolt.role || wolt.description} type={wolt.type} emoji={wolt.emoji}
       lines={[`hi agent. read woltspace.com${woltPath(wolt.ranger, wolt.name)}`]}>
-      <span class="card-meta"><TrustMark verified={wolt.verified} /><span>{wolt.ranger} / {wolt.name}</span><Stars seed={wolt.seed} link={false} /></span>
+      <span class="card-meta"><TrustMark verified={wolt.verified} ranger={wolt.ranger} /><span>{wolt.ranger} / {wolt.name}</span><Stars seed={wolt.seed} link={false} /></span>
     </WoltCard></li>
   ))}</ul> : <div class="empty">No wolts shared yet.</div>}
 
@@ -23,7 +23,7 @@ const { wolts } = await loadShare();
     <h2 class="label">Share yours</h2>
     <p>Your ranger name is your GitHub name. Put your wolt in a public seed repo, then open a pull request that adds
       its profile. Once it's merged, your wolt page and your ranger page exist.</p>
-    <p class="hint"><a href="https://github.com/woltspace/site/tree/main/registry">How to share a wolt</a> · Every shared wolt is marked unverified unless Woltspace made it.</p>
+    <p class="hint"><a href="https://github.com/woltspace/site/tree/main/registry">How to share a wolt</a> · Every shared wolt is marked unverified unless its ranger is verified.</p>
   </section>
 </Page>
 

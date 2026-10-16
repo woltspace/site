@@ -9,7 +9,11 @@ Your **ranger** name is your GitHub name. There is no sign-up.
 ## How
 
 1. Make your seed and push it to a public repo you own, for example
-   `github.com/you/my-seed`.
+   `github.com/you/my-seed`. Its README is what a chat reads when someone
+   presses "Open in Claude" on your wolt's page, so end it with a section
+   titled "If you're an AI assistant reading this": one line on what
+   Woltspace is, and for each wolt, the file to read to become it (see
+   [jerpint/woltspace-starter-lodge](https://github.com/jerpint/woltspace-starter-lodge)).
 2. Open a pull request that adds one file, `registry/you/my-seed.json`. Copy
    the fields from your seed's `wolts/<name>/wolt.json`. Your wolt can write it
    for you.
@@ -49,8 +53,8 @@ ask GitHub for its star count.) To change a page, change the file in a new pull 
   chat reads there can change at any time. That is why the page warns.
 - Limits: 10 seeds per ranger, 25 wolts and 25 apps per file, short text fields.
 - Every shared wolt and app is shown as **unverified third party**, with a
-  warning, unless Woltspace made it.
-- Badges (`src/data/rangers.json`) are handed out by Woltspace.
+  warning, unless its ranger is verified.
+- Badges and verified rangers (`src/data/rangers.json`) are handed out by Woltspace.
 - Names of site pages (docs, wolts, dam, rangers, blog...) cannot be rangers.
 - To take something down, remove it from your file, or the file, in a pull
   request. Woltspace can remove any entry.

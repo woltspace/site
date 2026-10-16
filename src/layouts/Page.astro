@@ -131,6 +131,14 @@ const site = 'https://woltspace.com';
   .title-row { display: flex; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; }
   .trust { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--green); white-space: nowrap; }
   .trust.unverified { color: var(--warn-line); }
+  .trust { display: inline-flex; align-items: center; gap: 5px; }
+  .trust-mark { position: relative; display: inline-flex; color: var(--green); cursor: help; outline: none; }
+  .trust.unverified .trust-mark { color: var(--warn-line); }
+  .trust-mark svg { width: 14px; height: 14px; display: block; }
+  .trust-tip { display: none; position: absolute; left: -8px; top: calc(100% + 8px); z-index: 20; width: 240px;
+    background: var(--ink); color: var(--bg); font: 400 13px/1.4 system-ui, sans-serif; letter-spacing: 0;
+    text-transform: none; white-space: normal; padding: 8px 10px; border-radius: 8px; }
+  .trust-mark:hover .trust-tip, .trust-mark:focus .trust-tip { display: block; }
   .person { display: grid; grid-template-columns: 44px 1fr auto; gap: 0 12px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; margin: 0 0 24px; }
   .person img { grid-row: 1 / span 2; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); }
   .person-name { font-weight: 600; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; align-self: end; }
@@ -232,8 +240,7 @@ const site = 'https://woltspace.com';
   .wolt-stars { align-self: start; }
   .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
   .tag, .tags .trust { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: none; color: var(--soft); background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 3px 8px; white-space: nowrap; }
-  .tags .trust { color: var(--green); border-color: var(--green); text-transform: uppercase; letter-spacing: .08em; }
-  .tags .trust.unverified { color: var(--warn-line); border-color: var(--warn-line); }
+  .tags .trust { text-transform: uppercase; letter-spacing: .08em; }
   .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 0 0 10px; }
   .wolt-grid { margin-top: 4px; display: grid; grid-template-columns: minmax(0, 1fr) 280px; grid-template-areas: "desc side" "use side" "facts side"; gap: 0 32px; align-items: start; }
   .wolt-desc { grid-area: desc; font-size: 18px; margin: 0 0 24px; }

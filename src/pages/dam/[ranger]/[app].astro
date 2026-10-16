@@ -37,7 +37,7 @@ const source = app.distribution === 'git' ? app.sourceUrl.replace('https://githu
     <Stars seed={app.seed} class="person-stars wolt-stars" />
   </header>
   <p class="tags">
-    <TrustMark verified={app.verified} />
+    <TrustMark verified={app.verified} ranger={app.ranger} />
     {app.stack && <span class="tag">{app.stack}</span>}
     {app.keeper && <span class="tag">kept by {app.keeper}</span>}
     <span class="tag">seed · {app.seed.repo}</span>
