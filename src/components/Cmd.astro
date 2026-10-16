@@ -1,7 +1,20 @@
 ---
 // A command to copy. Long links may only break after "/" or ".", never mid-word.
+// Links are real links (a human can open them too) and a leading `woltspace ...` command is tinted;
+// Copy still copies the plain text.
 interface Props { id: string; text: string }
 const { id, text } = Astro.props;
-const parts = text.split(/(?<=[^:\/]\/|\.)/);
+const breakable = (s: string) => s.split(/(?<=[^:\/]\/|\.)/);
+const segments = text.split(/(https?:\/\/[^\s,]+?)(?=[.,]?(?:\s|$))/).map((part) => ({ part, url: /^https?:\/\//.test(part) }));
+const command = text.match(/^(woltspace(?: [a-z-]+)*) /)?.[1];
 ---
-<div class="cmd" id={id}>{parts.map((part, i) => <>{i > 0 && <wbr />}{part}</>)}</div>
+<div class="cmd" id={id}>{segments.map(({ part, url }, i) => {
+  if (url) return <a class="cmd-url" href={part} target="_blank" rel="noopener">{breakable(part).map((p, j) => <>{j > 0 && <wbr />}{p}</>)}</a>;
+  if (i === 0 && command && part.startsWith(command)) return <><span class="cmd-name">{command}</span>{part.slice(command.length)}</>;
+  return <>{breakable(part).map((p, j) => <>{j > 0 && <wbr />}{p}</>)}</>;
+})}</div>
+<style>
+  .cmd-url { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .cmd-url:hover { text-decoration-thickness: 2px; }
+  .cmd-name { color: var(--green); font-weight: 600; }
+</style>
