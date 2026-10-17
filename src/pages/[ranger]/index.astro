@@ -18,9 +18,11 @@ const written = (await posts()).filter((post) => post.data.author.toLowerCase() 
 const helped = ranger.contributions;
 const shared = ranger.wolts.length + ranger.apps.length > 0;
 const stats = [shared || !helped.length ? plural(ranger.wolts.length, 'wolt') : '', ranger.apps.length ? plural(ranger.apps.length, 'app') : '', written.length ? plural(written.length, 'post') : '', helped.length ? plural(helped.length, 'contribution') : ''].filter(Boolean).join(' · ');
-const repos = [...new Set(helped.map((c) => c.repo))];
-const sentWolts = helped.some((c) => c.via);
-const SHOWN = 12;
+// The summary: one line per repo (how many, since when, how many a wolt did).
+const repos = [...new Set(helped.map((c) => c.repo))].map((repo) => {
+  const prs = helped.filter((c) => c.repo === repo);
+  return { repo, count: prs.length, first: prs[prs.length - 1].merged, last: prs[0].merged, wolts: prs.filter((c) => c.via).length };
+}).sort((a, b) => b.count - a.count);
 const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 ---
 <Page title={ranger.login} description={shared ? `Wolts and apps shared by ${ranger.login}.` : `${ranger.login}, a Woltspace ranger.`} path={rangerPath(ranger.login)} wide>
@@ -42,7 +44,15 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
       {helped.length > 0 && (
         <section class="thanks">
           <p class="thanks-head">🌲 Thank you for helping build Woltspace</p>
-          <p class="thanks-line">{plural(helped.length, 'merged pull request')} in {repos.join(', ')}{sentWolts && ', some by a wolt they sent to help'}.</p>
+          <p class="thanks-line">{plural(helped.length, 'merged pull request')} since {month(helped[helped.length - 1].merged)}.</p>
+          <ul class="thanks-repos">
+            {repos.map((r) => <li><b>{r.repo}</b><span>{plural(r.count, 'PR')} · {month(r.first) === month(r.last) ? month(r.last) : `${month(r.first)} – ${month(r.last)}`}{r.wolts > 0 && ` · 🐾 ${r.wolts} by a wolt they sent`}</span></li>)}
+          </ul>
+          <details class="contrib-more"><summary>See all {plural(helped.length, 'pull request')}</summary>
+            <ul class="list contribs">
+              {helped.map((c) => <li><a class="contrib" href={c.url}><span class="contrib-title">{c.title}</span><span class="contrib-meta">{c.repo}#{c.number} · {month(c.merged)}{c.via && <span class="contrib-via" title={`opened by ${c.via}`}> · 🐾 sent a wolt</span>}</span></a></li>)}
+            </ul>
+          </details>
         </section>
       )}
 
@@ -51,20 +61,6 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
 
       {ranger.apps.length > 0 && <h2 class="label">Apps</h2>}
       {ranger.apps.length > 0 && <ul class="cards">{ranger.apps.map((app) => <ShareCard app={app} showRanger={false} />)}</ul>}
-
-      {helped.length > 0 && <h2 class="label" style={shared ? 'margin-top:32px' : ''}>Contributions</h2>}
-      {helped.length > 0 && (
-        <ul class="list contribs">
-          {helped.slice(0, SHOWN).map((c) => <li><a class="contrib" href={c.url}><span class="contrib-title">{c.title}</span><span class="contrib-meta">{c.repo}#{c.number} · {month(c.merged)}{c.via && <span class="contrib-via" title={`opened by ${c.via}`}> · 🐾 sent a wolt</span>}</span></a></li>)}
-        </ul>
-      )}
-      {helped.length > SHOWN && (
-        <details class="contrib-more"><summary>{helped.length - SHOWN} more</summary>
-          <ul class="list contribs">
-            {helped.slice(SHOWN).map((c) => <li><a class="contrib" href={c.url}><span class="contrib-title">{c.title}</span><span class="contrib-meta">{c.repo}#{c.number} · {month(c.merged)}{c.via && <span class="contrib-via" title={`opened by ${c.via}`}> · 🐾 sent a wolt</span>}</span></a></li>)}
-          </ul>
-        </details>
-      )}
 
       {written.length > 0 && <h2 class="label" style="margin-top:32px">Posts</h2>}
       {written.length > 0 && <ul class="list">{written.map((post) => <PostCard post={post} showAuthor={false} />)}</ul>}
