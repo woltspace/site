@@ -4,12 +4,10 @@
   "jerpint/woltspace",
   "jerpint/woltspace-starter-lodge",
   "woltspace/demo-lodge",
-  "woltspace/site",
   "woltspace/stick-overflow",
   "woltspace/woodipedia"
  ],
  "owners": {
-  "woltspace": null,
   "woltspace-jerpint": "jerpint"
  },
  "prs": [
@@ -56,22 +54,6 @@
    "title": "notify --speak: retry a stalled voice note, send the words as text if it still fails",
    "merged": "2026-10-16",
    "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 35,
-   "title": "Wolt and ranger pages: follow-ups that missed #34",
-   "merged": "2026-10-16",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 34,
-   "title": "Wolt pages: Open in Claude / ChatGPT, prompt points at the seed README",
-   "merged": "2026-10-16",
-   "author": "woltspace",
    "bot": true
   },
   {
@@ -168,14 +150,6 @@
    "author": "asharakeh"
   },
   {
-   "repo": "woltspace/site",
-   "number": 33,
-   "title": "Talk: final cut of the recording (4K, synced)",
-   "merged": "2026-10-12",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
    "repo": "jerpint/woltspace",
    "number": 534,
    "title": "Drop the leftover Vercel config",
@@ -197,14 +171,6 @@
    "title": "Hermes + Pi harnesses (experimental), SVG engine icons",
    "merged": "2026-10-11",
    "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 29,
-   "title": "Talks page + YouTube recording, blog <-> talk links, blog edits (crowdsourcing compute, carousel)",
-   "merged": "2026-10-11",
-   "author": "woltspace",
    "bot": true
   },
   {
@@ -280,22 +246,6 @@
    "bot": true
   },
   {
-   "repo": "woltspace/site",
-   "number": 32,
-   "title": "Home: install card for phones, chat-style code blocks, Open in Claude/ChatGPT",
-   "merged": "2026-10-09",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 31,
-   "title": "Home: typed headline as the title, in a terminal card",
-   "merged": "2026-10-09",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
    "repo": "jerpint/woltspace",
    "number": 517,
    "title": "README: for humans, for agents",
@@ -312,91 +262,11 @@
    "bot": true
   },
   {
-   "repo": "woltspace/site",
-   "number": 30,
-   "title": "Home: give your coding agents a lodge, one GitHub pill, Meet Onboardie",
-   "merged": "2026-10-08",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 28,
-   "title": "Blog: multiplayer, trust boundaries and forward deployed wolts",
-   "merged": "2026-10-07",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 27,
-   "title": "Talks: The future of multiplayer multi-agent collaboration (slides)",
-   "merged": "2026-10-07",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 26,
-   "title": "Shared wolt pages: ask first (consent)",
-   "merged": "2026-10-07",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
    "repo": "jerpint/woltspace",
    "number": 515,
    "title": "docs: introduce native wolts in managed boot instructions",
    "merged": "2026-10-05",
    "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 25,
-   "title": "Blog: replay video moves up, phone shots side by side",
-   "merged": "2026-10-05",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 24,
-   "title": "Docs: Scheduling and Wolt orchestration (IWCL)",
-   "merged": "2026-10-05",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 23,
-   "title": "Default share card on every page",
-   "merged": "2026-10-05",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 22,
-   "title": "Blog: first post, \"The future is multiplayer multi-agent\"",
-   "merged": "2026-10-05",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 21,
-   "title": "Docs \"Edit page\" links point to woltspace/site",
-   "merged": "2026-10-05",
-   "author": "woltspace",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 20,
-   "title": "Registry links point to woltspace/site",
-   "merged": "2026-10-05",
-   "author": "woltspace",
    "bot": true
   },
   {
@@ -429,46 +299,6 @@
    "title": "Onboardie: confident pitch for builders, and only facts that ship",
    "merged": "2026-10-04",
    "author": "jerpint"
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 18,
-   "title": "Footer: gnaw. build. repeat.",
-   "merged": "2026-10-03",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 17,
-   "title": "Short addresses: woltspace.com/<ranger>/<wolt>",
-   "merged": "2026-10-03",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 16,
-   "title": "Share cards for every shared wolt (Onboardie's layout)",
-   "merged": "2026-10-03",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 15,
-   "title": "Remove pre-lodge pages; lodge-look 404",
-   "merged": "2026-10-03",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 14,
-   "title": "Shared wolts, rangers and the dam, built from a seed registry",
-   "merged": "2026-10-03",
-   "author": "woltspace-jerpint",
-   "bot": true
   },
   {
    "repo": "jerpint/woltspace",
@@ -623,14 +453,6 @@
    "bot": true
   },
   {
-   "repo": "woltspace/site",
-   "number": 13,
-   "title": "Onboardie paste line: read the page first",
-   "merged": "2026-10-01",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
    "repo": "jerpint/woltspace",
    "number": 490,
    "title": "chore: prepare Python 0.5.12 release",
@@ -690,38 +512,6 @@
    "repo": "jerpint/woltspace",
    "number": 482,
    "title": "A fresh lodge starts with a starter wolt",
-   "merged": "2026-09-30",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 11,
-   "title": "Onboardie share card: drop the description",
-   "merged": "2026-09-30",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 10,
-   "title": "Onboardie page: share card",
-   "merged": "2026-09-30",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 9,
-   "title": "Add /wolts/onboardie page",
-   "merged": "2026-09-30",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 8,
-   "title": "Install: Node optional, agents set the harness, meet Onboardie (merge after 0.5.11)",
    "merged": "2026-09-30",
    "author": "woltspace-jerpint",
    "bot": true
@@ -1047,21 +837,6 @@
    "bot": true
   },
   {
-   "repo": "woltspace/site",
-   "number": 7,
-   "title": "Include connector support in plain website installs",
-   "merged": "2026-09-17",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 6,
-   "title": "Simplify Woltspace installation for new users",
-   "merged": "2026-09-16",
-   "author": "jerpint"
-  },
-  {
    "repo": "jerpint/woltspace",
    "number": 422,
    "title": "0.5.2 — shell-safe wolt messaging, and native lodges that actually deliver instructions",
@@ -1103,14 +878,6 @@
    "number": 411,
    "title": "tui: render a wolt session in the current pane when inside tmux",
    "merged": "2026-09-10",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 5,
-   "title": "install.sh: native first, container by flag",
-   "merged": "2026-09-09",
    "author": "woltspace-jerpint",
    "bot": true
   },
@@ -1226,34 +993,10 @@
    "bot": true
   },
   {
-   "repo": "woltspace/site",
-   "number": 4,
-   "title": "Scaffold-for-harnesses story: landing intro + /talk/ page",
-   "merged": "2026-08-25",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
    "repo": "jerpint/woltspace",
    "number": 385,
    "title": "opencode: deliver boot prompt by paste, not --prompt",
    "merged": "2026-08-08",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 3,
-   "title": "landing: 'Read the docs' CTA in the install card",
-   "merged": "2026-08-07",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 2,
-   "title": "Astro + Starlight docs skeleton",
-   "merged": "2026-08-07",
    "author": "woltspace-jerpint",
    "bot": true
   },
@@ -1458,14 +1201,6 @@
    "repo": "jerpint/woltspace",
    "number": 335,
    "title": "subdomain proxy: preserve content-length for Range responses",
-   "merged": "2026-04-26",
-   "author": "woltspace-jerpint",
-   "bot": true
-  },
-  {
-   "repo": "woltspace/site",
-   "number": 1,
-   "title": "iphone story carousel (3 phones, real footage)",
    "merged": "2026-04-26",
    "author": "woltspace-jerpint",
    "bot": true

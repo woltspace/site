@@ -10,6 +10,9 @@ import fs from 'node:fs';
 
 const ORGS = ['woltspace'];                                        // every public repo of these
 const REPOS = ['jerpint/woltspace', 'jerpint/woltspace-starter-lodge']; // and these
+// Not counted: this site (its pull requests are mostly registry files and page
+// edits, and joining as a ranger is itself a pull request here).
+const SKIP = ['woltspace/site'];
 const OUT = 'src/data/contributions.json';
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 
@@ -33,6 +36,7 @@ async function pages(path) {
 
 const repos = new Set(REPOS);
 for (const org of ORGS) for (const r of await pages(`orgs/${org}/repos?type=public`)) if (!r.fork && !r.archived) repos.add(r.full_name);
+for (const r of SKIP) repos.delete(r);
 
 const prs = [];
 for (const repo of [...repos].sort()) {

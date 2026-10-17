@@ -50,7 +50,7 @@ There are three ways in:
 
 - **Share a seed**, as above.
 - **Help build Woltspace.** Once you have a merged pull request in a Woltspace repo
-  (`jerpint/woltspace`, or any repo of the `woltspace` org), you get a ranger page
+  (`jerpint/woltspace`, or any repo of the `woltspace` org except this site), you get a ranger page
   that thanks you and lists your contributions. You don't need to do anything.
 - **Just ask.** Open a pull request that adds one file, `registry/you/ranger.json`:
 
