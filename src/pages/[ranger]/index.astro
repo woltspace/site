@@ -17,7 +17,7 @@ const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 const written = (await posts()).filter((post) => post.data.author.toLowerCase() === ranger.login.toLowerCase());
 const helped = ranger.contributions;
 const shared = ranger.wolts.length + ranger.apps.length > 0;
-const stats = [shared || !helped.length ? plural(ranger.wolts.length, 'wolt') : '', ranger.apps.length ? plural(ranger.apps.length, 'app') : '', written.length ? plural(written.length, 'post') : '', helped.length ? plural(helped.length, 'contribution') : ''].filter(Boolean).join(' · ');
+const stats = [shared || !helped.length ? plural(ranger.wolts.length, 'wolt') : '', ranger.apps.length ? plural(ranger.apps.length, 'app') : '', written.length ? plural(written.length, 'post') : ''].filter(Boolean).join(' · ');
 // The summary: one line per repo (how many, since when).
 const repos = [...new Set(helped.map((c) => c.repo))].map((repo) => {
   const prs = helped.filter((c) => c.repo === repo);
@@ -34,7 +34,7 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
       <div class="ranger-id">
         <h1 class:list={[{ long: ranger.login.length > 9 }]}>{ranger.login}{(shared || ranger.verified) && <TrustMark verified={ranger.verified} ranger={ranger.login} bare />}</h1>
         {ranger.badge ? <span class="badge ranger">🌲 {ranger.badge}</span> : <span class="badge">Ranger</span>}
-        <p class="stats">{stats}</p>
+        <p class="stats">{stats}{helped.length > 0 && <>{stats && ' · '}<span data-contrib-count>{plural(helped.length, 'contribution')}</span></>}</p>
         {ranger.hello && <p class="ranger-hello">“{ranger.hello}”</p>}
         <a class="ranger-gh" href={`https://github.com/${ranger.login}`}>github.com/{ranger.login}</a>
       </div>
@@ -42,14 +42,14 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
 
     <div class="ranger-main">
       {helped.length > 0 && (
-        <section class="thanks">
+        <section class="thanks" data-contrib-search={ranger.search} data-contrib-n={helped.length}>
           <p class="thanks-head">🌲 Thank you for helping build Woltspace</p>
-          <p class="thanks-line">{plural(helped.length, 'merged pull request')} since {month(helped[helped.length - 1].merged)}.</p>
-          <ul class="thanks-repos">
+          <p class="thanks-line" data-contrib-line>{plural(helped.length, 'merged pull request')} since {month(helped[helped.length - 1].merged)}.</p>
+          <ul class="thanks-repos" data-contrib-repos>
             {repos.map((r) => <li><b>{r.repo}</b><span>{plural(r.count, 'PR')} · {month(r.first) === month(r.last) ? month(r.last) : `${month(r.first)} – ${month(r.last)}`}</span></li>)}
           </ul>
-          <details class="contrib-more"><summary>{helped.length === 1 ? 'See the pull request' : `See all ${helped.length} pull requests`}</summary>
-            <ul class="list contribs">
+          <details class="contrib-more"><summary data-contrib-summary>{helped.length === 1 ? 'See the pull request' : `See all ${helped.length} pull requests`}</summary>
+            <ul class="list contribs" data-contrib-list>
               {helped.map((c) => <li><a class="contrib" href={c.url}><span class="contrib-title">{c.title}</span><span class="contrib-meta">{c.repo}#{c.number} · {month(c.merged)}</span></a></li>)}
             </ul>
           </details>
@@ -67,3 +67,57 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
     </div>
   </div>
 </Page>
+
+<script is:inline>
+  // Fresh numbers, asked of GitHub's public search by this browser: the same
+  // repos, accounts and bots as the saved list, kept for 10 minutes. Swapped in
+  // only when GitHub knows at least as many as the saved list; otherwise the
+  // saved list stays. Everything from GitHub is set as text.
+  (function () {
+    var box = document.querySelector('[data-contrib-search]');
+    if (!box) return;
+    var q = box.dataset.contribSearch, saved = Number(box.dataset.contribN), key = 'contrib:' + q;
+    var plural = function (n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); };
+    var month = function (d) { return new Date(d + 'T12:00:00Z').toLocaleDateString('en', { month: 'short', year: 'numeric', timeZone: 'UTC' }); };
+    var el = function (tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+    function show(prs) {
+      if (prs.length < saved) return;
+      var repos = {};
+      prs.forEach(function (c) { (repos[c.repo] = repos[c.repo] || []).push(c); });
+      var rows = Object.keys(repos).map(function (r) { var l = repos[r]; return { repo: r, count: l.length, first: l[l.length - 1].merged, last: l[0].merged }; })
+        .sort(function (a, b) { return b.count - a.count; });
+      document.querySelectorAll('[data-contrib-count]').forEach(function (e) { e.textContent = plural(prs.length, 'contribution'); });
+      box.querySelector('[data-contrib-line]').textContent = plural(prs.length, 'merged pull request') + ' since ' + month(prs[prs.length - 1].merged) + '.';
+      box.querySelector('[data-contrib-summary]').textContent = prs.length === 1 ? 'See the pull request' : 'See all ' + prs.length + ' pull requests';
+      box.querySelector('[data-contrib-repos]').replaceChildren.apply(box.querySelector('[data-contrib-repos]'), rows.map(function (r) {
+        var li = el('li'); li.append(el('b', null, r.repo), el('span', null, plural(r.count, 'PR') + ' · ' + (month(r.first) === month(r.last) ? month(r.last) : month(r.first) + ' – ' + month(r.last)))); return li;
+      }));
+      box.querySelector('[data-contrib-list]').replaceChildren.apply(box.querySelector('[data-contrib-list]'), prs.map(function (c) {
+        var li = el('li'), a = el('a', 'contrib'); a.href = 'https://github.com/' + c.repo + '/pull/' + c.number;
+        a.append(el('span', 'contrib-title', c.title), el('span', 'contrib-meta', c.repo + '#' + c.number + ' · ' + month(c.merged))); li.append(a); return li;
+      }));
+    }
+    var cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
+    if (cached && Date.now() - cached.at < 600000) return show(cached.prs);
+    var prs = [];
+    function page(n) {
+      return fetch('https://api.github.com/search/issues?per_page=100&sort=updated&page=' + n + '&q=' + encodeURIComponent(q), { headers: { accept: 'application/vnd.github+json' } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d || !Array.isArray(d.items)) return null;
+          d.items.forEach(function (i) {
+            var merged = i.pull_request && i.pull_request.merged_at;
+            if (merged) prs.push({ repo: i.repository_url.split('/').slice(-2).join('/'), number: i.number, title: String(i.title).slice(0, 120), merged: merged.slice(0, 10) });
+          });
+          return d.total_count > n * 100 && n < 5 ? page(n + 1) : prs;
+        });
+    }
+    page(1).then(function (all) {
+      if (!all) return;
+      all.sort(function (a, b) { return b.merged < a.merged ? -1 : b.merged > a.merged ? 1 : b.number - a.number; });
+      try { sessionStorage.setItem(key, JSON.stringify({ prs: all, at: Date.now() })); } catch (e) {}
+      show(all);
+    }).catch(function () {});
+  })();
+</script>

@@ -17,7 +17,7 @@ import { checkEntry, checkRanger, isReserved, LOGIN_RE, REPO_RE, NAME_RE, LIMITS
 const REGISTRY_DIR = path.resolve(process.env.REGISTRY_DIR || 'registry');
 const EMOJI: Record<string, string> = { otter: '🦦', beaver: '🦫', raccoon: '🦝', wolf: '🐺', dog: '🐶' };
 
-export interface Ranger { login: string; badge: string | null; verified: boolean; hello: string; wolts: Wolt[]; apps: App[]; contributions: Contribution[] }
+export interface Ranger { login: string; badge: string | null; verified: boolean; hello: string; wolts: Wolt[]; apps: App[]; contributions: Contribution[]; search: string }
 export interface Contribution { repo: string; number: number; title: string; merged: string; url: string; via: string | null }
 export interface Seed { ranger: string; repo: string; url: string; gitUrl: string }
 export interface Wolt {
@@ -75,8 +75,8 @@ function rangerFiles(): Map<string, { login: string; hello: string; bots: string
 
 // Who gets the credit for each merged pull request: its human author (or the
 // ranger who listed that account), or the ranger whose bot opened it.
-function contributionsByRanger(files: ReturnType<typeof rangerFiles>): Map<string, { login: string; list: Contribution[] }> {
-  const data = contributionData as { owners: Record<string, string | null>; prs: { repo: string; number: number; title: string; merged: string; author: string; bot?: boolean }[] };
+function contributionsByRanger(files: ReturnType<typeof rangerFiles>): { byRanger: Map<string, { login: string; list: Contribution[] }>; botOwner: Map<string, string>; alias: Map<string, string>; repos: string[] } {
+  const data = contributionData as { repos: string[]; owners: Record<string, string | null>; prs: { repo: string; number: number; title: string; merged: string; author: string; bot?: boolean }[] };
   const alias = new Map<string, string>();
   const botOwner = new Map<string, string>();
   for (const [login, extra] of Object.entries(extras)) {
@@ -98,7 +98,15 @@ function contributionsByRanger(files: ReturnType<typeof rangerFiles>): Map<strin
     if (!out.has(key)) out.set(key, { login, list: [] });
     out.get(key)!.list.push({ repo: pr.repo, number: pr.number, title: pr.title, merged: pr.merged, url: `https://github.com/${pr.repo}/pull/${pr.number}`, via: pr.bot ? `${pr.author}[bot]` : null });
   }
-  return out;
+  return { byRanger: out, botOwner, alias, repos: data.repos };
+}
+
+// The GitHub search a ranger page runs in the visitor's browser to show fresh
+// numbers: the same repos and the same accounts and bots as the saved file.
+function searchFor(key: string, login: string, credit: ReturnType<typeof contributionsByRanger>): string {
+  const authors = [login, ...[...credit.alias].filter(([, k]) => k === key).map(([a]) => a)].map((a) => `author:${a}`);
+  const bots = [...credit.botOwner].filter(([, k]) => k === key).map(([b]) => `author:app/${b}`);
+  return ['is:pr', 'is:merged', ...authors, ...bots, ...credit.repos.map((r) => `repo:${r}`)].join(' ');
 }
 
 async function load(): Promise<Share> {
@@ -106,7 +114,7 @@ async function load(): Promise<Share> {
   const files = rangerFiles();
   const newRanger = (login: string): Ranger => {
     const extra = extraOf(login);
-    return { login, badge: extra.badge ?? null, verified: extra.verified === true, hello: files.get(login.toLowerCase())?.hello ?? '', wolts: [], apps: [], contributions: [] };
+    return { login, badge: extra.badge ?? null, verified: extra.verified === true, hello: files.get(login.toLowerCase())?.hello ?? '', wolts: [], apps: [], contributions: [], search: '' };
   };
 
   for (const { ranger, repo, raw } of registryFiles()) {
@@ -145,11 +153,13 @@ async function load(): Promise<Share> {
     }
   }
 
-  for (const [key, { login, list }] of contributionsByRanger(files)) {
+  const credit = contributionsByRanger(files);
+  for (const [key, { login, list }] of credit.byRanger) {
     if (!rangers.has(key)) rangers.set(key, newRanger(login));
     rangers.get(key)!.contributions = list;
   }
   for (const [key, file] of files) if (!rangers.has(key)) rangers.set(key, newRanger(file.login));
+  for (const [key, r] of rangers) r.search = searchFor(key, r.login, credit);
 
   const all = [...rangers.entries()]
     .filter(([key, r]) => files.get(key)?.listed !== false && !extraOf(r.login).hidden)

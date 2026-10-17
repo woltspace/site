@@ -49,10 +49,13 @@ prs.sort((a, b) => b.merged.localeCompare(a.merged) || a.repo.localeCompare(b.re
 
 // Who owns each bot, as GitHub says. A ranger's own ranger.json can claim a bot
 // only when this matches; a private app has no public owner and stays unclaimed.
+// GitHub shows a private app's owner only to that app's own token, so an owner
+// found once is kept when a later run cannot see it.
+const before = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')).owners ?? {} : {};
 const owners = {};
 for (const slug of [...new Set(prs.filter((pr) => pr.bot).map((pr) => pr.author))].sort()) {
   const app = await get(`apps/${slug}`);
-  owners[slug] = app?.owner?.login ?? null;
+  owners[slug] = app?.owner?.login ?? before[slug] ?? null;
   console.log(`bot ${slug}: ${owners[slug] ? `owned by ${owners[slug]}` : 'owner not public'}`);
 }
 
