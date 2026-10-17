@@ -1,0 +1,2701 @@
+{
+ "synced": "2026-10-17",
+ "repos": [
+  "jerpint/woltspace",
+  "jerpint/woltspace-starter-lodge",
+  "woltspace/demo-lodge",
+  "woltspace/site",
+  "woltspace/stick-overflow",
+  "woltspace/woodipedia"
+ ],
+ "owners": {
+  "woltspace": null,
+  "woltspace-jerpint": "jerpint"
+ },
+ "prs": [
+  {
+   "repo": "jerpint/woltspace",
+   "number": 575,
+   "title": "Archive, unarchive and delete a wolt through lodge routes",
+   "merged": "2026-10-17",
+   "author": "asharakeh"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 573,
+   "title": "Woltspace 0.5.20: idle sessions rest by use, with holds",
+   "merged": "2026-10-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 572,
+   "title": "Engine settings skill: wolts set their own effort, in their own folder",
+   "merged": "2026-10-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 568,
+   "title": "Fix native session commands when woltspace-python is absent from PATH",
+   "merged": "2026-10-17",
+   "author": "ASalvail"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 571,
+   "title": "Idle sessions rest by use, with holds: the whole change for one squash merge (#554, #559, #569, #570)",
+   "merged": "2026-10-16",
+   "author": "asharakeh"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 563,
+   "title": "notify --speak: retry a stalled voice note, send the words as text if it still fails",
+   "merged": "2026-10-16",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 35,
+   "title": "Wolt and ranger pages: follow-ups that missed #34",
+   "merged": "2026-10-16",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 34,
+   "title": "Wolt pages: Open in Claude / ChatGPT, prompt points at the seed README",
+   "merged": "2026-10-16",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 558,
+   "title": "woltspace restart + recommended permissions",
+   "merged": "2026-10-15",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 557,
+   "title": "Woltspace 0.5.19: messages reach a booting session",
+   "merged": "2026-10-14",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 556,
+   "title": "Messages reach a session that is still booting (#555)",
+   "merged": "2026-10-14",
+   "author": "asharakeh"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 553,
+   "title": "Woltspace 0.5.18: push-view finds your page",
+   "merged": "2026-10-14",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 552,
+   "title": "push-view: spaces, timeouts, clear 'lodge down' message (review follow-up to #551)",
+   "merged": "2026-10-14",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 551,
+   "title": "push-view: page names become site paths, missing pages are refused",
+   "merged": "2026-10-14",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 544,
+   "title": "Woltspace 0.5.17: Create a wolt keeps the chosen model",
+   "merged": "2026-10-13",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 542,
+   "title": "Create a wolt: keep the model chosen on a card when an engine is picked (#541)",
+   "merged": "2026-10-13",
+   "author": "asharakeh"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 537,
+   "title": "notify: cap spoken audio, refuse more credential paths, CI runs the CLI tests",
+   "merged": "2026-10-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 536,
+   "title": "Woltspace 0.5.16: files and voice notes from wolts, secrets off command lines",
+   "merged": "2026-10-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 535,
+   "title": "Keep lodge secrets off command lines and out of apps",
+   "merged": "2026-10-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 519,
+   "title": "notify --file, --voice, --speak: a wolt can send its human a file or a voice note on Telegram and Slack (#518)",
+   "merged": "2026-10-12",
+   "author": "asharakeh"
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 33,
+   "title": "Talk: final cut of the recording (4K, synced)",
+   "merged": "2026-10-12",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 534,
+   "title": "Drop the leftover Vercel config",
+   "merged": "2026-10-11",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 533,
+   "title": "Woltspace 0.5.15: Hermes and Pi (experimental), voice notes never lost",
+   "merged": "2026-10-11",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 526,
+   "title": "Hermes + Pi harnesses (experimental), SVG engine icons",
+   "merged": "2026-10-11",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 29,
+   "title": "Talks page + YouTube recording, blog <-> talk links, blog edits (crowdsourcing compute, carousel)",
+   "merged": "2026-10-11",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 531,
+   "title": "SVG engine icons in place of emoji",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 530,
+   "title": "0.5: session group avatar and name survive the load-order race (#528)",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 529,
+   "title": "Sidebar: session group avatar and name survive the load-order race (#528)",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 525,
+   "title": "Tests never touch the live lodge or its tmux server unless asked",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 524,
+   "title": "Mill hardening: cross-site writes, gzip responses, websocket and token edges",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 523,
+   "title": "Quick tunnels: never for the lodge, opt-in only for apps",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 522,
+   "title": "The Mill into 0.6: app gateway + proxy security fixes",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 521,
+   "title": "0.6 cleanup 2: remove the desktop app",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 520,
+   "title": "0.6 cleanup 1: remove dead Telegram adapter, old migration, stale changelog",
+   "merged": "2026-10-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 32,
+   "title": "Home: install card for phones, chat-style code blocks, Open in Claude/ChatGPT",
+   "merged": "2026-10-09",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 31,
+   "title": "Home: typed headline as the title, in a terminal card",
+   "merged": "2026-10-09",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 517,
+   "title": "README: for humans, for agents",
+   "merged": "2026-10-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 516,
+   "title": "Telegram: retry media downloads, never drop a voice note silently",
+   "merged": "2026-10-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 30,
+   "title": "Home: give your coding agents a lodge, one GitHub pill, Meet Onboardie",
+   "merged": "2026-10-08",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 28,
+   "title": "Blog: multiplayer, trust boundaries and forward deployed wolts",
+   "merged": "2026-10-07",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 27,
+   "title": "Talks: The future of multiplayer multi-agent collaboration (slides)",
+   "merged": "2026-10-07",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 26,
+   "title": "Shared wolt pages: ask first (consent)",
+   "merged": "2026-10-07",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 515,
+   "title": "docs: introduce native wolts in managed boot instructions",
+   "merged": "2026-10-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 25,
+   "title": "Blog: replay video moves up, phone shots side by side",
+   "merged": "2026-10-05",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 24,
+   "title": "Docs: Scheduling and Wolt orchestration (IWCL)",
+   "merged": "2026-10-05",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 23,
+   "title": "Default share card on every page",
+   "merged": "2026-10-05",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 22,
+   "title": "Blog: first post, \"The future is multiplayer multi-agent\"",
+   "merged": "2026-10-05",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 21,
+   "title": "Docs \"Edit page\" links point to woltspace/site",
+   "merged": "2026-10-05",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 20,
+   "title": "Registry links point to woltspace/site",
+   "merged": "2026-10-05",
+   "author": "woltspace",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 514,
+   "title": "0.5.14 on release/0.5: newest Onboardie for fresh lodges, patch-branch publishing",
+   "merged": "2026-10-04",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 513,
+   "title": "Fresh lodges install the latest starter lodge",
+   "merged": "2026-10-04",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 489,
+   "title": "feat: publish patch releases from release/X.Y branches",
+   "merged": "2026-10-04",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace-starter-lodge",
+   "number": 1,
+   "title": "Onboardie: confident pitch for builders, and only facts that ship",
+   "merged": "2026-10-04",
+   "author": "jerpint"
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 18,
+   "title": "Footer: gnaw. build. repeat.",
+   "merged": "2026-10-03",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 17,
+   "title": "Short addresses: woltspace.com/<ranger>/<wolt>",
+   "merged": "2026-10-03",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 16,
+   "title": "Share cards for every shared wolt (Onboardie's layout)",
+   "merged": "2026-10-03",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 15,
+   "title": "Remove pre-lodge pages; lodge-look 404",
+   "merged": "2026-10-03",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 14,
+   "title": "Shared wolts, rangers and the dam, built from a seed registry",
+   "merged": "2026-10-03",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 512,
+   "title": "Mill branch: merge main (0.5.13)",
+   "merged": "2026-10-02",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 511,
+   "title": "Prepare 0.5.13",
+   "merged": "2026-10-02",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 510,
+   "title": "Create screen: a working style is always picked, Create always answers",
+   "merged": "2026-10-02",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 509,
+   "title": "Create screen: no folder preview under the name",
+   "merged": "2026-10-02",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 508,
+   "title": "Name ideas are full names, without 'e.g.'",
+   "merged": "2026-10-02",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 499,
+   "title": "UX batch: model picker and defaults, Telegram without a dog, names as you say them",
+   "merged": "2026-10-02",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 507,
+   "title": "Fixes from the independent review of the UX batch",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 506,
+   "title": "Telegram shows display names",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 505,
+   "title": "opencode: default models through OpenRouter",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 504,
+   "title": "setup-telegram: stay until a message has arrived both ways",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 503,
+   "title": "Rename a wolt from its page; version the site drawer script",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 502,
+   "title": "Refresh the Mill branch: merge main and the UX batch",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 501,
+   "title": "Wolt sites use the display name",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 500,
+   "title": "test: Settings page carries Default models",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 498,
+   "title": "Name a wolt as you would say it; the lodge derives the folder name",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 496,
+   "title": "Telegram works without a dog or an API key; setup is a token and one message",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 494,
+   "title": "Models: discovery, ranked defaults, a picker on the create screen, defaults in Settings",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 492,
+   "title": "First run: pixel welcome, no boot-time copy, live sessions always open",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 491,
+   "title": "Lodge: Sessions tab back + one shared session row with start/stop",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 13,
+   "title": "Onboardie paste line: read the page first",
+   "merged": "2026-10-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 490,
+   "title": "chore: prepare Python 0.5.12 release",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 488,
+   "title": "Skills: native paths instead of container-era /workspace",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 487,
+   "title": "woltspace update",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 486,
+   "title": "Cloudflare skill: the app domain flow",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 485,
+   "title": "Merge main (0.5.11 + #483) into the app backend",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 484,
+   "title": "chore: prepare Python 0.5.11 release",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 483,
+   "title": "fix(codex): run each session without the shared app-server daemon",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 482,
+   "title": "A fresh lodge starts with a starter wolt",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 11,
+   "title": "Onboardie share card: drop the description",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 10,
+   "title": "Onboardie page: share card",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 9,
+   "title": "Add /wolts/onboardie page",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 8,
+   "title": "Install: Node optional, agents set the harness, meet Onboardie (merge after 0.5.11)",
+   "merged": "2026-09-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 481,
+   "title": "A fresh lodge starts with a starter wolt",
+   "merged": "2026-09-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 480,
+   "title": "Fixes from setting up a second native lodge",
+   "merged": "2026-09-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 479,
+   "title": "Apps are served only by the app gateway",
+   "merged": "2026-09-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 478,
+   "title": "chore: prepare Python 0.5.10 release",
+   "merged": "2026-09-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 477,
+   "title": "Outline online wolts in green on the Wolts page",
+   "merged": "2026-09-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 476,
+   "title": "Two lodge states: online and offline",
+   "merged": "2026-09-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 475,
+   "title": "Make the lodge drawer instant: a light sessions view",
+   "merged": "2026-09-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 471,
+   "title": "Lodge redesign: sidebar, wolt pages, resting sessions, settings",
+   "merged": "2026-09-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 474,
+   "title": "Close the final lodge review findings: inline handlers, codex id claim, read-only /tui",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 473,
+   "title": "Keep the app gateway opt-in and derive its port from the lodge",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 470,
+   "title": "feat: isolate shared apps behind a dedicated gateway",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 469,
+   "title": "test: connect the site livereload test on the lodge host",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 468,
+   "title": "fix: keep lodge websockets off app hosts",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 467,
+   "title": "Share an app with specific people",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 466,
+   "title": "Keep lodge websockets off app hosts",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 465,
+   "title": "Verify Cloudflare Access tokens in the lodge",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 464,
+   "title": "Serve apps on an optional separate domain",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 463,
+   "title": "Lodge: one definition of session state (working / awake / resting)",
+   "merged": "2026-09-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 456,
+   "title": "chore: prepare Python 0.5.9 release",
+   "merged": "2026-09-27",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 454,
+   "title": "feat(wolves): a lodge page for the wolves",
+   "merged": "2026-09-27",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 453,
+   "title": "Browser terminal follows window resizes again",
+   "merged": "2026-09-27",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 452,
+   "title": "wolf: clean API + CLI, one shared cron core",
+   "merged": "2026-09-27",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 450,
+   "title": "feat(sites): the site shell - one light frame for every wolt site",
+   "merged": "2026-09-27",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 449,
+   "title": "fix(delivery): bracketed paste so the submit Enter lands",
+   "merged": "2026-09-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 448,
+   "title": "Release Python 0.5.8: secure local control plane and embedded browser PTY",
+   "merged": "2026-09-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 446,
+   "title": "fix: protect localhost control plane from browser attacks",
+   "merged": "2026-09-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 443,
+   "title": "Owner-only Slack Agent View sessions",
+   "merged": "2026-09-25",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 441,
+   "title": "chore: prepare Python 0.5.7 release",
+   "merged": "2026-09-20",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 440,
+   "title": "feat: add owner-approved SSH digging",
+   "merged": "2026-09-20",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 439,
+   "title": "Prepare Python 0.5.6 release",
+   "merged": "2026-09-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 438,
+   "title": "Add colony seed creation and installation",
+   "merged": "2026-09-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 437,
+   "title": "Make harness choice part of first-lodge onboarding",
+   "merged": "2026-09-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 436,
+   "title": "Fix GitHub draft release tag finalization",
+   "merged": "2026-09-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 435,
+   "title": "Fix npm publishing and support independent registry releases",
+   "merged": "2026-09-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 434,
+   "title": "ci: prepare owner-approved PyPI and npm trusted publishing",
+   "merged": "2026-09-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 432,
+   "title": "Release Python 0.5.5 and TUI 0.5.2 with shared lodge skills and Auto fix",
+   "merged": "2026-09-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 433,
+   "title": "Add focused release CI and refactor environment-sensitive fixtures",
+   "merged": "2026-09-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 429,
+   "title": "Ship the lodge with all connectors by default (0.5.4)",
+   "merged": "2026-09-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 428,
+   "title": "Release 0.5.3",
+   "merged": "2026-09-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 427,
+   "title": "Document native uv upgrades and update the lodge skill",
+   "merged": "2026-09-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 7,
+   "title": "Include connector support in plain website installs",
+   "merged": "2026-09-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 6,
+   "title": "Simplify Woltspace installation for new users",
+   "merged": "2026-09-16",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 422,
+   "title": "0.5.2 — shell-safe wolt messaging, and native lodges that actually deliver instructions",
+   "merged": "2026-09-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 421,
+   "title": "Sync platform instructions on native start",
+   "merged": "2026-09-12",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 419,
+   "title": "Sync agent instruction and skill bridges on native lodges",
+   "merged": "2026-09-12",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 415,
+   "title": "Make notify messages shell-safe across harnesses",
+   "merged": "2026-09-12",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 413,
+   "title": "Untie the tui from the wheel: the tui declares its minimum lodge, 0.5.1 both",
+   "merged": "2026-09-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 411,
+   "title": "tui: render a wolt session in the current pane when inside tmux",
+   "merged": "2026-09-10",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 5,
+   "title": "install.sh: native first, container by flag",
+   "merged": "2026-09-09",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 410,
+   "title": "The gatekeeper learns the native gate - update skill for 0.5",
+   "merged": "2026-09-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 409,
+   "title": "The lodge tells newcomers the real door now - install docs for 0.5.0",
+   "merged": "2026-09-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 408,
+   "title": "Every wolt wakes in its own den - tui 0.5.0 identity and spawn workdir",
+   "merged": "2026-09-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 406,
+   "title": "rc6: six fixes come home to the lodge",
+   "merged": "2026-09-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 395,
+   "title": "Native woltspace: the colony leaves the container",
+   "merged": "2026-09-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 398,
+   "title": "The elephant learns what to remember — native backup/restore",
+   "merged": "2026-09-07",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 397,
+   "title": "Skills answer to their own names — plugin + symlink delivery",
+   "merged": "2026-09-07",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 396,
+   "title": "The den had no door: native fixes from the first Mac run",
+   "merged": "2026-09-05",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 394,
+   "title": "R1/R2/R3: the guard that exempted itself",
+   "merged": "2026-09-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 392,
+   "title": "Phase 5: the colony's voice, natively supervised (no publishing)",
+   "merged": "2026-09-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 390,
+   "title": "Phase 4: TUI packaging, exact-version pinning, and native attach",
+   "merged": "2026-09-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 389,
+   "title": "Phase 3: native Python control plane and restart adoption",
+   "merged": "2026-09-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 388,
+   "title": "Native phase 2: target sessions at existing repositories",
+   "merged": "2026-09-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 387,
+   "title": "Session runtime foundation: registry-backed tmux handles (host-native PR 1)",
+   "merged": "2026-09-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 4,
+   "title": "Scaffold-for-harnesses story: landing intro + /talk/ page",
+   "merged": "2026-08-25",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 385,
+   "title": "opencode: deliver boot prompt by paste, not --prompt",
+   "merged": "2026-08-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 3,
+   "title": "landing: 'Read the docs' CTA in the install card",
+   "merged": "2026-08-07",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 2,
+   "title": "Astro + Starlight docs skeleton",
+   "merged": "2026-08-07",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 383,
+   "title": "Sites: serve directly from FastAPI — no per-wolt servers, no ports",
+   "merged": "2026-08-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 381,
+   "title": "Open desktop external links in the default browser",
+   "merged": "2026-08-03",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 371,
+   "title": "tui: n spawns, enter wakes offline sessions, spawn attaches",
+   "merged": "2026-08-03",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 380,
+   "title": "feat: Woltspace desktop app",
+   "merged": "2026-07-29",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 376,
+   "title": "Put Worktui on every agent trail",
+   "merged": "2026-07-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 377,
+   "title": "Apps reach their dens from every window — even the native shell",
+   "merged": "2026-07-27",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 378,
+   "title": "IWCL: woltspace session spawn — wolts can delegate by creating sessions",
+   "merged": "2026-07-25",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 370,
+   "title": "Bring your own tmux: baked defaults + tmux.conf.local overlay",
+   "merged": "2026-07-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 369,
+   "title": "woltspace tui - terminal cockpit for the colony (v1: sessions pane)",
+   "merged": "2026-07-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 362,
+   "title": "Add opencode as a third harness (draft — needs live bench)",
+   "merged": "2026-07-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 367,
+   "title": "Derive woltspace-worktui skill from worktui's bundled skill",
+   "merged": "2026-07-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 366,
+   "title": "Host launcher: forward control verbs to the in-container CLI (IWCL)",
+   "merged": "2026-07-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 364,
+   "title": "IWCL (Inter-Wolt Communication): session send/list + attributed delivery",
+   "merged": "2026-07-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 363,
+   "title": "Codex: invoke skills with @name (native mention), not $name",
+   "merged": "2026-07-16",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 361,
+   "title": "Model picker: per-wolt model selection + data-driven catalog",
+   "merged": "2026-07-16",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 360,
+   "title": "Harness pickers: per-wolt engine switching in the lodge",
+   "merged": "2026-07-14",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 359,
+   "title": "Add codex harness (rebased onto main after #356)",
+   "merged": "2026-07-14",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 356,
+   "title": "Harness registry: groundwork for codex/opencode support",
+   "merged": "2026-07-14",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 348,
+   "title": "wclaude: put the wolt's own .local/bin on PATH",
+   "merged": "2026-05-29",
+   "author": "LElkUNP"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 344,
+   "title": "Consolidate Cloudflare skills into woltspace-cloudflare",
+   "merged": "2026-05-04",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 342,
+   "title": "woltspace chat --session <slug>: attach to a live wolt session in your terminal",
+   "merged": "2026-04-30",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 340,
+   "title": "docs: rewrite ARCHITECTURE.md as durable canonical reference",
+   "merged": "2026-04-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 338,
+   "title": "docs: remove stale DEV_FLOW.md + SESSION-NOTES.md",
+   "merged": "2026-04-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 337,
+   "title": "docs: remove stale ROADMAP.md",
+   "merged": "2026-04-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 336,
+   "title": "chore: drop legacy site/",
+   "merged": "2026-04-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 335,
+   "title": "subdomain proxy: preserve content-length for Range responses",
+   "merged": "2026-04-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "woltspace/site",
+   "number": 1,
+   "title": "iphone story carousel (3 phones, real footage)",
+   "merged": "2026-04-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 333,
+   "title": "telegram: handle video/animation uploads",
+   "merged": "2026-04-25",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 332,
+   "title": "Telegram /apps: inline keyboard with open + start/stop",
+   "merged": "2026-04-23",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 331,
+   "title": "Telegram /sessions: inline keyboard with open + stop",
+   "merged": "2026-04-23",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 330,
+   "title": "Telegram /wolt: inline keyboard picker",
+   "merged": "2026-04-23",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 329,
+   "title": "Telegram: register bot commands + commands menu button (phase 1)",
+   "merged": "2026-04-23",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 328,
+   "title": "Lodge sessions UX: slug-primary, no polling, forest-journal rows",
+   "merged": "2026-04-23",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 327,
+   "title": "Fix telegram paste stuck — exit copy-mode before paste",
+   "merged": "2026-04-22",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 326,
+   "title": "Fix telegram paste not submitting — separate Enter from paste",
+   "merged": "2026-04-22",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 325,
+   "title": "Fix UID mismatch between host and container",
+   "merged": "2026-04-22",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 323,
+   "title": "Wildcard subdomain routing for apps",
+   "merged": "2026-04-20",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 320,
+   "title": "Fix asymmetric padding on wolt sprite avatars",
+   "merged": "2026-04-16",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 319,
+   "title": "Restore apps on container boot",
+   "merged": "2026-04-15",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 318,
+   "title": "Named Cloudflare tunnel support for permanent lodge URLs",
+   "merged": "2026-04-15",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 317,
+   "title": "Permanent per-wolt site ports",
+   "merged": "2026-04-15",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 314,
+   "title": "Polish create-wolt: lodge-themed starter site, simplified first-session skill",
+   "merged": "2026-04-14",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 306,
+   "title": "Fix 22 broken tests across the test suite",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 304,
+   "title": "Fix tmux message delivery - paste-buffer instead of send-keys",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 303,
+   "title": "Lodge-first onboarding — auth and wolt creation happen in the browser",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 302,
+   "title": "Fix resumed sessions losing their model",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 301,
+   "title": "Fix Telegram reply routing — remove _is_session_alive gatekeeper",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 300,
+   "title": "Enable tmux mouse mode for terminal scrolling",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 299,
+   "title": "Fix emoji rendering in TUI terminal",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 298,
+   "title": "Remove TUI share/back buttons and dead /shares server endpoints",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 297,
+   "title": "Remove TUI topbar app bar",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 287,
+   "title": "Move lodge tunnel inside FastAPI server with auto-restart",
+   "merged": "2026-04-12",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 295,
+   "title": "Simplify wolt cards: one click, inline tooltip",
+   "merged": "2026-04-11",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 294,
+   "title": "Remove legacy HTML, switch fully to Jinja2",
+   "merged": "2026-04-11",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 293,
+   "title": "Jinja2 template decomposition for frontend",
+   "merged": "2026-04-11",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 290,
+   "title": "Fix push-view docs for apps: use subdomain pattern",
+   "merged": "2026-04-11",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 282,
+   "title": "security: deny all when TELEGRAM_ALLOWED_USERS is empty",
+   "merged": "2026-04-09",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 281,
+   "title": "feat: /apps Telegram command",
+   "merged": "2026-04-09",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 280,
+   "title": "feat: /new and /help commands for Telegram",
+   "merged": "2026-04-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 270,
+   "title": "rename: projects → apps",
+   "merged": "2026-04-08",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 278,
+   "title": "feat: telegram reply-to routing",
+   "merged": "2026-04-07",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 277,
+   "title": "Landing page v1.1 — install card, hero copy, animated sprites",
+   "merged": "2026-04-07",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 276,
+   "title": "fix: install snags — missing .state dir + PATH hint",
+   "merged": "2026-04-07",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 274,
+   "title": "feat: telegram v2 — chat-per-wolt adapter + file handling (#273)",
+   "merged": "2026-04-07",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 272,
+   "title": "fix: lodge sessions send start-chat prompt on spawn",
+   "merged": "2026-04-06",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 271,
+   "title": "feat: persistent sessions + process tree fix",
+   "merged": "2026-04-06",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 268,
+   "title": "feat: pixel art sprites in lodge UI",
+   "merged": "2026-04-06",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 264,
+   "title": "redesign: v1 landing page for woltspace.com",
+   "merged": "2026-04-06",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 262,
+   "title": "feat: session resume, stop/resume lifecycle, lodge UI cleanup",
+   "merged": "2026-04-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 259,
+   "title": "feat: direct port serving + streaming proxy for project livereload",
+   "merged": "2026-04-05",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 255,
+   "title": "feat: lodge redesign — sidebar dashboard, project grid, sessions view",
+   "merged": "2026-04-03",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 256,
+   "title": "Fix stale skill names from woltspace-* rename",
+   "merged": "2026-04-02",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 252,
+   "title": "feat: skill inheritance — woltspace-* prefix and boot sync",
+   "merged": "2026-04-01",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 248,
+   "title": "feat: woltspace update — the beaver maintains the lodge",
+   "merged": "2026-03-29",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 244,
+   "title": "docs: API-only rule for platform projects",
+   "merged": "2026-03-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 243,
+   "title": "fix: separate site and project port ranges",
+   "merged": "2026-03-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 240,
+   "title": "fix: fixed ports in woltspace.json",
+   "merged": "2026-03-28",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 236,
+   "title": "feat: slack thread ownership + notify routing",
+   "merged": "2026-03-26",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 235,
+   "title": "fix: stale tunnel URL on stop/start + cache-bust remote builds",
+   "merged": "2026-03-26",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 231,
+   "title": "fix: install script uses correct default WOLTS_DIR",
+   "merged": "2026-03-24",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 228,
+   "title": "refactor: wolt-centric state model (.state per-wolt, .space global)",
+   "merged": "2026-03-24",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 223,
+   "title": "v0.2.2 release prep: changelog + skill sync in /update",
+   "merged": "2026-03-22",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 221,
+   "title": "feat: distributed wolf scheduler (#215)",
+   "merged": "2026-03-22",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 216,
+   "title": "fix: credential symlinks self-heal when wiped",
+   "merged": "2026-03-21",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 211,
+   "title": "fix: session revive runs in correct wolt dir",
+   "merged": "2026-03-20",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 210,
+   "title": "docs: v0.2.0 migration guide + version bump",
+   "merged": "2026-03-20",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 209,
+   "title": "fix: skip onboarding prompt + disable auto-memory for wolts",
+   "merged": "2026-03-20",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 208,
+   "title": "feat: per-wolt .claude config isolation",
+   "merged": "2026-03-20",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 204,
+   "title": "fix: wclaude trust wrapper + skill cleanup + dead code removal",
+   "merged": "2026-03-20",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 190,
+   "title": "feat: projects as first-class citizens (#171)",
+   "merged": "2026-03-20",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 203,
+   "title": "fix: fast uvicorn reload (1s graceful shutdown)",
+   "merged": "2026-03-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 202,
+   "title": "Update skills: sites vs projects distinction",
+   "merged": "2026-03-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 200,
+   "title": "fix: --branch uses branch tip, rebuild pins current version",
+   "merged": "2026-03-19",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 199,
+   "title": "Add wakeup template + auto-navigate on session start",
+   "merged": "2026-03-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 198,
+   "title": "feat: wolt sites — per-wolt livereload with live reload",
+   "merged": "2026-03-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 197,
+   "title": "feat: TUI top bar shows project controls when viewing a project",
+   "merged": "2026-03-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 192,
+   "title": "feat: OAuth login during woltspace init",
+   "merged": "2026-03-19",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 191,
+   "title": "feat: lodge project cards with start/stop toggle",
+   "merged": "2026-03-19",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 187,
+   "title": "feat: remove /app/ routes, add project off-state placeholder",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 185,
+   "title": "feat: /projects/ API routes — list, detail, start, stop",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 183,
+   "title": "feat: WoltspaceProject pydantic model (v0.1 schema)",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 181,
+   "title": "fix: ensure /home/node/.claude is writable on all platforms",
+   "merged": "2026-03-18",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 178,
+   "title": "fix: check_update compares tagged versions, not branch HEAD",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 175,
+   "title": "fix: backup survives broken symlinks",
+   "merged": "2026-03-18",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 174,
+   "title": "fix: auto-trust wolt dirs to unblock headless sessions",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 170,
+   "title": "chore: remove server.js, fix stale skill reference (closes #165)",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 169,
+   "title": "fix: dog uses wolt model tier, surfaces errors, knows the colony",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 168,
+   "title": "Session routing, start-chat skill, projects, and create-wolt",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 166,
+   "title": "Add projects section to lodge, show only running sessions",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 164,
+   "title": "Unify session spawning under adapter-specific routes",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 163,
+   "title": "UX: home page redesign",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 158,
+   "title": "Install script pulls latest release tag, not branch tip",
+   "merged": "2026-03-18",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 151,
+   "title": "v0.1.0 — GitHub App auth + python-dotenv",
+   "merged": "2026-03-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 149,
+   "title": "Add dep sync to /update skill",
+   "merged": "2026-03-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 148,
+   "title": "Replace custom .env parser with python-dotenv",
+   "merged": "2026-03-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 147,
+   "title": "Replace PAT auth with GitHub App",
+   "merged": "2026-03-17",
+   "author": "woltspace-jerpint",
+   "bot": true
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 121,
+   "title": "Bump version to v0.0.2",
+   "merged": "2026-03-17",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 119,
+   "title": "Inline beaver favicon — can't be shadowed by wolt files",
+   "merged": "2026-03-17",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 117,
+   "title": "Copy v0.0.1 migration guide into migrations/ directory",
+   "merged": "2026-03-17",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 116,
+   "title": "Release system — versioning, changelog, version-aware /update",
+   "merged": "2026-03-17",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 112,
+   "title": "Playful dog acks — tail wags, head tilts, tippy taps",
+   "merged": "2026-03-17",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 109,
+   "title": "Wolf catch-up: fire missed crons on startup",
+   "merged": "2026-03-17",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 104,
+   "title": "The lodge moves in — refactor init, CLI, Dockerfile, port 7777",
+   "merged": "2026-03-16",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 101,
+   "title": "Backup system, version tagging, and CLI polish",
+   "merged": "2026-03-16",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 95,
+   "title": "Update /update skill for new architecture + drift detection",
+   "merged": "2026-03-16",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 94,
+   "title": "Add migration guide: main → refactor-init",
+   "merged": "2026-03-16",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 93,
+   "title": "Fix session reconcile on boot — was silently failing",
+   "merged": "2026-03-16",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 91,
+   "title": "Fix install.sh — PATH persistence and WOLTS_DIR mismatch",
+   "merged": "2026-03-16",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 89,
+   "title": "Fix install.sh — PATH persistence and WOLTS_DIR mismatch",
+   "merged": "2026-03-16",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 87,
+   "title": "Deploy staging — wolves, vulture, dog tools, digest migration",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 85,
+   "title": "Wolves back to basics — remove update-check from crons",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 84,
+   "title": "fix(wolf): export WOLT_DIR in cron tmux sessions",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 83,
+   "title": "fix: never route /update to otter — beaver/raccoon only",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 81,
+   "title": "check-update: notify once per release, fix message wording",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 80,
+   "title": "wolf: check for updates every 5 minutes",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 78,
+   "title": "update skill: lore-flavored gate, explicit confirmation required",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 77,
+   "title": "fix(check-update): use notify binary instead of hand-rolled curl",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 74,
+   "title": "Vulture sends a friendly ack when it cleans up",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 73,
+   "title": "Add immediate dog ack for Telegram messages",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 68,
+   "title": "Add vulture — session reaper for OOM prevention",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 66,
+   "title": "install.sh: stop rm-rf'ing the lodge, warn on dirty pull",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 64,
+   "title": "staging → main: wolf maturity, dog open_issue, digest viewport fix",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 63,
+   "title": "fix digest not pushing to viewport",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 62,
+   "title": "tag issues with the wolt that opened them",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 60,
+   "title": "dog can now open GitHub issues",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 58,
+   "title": "Fix wolf notification links",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 57,
+   "title": "Wolf job log — see what fired and what vanished",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 56,
+   "title": "Wolf auto-reloads on code changes (watchfiles)",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 55,
+   "title": "Remove legacy digest cron — wolf owns all scheduling",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 54,
+   "title": "Fix wolf split-brain — bot reads howlie's schedule now",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 48,
+   "title": "Wolf sees itself — howlie speaks as howlie",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 47,
+   "title": "Merge staging: --dev remembers where staging lives",
+   "merged": "2026-03-15",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 46,
+   "title": "Fix rebuild --dev to checkout staging without pulling",
+   "merged": "2026-03-15",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 45,
+   "title": "Merge staging: rebuild trusts the colony",
+   "merged": "2026-03-15",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 44,
+   "title": "Remove git pull from rebuild — in-app updates only",
+   "merged": "2026-03-15",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 43,
+   "title": "Merge staging: always-mount repo + responsible updater",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 42,
+   "title": "Add /update skill — pull is enough, no rebuild needed",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 41,
+   "title": "Merge staging: fix update checker branch comparison",
+   "merged": "2026-03-15",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 40,
+   "title": "Merge staging: two-branch model, update checker, wolf seeding",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 39,
+   "title": "Fix update checker branch mismatch in dev mode",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 38,
+   "title": "Two branches, one colony — staging split",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 35,
+   "title": "Two new creatures join the colony 🐞🐘",
+   "merged": "2026-03-15",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 34,
+   "title": "fix: session list showing undefined on home page",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 33,
+   "title": "Creature-wolt creation: wolf + dog get their own homes",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 32,
+   "title": "Creature-type isolation (Phase 1): type field + discovery",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 30,
+   "title": "Fix build + bot startup — unzip and uv project path 🦫🔧",
+   "merged": "2026-03-15",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 28,
+   "title": "Add otter 🦦 — haiku session creature",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 27,
+   "title": "Spring cleaning: CLAUDE.md audit",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 26,
+   "title": "Implement wolf 🐺 — cron scheduler",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 25,
+   "title": "Bake worktui into the container image",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 24,
+   "title": "Make install one-liner idempotent on re-run",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 23,
+   "title": "Fix onboarding build: uv expects directory, not file",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 22,
+   "title": "feat: dog takes the lodge — otter retires",
+   "merged": "2026-03-15",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 21,
+   "title": "feat: creature lore + ecosystem scaffolding",
+   "merged": "2026-03-14",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 20,
+   "title": "Update roadmap + add woltspace-as-a-project dev flow",
+   "merged": "2026-03-14",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 19,
+   "title": "Auto-add woltspace to PATH during init",
+   "merged": "2026-03-14",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 18,
+   "title": "Cache Claude CLI install in isolated Docker build stage",
+   "merged": "2026-03-14",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 17,
+   "title": "feat: project isolation — guardrails + wolt/projects/",
+   "merged": "2026-03-14",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 16,
+   "title": "Wire Python FastAPI server as default runtime",
+   "merged": "2026-03-14",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 14,
+   "title": "fix: session revival picks correct conversation",
+   "merged": "2026-03-14",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 13,
+   "title": "feat: test framework + viewport context + true e2e (105 tests)",
+   "merged": "2026-03-14",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 12,
+   "title": "remove sketchy mount",
+   "merged": "2026-03-13",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 11,
+   "title": "Fix creature routing: respect explicit user creature choice",
+   "merged": "2026-03-13",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 10,
+   "title": "Centralized session registry",
+   "merged": "2026-03-13",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 8,
+   "title": "Bot cleanup: creatures, notify, tool logging, session fixes",
+   "merged": "2026-03-13",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 7,
+   "title": "Cleanup: remove test files from branch protection testing",
+   "merged": "2026-03-13",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 5,
+   "title": "test: woltspace account access",
+   "merged": "2026-03-13",
+   "author": "woltspace-dev"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 4,
+   "title": "test bypass",
+   "merged": "2026-03-13",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 3,
+   "title": "Update agent loop",
+   "merged": "2026-03-11",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 2,
+   "title": "fix: read from /dev/tty so curl | bash works interactively",
+   "merged": "2026-03-11",
+   "author": "jerpint"
+  },
+  {
+   "repo": "jerpint/woltspace",
+   "number": 1,
+   "title": "Cleanup Onboarding Flow",
+   "merged": "2026-03-11",
+   "author": "jerpint"
+  }
+ ]
+}

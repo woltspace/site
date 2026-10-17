@@ -70,3 +70,41 @@ export function checkEntry(raw, ranger, repoFromFile) {
   if (!entry.wolts.length && !entry.apps.length && !errors.length) errors.push('list at least one wolt or app');
   return { entry, errors };
 }
+
+// registry/<ranger>/ranger.json: optional, for a ranger who wants a page without
+// sharing a seed, wants to link their own GitHub App bots, or wants off the list.
+// { "hello": "I wanna become a ranger", "bots": ["my-lodge-bot"], "listed": true }
+// A seed repo cannot be named "ranger" for that reason.
+export const RANGER_FILE = 'ranger';
+export const BOT_RE = /^[a-z0-9][a-z0-9-]{0,33}$/;
+export const RANGER_LIMITS = { hello: 140, bots: 5 };
+
+export function checkRanger(raw) {
+  const errors = [];
+  const entry = { hello: '', bots: [], listed: true };
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return { entry, errors: ['must be a JSON object'] };
+  for (const key of Object.keys(raw)) if (!['hello', 'bots', 'listed'].includes(key)) errors.push(`unknown key "${key}"`);
+  if (raw.hello !== undefined) {
+    if (typeof raw.hello !== 'string') errors.push('"hello" must be text');
+    else {
+      if (raw.hello.length > RANGER_LIMITS.hello) errors.push(`"hello" is longer than ${RANGER_LIMITS.hello} characters`);
+      entry.hello = raw.hello.trim().slice(0, RANGER_LIMITS.hello);
+    }
+  }
+  if (raw.bots !== undefined) {
+    if (!Array.isArray(raw.bots)) errors.push('"bots" must be a list');
+    else {
+      if (raw.bots.length > RANGER_LIMITS.bots) errors.push(`at most ${RANGER_LIMITS.bots} bots`);
+      for (const bot of raw.bots.slice(0, RANGER_LIMITS.bots)) {
+        const slug = typeof bot === 'string' ? bot.replace(/\[bot\]$/, '') : bot;
+        if (typeof slug !== 'string' || !BOT_RE.test(slug)) errors.push(`bots: "${bot}" is not a GitHub App name`);
+        else if (!entry.bots.includes(slug)) entry.bots.push(slug);
+      }
+    }
+  }
+  if (raw.listed !== undefined) {
+    if (typeof raw.listed !== 'boolean') errors.push('"listed" must be true or false');
+    else entry.listed = raw.listed;
+  }
+  return { entry, errors };
+}

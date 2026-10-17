@@ -4,10 +4,10 @@ import { loadShare, rangerPath } from '../../lib/registry';
 const { rangers } = await loadShare();
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 ---
-<Page title="Rangers" description="The people who share wolts and apps on Woltspace." path="/rangers" wide>
+<Page title="Rangers" description="The people who build Woltspace and share wolts and apps on it." path="/rangers" wide>
   <p class="back"><a href="/">woltspace</a> / rangers</p>
   <div class="list-head"><h1>Rangers</h1><span class="count">{rangers.length}</span></div>
-  <p class="lead">The people who share wolts and apps. A ranger is a GitHub account.</p>
+  <p class="lead">The people who help build Woltspace and share wolts and apps on it. A ranger is a GitHub account. <a href="https://github.com/woltspace/site/tree/main/registry#become-a-ranger">Become one</a>.</p>
   <ul class="cards">
     {rangers.map((ranger) => (
       <li><a class="card" href={rangerPath(ranger.login)}>
@@ -15,7 +15,7 @@ const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
         <div class="card-body">
           <p class="card-name"><b>{ranger.login}</b></p>
           <p class="card-line">{ranger.badge ? `🌲 ${ranger.badge}` : 'Ranger'}</p>
-          <p class="card-meta"><span>{plural(ranger.wolts.length, 'wolt')}</span><span>{plural(ranger.apps.length, 'app')}</span></p>
+          <p class="card-meta">{(ranger.wolts.length > 0 || !ranger.contributions.length) && <span>{plural(ranger.wolts.length, 'wolt')}</span>}{ranger.apps.length > 0 && <span>{plural(ranger.apps.length, 'app')}</span>}{ranger.contributions.length > 0 && <span>{plural(ranger.contributions.length, 'contribution')}</span>}</p>
         </div>
       </a></li>
     ))}

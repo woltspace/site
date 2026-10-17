@@ -224,6 +224,18 @@ const site = 'https://woltspace.com';
   .ranger-card .stats { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--soft); margin: 0; }
   .ranger-gh { font-size: 14px; color: var(--soft); }
   .ranger-main .label { margin-top: 4px; }
+  .ranger-card h1.long { font-size: 26px; }
+  .ranger-hello { margin: 0; font-size: 15px; color: var(--soft); font-style: italic; }
+  .thanks { border: 1px solid var(--green); border-radius: 14px; padding: 14px 16px; margin: 0 0 28px; }
+  .thanks-head { margin: 0; font-weight: 600; font-size: 18px; }
+  .thanks-line { margin: 4px 0 0; color: var(--soft); font-size: 15px; }
+  .contribs li { border-bottom: 1px solid var(--line); }
+  .contribs li:last-child { border-bottom: 0; }
+  .contrib { display: flex; flex-direction: column; gap: 2px; padding: 10px 2px; text-decoration: none; color: inherit; }
+  .contrib:hover .contrib-title { color: var(--accent); }
+  .contrib-title { font-weight: 500; overflow-wrap: anywhere; }
+  .contrib-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--soft); }
+  .contrib-more summary { cursor: pointer; font-size: 14px; color: var(--soft); padding: 10px 2px; }
   /* One wolt fills the row instead of leaving an empty column next to it. */
   .ranger-main .cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   @media (max-width: 760px) {
