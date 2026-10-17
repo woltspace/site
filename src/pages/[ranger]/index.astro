@@ -18,10 +18,10 @@ const written = (await posts()).filter((post) => post.data.author.toLowerCase() 
 const helped = ranger.contributions;
 const shared = ranger.wolts.length + ranger.apps.length > 0;
 const stats = [shared || !helped.length ? plural(ranger.wolts.length, 'wolt') : '', ranger.apps.length ? plural(ranger.apps.length, 'app') : '', written.length ? plural(written.length, 'post') : '', helped.length ? plural(helped.length, 'contribution') : ''].filter(Boolean).join(' · ');
-// The summary: one line per repo (how many, since when, how many a wolt did).
+// The summary: one line per repo (how many, since when).
 const repos = [...new Set(helped.map((c) => c.repo))].map((repo) => {
   const prs = helped.filter((c) => c.repo === repo);
-  return { repo, count: prs.length, first: prs[prs.length - 1].merged, last: prs[0].merged, wolts: prs.filter((c) => c.via).length };
+  return { repo, count: prs.length, first: prs[prs.length - 1].merged, last: prs[0].merged };
 }).sort((a, b) => b.count - a.count);
 const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 ---
@@ -46,11 +46,11 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
           <p class="thanks-head">🌲 Thank you for helping build Woltspace</p>
           <p class="thanks-line">{plural(helped.length, 'merged pull request')} since {month(helped[helped.length - 1].merged)}.</p>
           <ul class="thanks-repos">
-            {repos.map((r) => <li><b>{r.repo}</b><span>{plural(r.count, 'PR')} · {month(r.first) === month(r.last) ? month(r.last) : `${month(r.first)} – ${month(r.last)}`}{r.wolts > 0 && ` · 🐾 ${r.wolts} by a wolt they sent`}</span></li>)}
+            {repos.map((r) => <li><b>{r.repo}</b><span>{plural(r.count, 'PR')} · {month(r.first) === month(r.last) ? month(r.last) : `${month(r.first)} – ${month(r.last)}`}</span></li>)}
           </ul>
           <details class="contrib-more"><summary>{helped.length === 1 ? 'See the pull request' : `See all ${helped.length} pull requests`}</summary>
             <ul class="list contribs">
-              {helped.map((c) => <li><a class="contrib" href={c.url}><span class="contrib-title">{c.title}</span><span class="contrib-meta">{c.repo}#{c.number} · {month(c.merged)}{c.via && <span class="contrib-via" title={`opened by ${c.via}`}> · 🐾 sent a wolt</span>}</span></a></li>)}
+              {helped.map((c) => <li><a class="contrib" href={c.url}><span class="contrib-title">{c.title}</span><span class="contrib-meta">{c.repo}#{c.number} · {month(c.merged)}</span></a></li>)}
             </ul>
           </details>
         </section>

@@ -62,7 +62,7 @@ There are three ways in:
 
 - `"hello"`: one line for your page, up to 140 characters.
 - `"bots"`: your own GitHub App bots, e.g. `["my-lodge"]`, when your wolts open
-  pull requests through one. Their merged pull requests count as yours ("sent a wolt"),
+  pull requests through one. Their merged pull requests count as yours,
   but only if GitHub lists you as the app's owner.
 - `"listed": false`: takes your ranger page off the site. You can also ask Woltspace to hide it.
 
