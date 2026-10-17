@@ -42,7 +42,7 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
 
     <div class="ranger-main">
       {helped.length > 0 && (
-        <section class="thanks" data-contrib-search={ranger.search} data-contrib-n={helped.length}>
+        <section class="item thanks" data-contrib-search={ranger.search} data-contrib-n={helped.length}>
           <p class="thanks-head">🌲 Thank you for helping build Woltspace</p>
           <p class="thanks-line" data-contrib-line>{plural(helped.length, 'merged pull request')} since {month(helped[helped.length - 1].merged)}.</p>
           <ul class="thanks-repos" data-contrib-repos>
@@ -50,7 +50,7 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
           </ul>
           <details class="contrib-more"><summary data-contrib-summary>{helped.length === 1 ? 'See the pull request' : `See all ${helped.length} pull requests`}</summary>
             <ul class="list contribs" data-contrib-list>
-              {helped.map((c) => <li><a class="contrib" href={c.url}><span class="contrib-title">{c.title}</span><span class="contrib-meta">{c.repo}#{c.number} · {month(c.merged)}</span></a></li>)}
+              {helped.map((c) => <li><a class="item contrib" href={c.url}><p class="stamp">{c.repo}#{c.number} · {month(c.merged)}</p><h2>{c.title}</h2></a></li>)}
             </ul>
           </details>
         </section>
@@ -93,8 +93,8 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
         var li = el('li'); li.append(el('b', null, r.repo), el('span', null, plural(r.count, 'PR') + ' · ' + (month(r.first) === month(r.last) ? month(r.last) : month(r.first) + ' – ' + month(r.last)))); return li;
       }));
       box.querySelector('[data-contrib-list]').replaceChildren.apply(box.querySelector('[data-contrib-list]'), prs.map(function (c) {
-        var li = el('li'), a = el('a', 'contrib'); a.href = 'https://github.com/' + c.repo + '/pull/' + c.number;
-        a.append(el('span', 'contrib-title', c.title), el('span', 'contrib-meta', c.repo + '#' + c.number + ' · ' + month(c.merged))); li.append(a); return li;
+        var li = el('li'), a = el('a', 'item contrib'); a.href = 'https://github.com/' + c.repo + '/pull/' + c.number;
+        a.append(el('p', 'stamp', c.repo + '#' + c.number + ' · ' + month(c.merged)), el('h2', null, c.title)); li.append(a); return li;
       }));
     }
     var cached = null;
