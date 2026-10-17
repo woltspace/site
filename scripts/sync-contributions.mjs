@@ -16,26 +16,30 @@ const SKIP = ['woltspace/site'];
 const OUT = 'src/data/contributions.json';
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 
-async function get(path) {
+// Any error stops the run before the file is written: a rate limit (403/429) or
+// a missing repo must never turn into a shorter list that drops someone's credit.
+// Only an app's owner may be missing (404: a private app), see below.
+async function get(path, { missing = false } = {}) {
   const res = await fetch(`https://api.github.com/${path}`, {
     headers: { accept: 'application/vnd.github+json', 'user-agent': 'woltspace-site', ...(token ? { authorization: `Bearer ${token}` } : {}) },
   });
-  if (res.status === 404 || res.status === 403) return null;
-  if (!res.ok) throw new Error(`${path}: GitHub said ${res.status}`);
+  if (missing && res.status === 404) return null;
+  if (!res.ok) throw new Error(`${path}: GitHub said ${res.status}, nothing written`);
   return res.json();
 }
 async function pages(path) {
   const out = [];
   for (let page = 1; ; page++) {
     const batch = await get(`${path}${path.includes('?') ? '&' : '?'}per_page=100&page=${page}`);
-    if (!batch?.length) return out;
+    if (!Array.isArray(batch)) throw new Error(`${path}: not a list, nothing written`);
+    if (!batch.length) return out;
     out.push(...batch);
     if (batch.length < 100) return out;
   }
 }
 
 const repos = new Set(REPOS);
-for (const org of ORGS) for (const r of await pages(`orgs/${org}/repos?type=public`)) if (!r.fork && !r.archived) repos.add(r.full_name);
+for (const org of ORGS) for (const r of await pages(`orgs/${org}/repos?type=public`)) if (!r.fork) repos.add(r.full_name); // archived repos still count
 for (const r of SKIP) repos.delete(r);
 
 const prs = [];
@@ -51,15 +55,14 @@ for (const repo of [...repos].sort()) {
 }
 prs.sort((a, b) => b.merged.localeCompare(a.merged) || a.repo.localeCompare(b.repo) || b.number - a.number);
 
-// Who owns each bot, as GitHub says. A ranger's own ranger.json can claim a bot
-// only when this matches; a private app has no public owner and stays unclaimed.
-// GitHub shows a private app's owner only to that app's own token, so an owner
-// found once is kept when a later run cannot see it.
-const before = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')).owners ?? {} : {};
+// Who owns each bot, as GitHub says today. A ranger's own ranger.json can claim
+// a bot only when this matches. A private app has no public owner (null): a
+// maintainer links it in src/data/rangers.json instead. Nothing is carried over
+// from an earlier run, so a transferred app stops counting for its old owner.
 const owners = {};
 for (const slug of [...new Set(prs.filter((pr) => pr.bot).map((pr) => pr.author))].sort()) {
-  const app = await get(`apps/${slug}`);
-  owners[slug] = app?.owner?.login ?? before[slug] ?? null;
+  const app = await get(`apps/${slug}`, { missing: true });
+  owners[slug] = app?.owner?.login ?? null;
   console.log(`bot ${slug}: ${owners[slug] ? `owned by ${owners[slug]}` : 'owner not public'}`);
 }
 

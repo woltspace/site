@@ -71,8 +71,8 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
 <script is:inline>
   // Fresh numbers, asked of GitHub's public search by this browser: the same
   // repos, accounts and bots as the saved list, kept for 10 minutes. Swapped in
-  // only when GitHub knows at least as many as the saved list; otherwise the
-  // saved list stays. Everything from GitHub is set as text.
+  // only when every page came back complete and GitHub knows at least as many as
+  // the saved list; otherwise the saved list stays. Everything from GitHub is set as text.
   (function () {
     var box = document.querySelector('[data-contrib-search]');
     if (!box) return;
@@ -100,17 +100,18 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
     var cached = null;
     try { cached = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
     if (cached && Date.now() - cached.at < 600000) return show(cached.prs);
-    var prs = [];
+    var prs = [], seen = {}, MAX = 5;
     function page(n) {
       return fetch('https://api.github.com/search/issues?per_page=100&sort=updated&page=' + n + '&q=' + encodeURIComponent(q), { headers: { accept: 'application/vnd.github+json' } })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (d) {
-          if (!d || !Array.isArray(d.items)) return null;
+          if (!d || !Array.isArray(d.items) || d.incomplete_results) return null;
+          if (d.total_count > MAX * 100) return null;
           d.items.forEach(function (i) {
-            var merged = i.pull_request && i.pull_request.merged_at;
-            if (merged) prs.push({ repo: i.repository_url.split('/').slice(-2).join('/'), number: i.number, title: String(i.title).slice(0, 120), merged: merged.slice(0, 10) });
+            var merged = i.pull_request && i.pull_request.merged_at, id = i.repository_url + '#' + i.number;
+            if (merged && !seen[id]) seen[id] = prs.push({ repo: i.repository_url.split('/').slice(-2).join('/'), number: i.number, title: String(i.title).slice(0, 120), merged: merged.slice(0, 10) });
           });
-          return d.total_count > n * 100 && n < 5 ? page(n + 1) : prs;
+          return d.total_count > n * 100 ? page(n + 1) : prs;
         });
     }
     page(1).then(function (all) {

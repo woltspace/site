@@ -50,7 +50,8 @@ There are three ways in:
 
 - **Share a seed**, as above.
 - **Help build Woltspace.** Once you have a merged pull request in a Woltspace repo
-  (`jerpint/woltspace`, or any repo of the `woltspace` org except this site), you get a ranger page
+  (`jerpint/woltspace`, `jerpint/woltspace-starter-lodge`, or any repo of the
+  `woltspace` org except this site, archived ones included), you get a ranger page
   that thanks you and lists your contributions. You don't need to do anything.
 - **Just ask.** Open a pull request that adds one file, `registry/you/ranger.json`:
 
@@ -63,7 +64,8 @@ There are three ways in:
 - `"hello"`: one line for your page, up to 140 characters.
 - `"bots"`: your own GitHub App bots, e.g. `["my-lodge"]`, when your wolts open
   pull requests through one. Their merged pull requests count as yours,
-  but only if GitHub lists you as the app's owner.
+  but only if GitHub publicly lists you as the app's owner. If your app is private
+  (GitHub doesn't show its owner), open an issue or ask Woltspace to link it for you.
 - `"listed": false`: takes your ranger page off the site. You can also ask Woltspace to hide it.
 
 Contributions come from `src/data/contributions.json`, written by
