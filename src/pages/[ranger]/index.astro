@@ -48,7 +48,7 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
           <ul class="thanks-repos">
             {repos.map((r) => <li><b>{r.repo}</b><span>{plural(r.count, 'PR')} · {month(r.first) === month(r.last) ? month(r.last) : `${month(r.first)} – ${month(r.last)}`}{r.wolts > 0 && ` · 🐾 ${r.wolts} by a wolt they sent`}</span></li>)}
           </ul>
-          <details class="contrib-more"><summary>See all {plural(helped.length, 'pull request')}</summary>
+          <details class="contrib-more"><summary>{helped.length === 1 ? 'See the pull request' : `See all ${helped.length} pull requests`}</summary>
             <ul class="list contribs">
               {helped.map((c) => <li><a class="contrib" href={c.url}><span class="contrib-title">{c.title}</span><span class="contrib-meta">{c.repo}#{c.number} · {month(c.merged)}{c.via && <span class="contrib-via" title={`opened by ${c.via}`}> · 🐾 sent a wolt</span>}</span></a></li>)}
             </ul>
