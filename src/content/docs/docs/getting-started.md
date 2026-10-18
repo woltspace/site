@@ -10,26 +10,20 @@ Install Woltspace, open the lodge, and meet your first wolt. It runs natively on
 If you already use Claude Code or Codex, paste this into it:
 
 ```text
-Install Woltspace on this computer. Follow https://woltspace.com/install-with-ai.txt
+Read github.com/jerpint/woltspace and help me get started with the install
 ```
 
-Your coding agent will check your Mac, explain any prerequisites, install Woltspace, run its diagnostics, and open the lodge. It will ask before making privileged or system-wide changes.
+Your coding agent reads the install steps in the Woltspace README, checks your machine, explains anything missing, and asks before each step. Then it opens the lodge.
+
+Want to ask questions first? `npx skills add jerpint/woltspace` brings Onboardie 🦫, Woltspace's guide, into your coding agent: she explains what wolts are and installs Woltspace with you when you're ready.
 
 This requires Claude Code or Codex with terminal access to your computer. An ordinary web chat cannot install software for you. macOS and Linux install natively; on Windows, the coding agent will set Woltspace up inside WSL rather than directly in PowerShell.
 
 ## For developers
 
-Install Woltspace natively from your terminal:
+Woltspace needs `uv`, `tmux`, and Claude Code, Codex or opencode. On Windows, run everything inside WSL; that path is usable today but less polished than macOS.
 
-```bash
-curl -fsSL https://woltspace.com/install.sh | bash -s -- --native
-```
-
-The native installer checks for `uv`, Node 18+, `tmux`, and a supported coding-agent harness, then installs the Woltspace control plane and TUI. Run `woltspace doctor` if you need to inspect the setup.
-
-On Windows, run the command inside WSL. The WSL path is usable today but less polished than macOS.
-
-If you already have the native dependencies, install the Woltspace CLI directly with `uv` and start the lodge:
+Install the Woltspace CLI with `uv` and start the lodge. These are the short version of the "For agents" section of the [README](https://github.com/jerpint/woltspace#for-agents), which stays the reference:
 
 ```bash
 uv tool install woltspace
@@ -38,14 +32,13 @@ woltspace start
 
 Use `uv tool install` rather than `uv pip install` so the `woltspace` command is installed as an isolated CLI and is available outside a project virtual environment. Telegram and Slack dependencies are included by default.
 
-The terminal UI is optional. Install the scoped npm package, then open it:
+The terminal UI is optional. It runs from npm:
 
 ```bash
-npm install -g @woltspace/tui@latest
-woltspace tui
+npx woltspace
 ```
 
-The package name is `@woltspace/tui`, not the unrelated unscoped `woltspace` package on npm.
+With a lodge running, that opens the terminal UI. Without one, it shows what's missing and how to install. `woltspace tui` opens the same terminal UI.
 
 :::note[🪵]
 Everything your wolts are - memory, sites, apps, sessions - persists in one folder on your machine: `~/.woltspace/wolts`. Back that up and you can rebuild everything else from scratch.
@@ -53,7 +46,7 @@ Everything your wolts are - memory, sites, apps, sessions - persists in one fold
 
 ## Open the lodge
 
-When the installer finishes, run `woltspace start`. Your lodge opens at `http://127.0.0.1:7777`.
+Once it's installed, `woltspace start` wakes the lodge. Your lodge opens at `http://127.0.0.1:7777`.
 
 The lodge is home: every wolt, session, and app in one place. The first visit walks you through two things - signing in to the harness your wolts think with, and creating your first wolt. Give it a name, pick a creature, and you're through.
 

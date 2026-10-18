@@ -75,32 +75,32 @@ import WoltCard from './WoltCard.astro';
       <div class="install-panel" role="tabpanel" id="install-panel-terminal" aria-labelledby="install-tab-terminal" hidden>
         <div class="dev-tabs" role="tablist" aria-label="Developer installation method">
           <span class="dev-tabs-label">install</span>
-          <button type="button" role="tab" id="dev-tab-setup" aria-selected="true" aria-controls="dev-panel-setup" tabindex="0">One-liner</button>
-          <button type="button" role="tab" id="dev-tab-package" aria-selected="false" aria-controls="dev-panel-package" tabindex="-1">uv</button>
+          <button type="button" role="tab" id="dev-tab-setup" aria-selected="true" aria-controls="dev-panel-setup" tabindex="0">uv</button>
+          <button type="button" role="tab" id="dev-tab-package" aria-selected="false" aria-controls="dev-panel-package" tabindex="-1">npx</button>
         </div>
 
         <div class="dev-panel" role="tabpanel" id="dev-panel-setup" aria-labelledby="dev-tab-setup">
-          <h4>Run the setup script</h4>
-          <p class="install-copy">Checks and installs the native prerequisites, then installs Woltspace.</p>
-          <div class="install-cmd" data-lang="bash">
-            <code><span class="prompt">$</span><span class="tok-cmd">curl</span> <span class="tok-flag">-fsSL</span> <a class="tok-url" href="https://woltspace.com/install.sh">https://woltspace.com/install.sh</a> | <span class="tok-cmd">bash</span> <span class="tok-flag">-s -- --native</span></code>
-            <button class="copy-btn" onclick="copyText('curl -fsSL https://woltspace.com/install.sh | bash -s -- --native', 'copy-dev-label')" aria-label="Copy install command"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M5 1.5h7A1.5 1.5 0 0 1 13.5 3v8H12V3H5zM2.5 5A1.5 1.5 0 0 1 4 3.5h6A1.5 1.5 0 0 1 11.5 5v8.5A1.5 1.5 0 0 1 10 15H4a1.5 1.5 0 0 1-1.5-1.5zM4 5v8.5h6V5z"/></svg><span id="copy-dev-label" aria-live="polite">Copy</span></button>
-          </div>
-          <p class="install-note">On Windows, run this command inside WSL.</p>
-        </div>
-
-        <div class="dev-panel" role="tabpanel" id="dev-panel-package" aria-labelledby="dev-tab-package" hidden>
-          <h4>Install the package directly</h4>
-          <p class="install-copy">Install the CLI directly with uv, then start the lodge.</p>
+          <h4>Install with uv</h4>
+          <p class="install-copy">Needs <code>uv</code>, <code>tmux</code> and Claude Code, Codex or opencode. Install the CLI, then start the lodge.</p>
           <div class="install-cmd" data-lang="bash">
             <code><span class="prompt">$</span><span class="tok-cmd">uv</span> tool install woltspace<br /><span class="prompt">$</span><span class="tok-cmd">woltspace</span> start</code>
             <button class="copy-btn" onclick="copyText(`uv tool install woltspace &amp;&amp; woltspace start`, 'copy-uv-label')" aria-label="Copy uv install and start commands"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M5 1.5h7A1.5 1.5 0 0 1 13.5 3v8H12V3H5zM2.5 5A1.5 1.5 0 0 1 4 3.5h6A1.5 1.5 0 0 1 11.5 5v8.5A1.5 1.5 0 0 1 10 15H4a1.5 1.5 0 0 1-1.5-1.5zM4 5v8.5h6V5z"/></svg><span id="copy-uv-label" aria-live="polite">Copy</span></button>
           </div>
+          <p class="install-note">On Windows, run these inside WSL. Full steps: the <a href="https://github.com/jerpint/woltspace#for-agents">README</a>.</p>
+        </div>
+
+        <div class="dev-panel" role="tabpanel" id="dev-panel-package" aria-labelledby="dev-tab-package" hidden>
+          <h4>From npm</h4>
+          <p class="install-copy">Opens the terminal UI. With no lodge yet, it shows what's missing and how to install.</p>
+          <div class="install-cmd" data-lang="bash">
+            <code><span class="prompt">$</span><span class="tok-cmd">npx</span> woltspace</code>
+            <button class="copy-btn" onclick="copyText(`npx woltspace`, 'copy-npx-label')" aria-label="Copy npx woltspace"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M5 1.5h7A1.5 1.5 0 0 1 13.5 3v8H12V3H5zM2.5 5A1.5 1.5 0 0 1 4 3.5h6A1.5 1.5 0 0 1 11.5 5v8.5A1.5 1.5 0 0 1 10 15H4a1.5 1.5 0 0 1-1.5-1.5zM4 5v8.5h6V5z"/></svg><span id="copy-npx-label" aria-live="polite">Copy</span></button>
+          </div>
           <div class="install-subcommand">
-            <p class="install-note">Optional: install and open the terminal UI.</p>
+            <p class="install-note">Or bring Onboardie 🦫 into your coding agent, to install it with you.</p>
             <div class="install-cmd" data-lang="bash">
-              <code><span class="prompt">$</span><span class="tok-cmd">npm</span> install <span class="tok-flag">-g</span> @woltspace/tui@latest<br /><span class="prompt">$</span><span class="tok-cmd">woltspace</span> tui</code>
-              <button class="copy-btn" onclick="copyText('npm install -g @woltspace/tui@latest &amp;&amp; woltspace tui', 'copy-tui-label')" aria-label="Copy optional TUI install and open commands"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M5 1.5h7A1.5 1.5 0 0 1 13.5 3v8H12V3H5zM2.5 5A1.5 1.5 0 0 1 4 3.5h6A1.5 1.5 0 0 1 11.5 5v8.5A1.5 1.5 0 0 1 10 15H4a1.5 1.5 0 0 1-1.5-1.5zM4 5v8.5h6V5z"/></svg><span id="copy-tui-label" aria-live="polite">Copy</span></button>
+              <code><span class="prompt">$</span><span class="tok-cmd">npx</span> skills add jerpint/woltspace</code>
+              <button class="copy-btn" onclick="copyText(`npx skills add jerpint/woltspace`, 'copy-skills-label')" aria-label="Copy npx skills add command"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M5 1.5h7A1.5 1.5 0 0 1 13.5 3v8H12V3H5zM2.5 5A1.5 1.5 0 0 1 4 3.5h6A1.5 1.5 0 0 1 11.5 5v8.5A1.5 1.5 0 0 1 10 15H4a1.5 1.5 0 0 1-1.5-1.5zM4 5v8.5h6V5z"/></svg><span id="copy-skills-label" aria-live="polite">Copy</span></button>
             </div>
           </div>
         </div>

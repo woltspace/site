@@ -2,23 +2,16 @@
 
 > woltspace is an orchestration layer for your coding agents - "wolts". You bring the ideas, they do the work. Everything runs on the user's machine.
 
-Install natively:
+To install, read the "For agents" section of the README and follow it, asking the human before each step:
 
-    curl -fsSL https://woltspace.com/install.sh | bash -s -- --native
+    https://github.com/jerpint/woltspace
 
-If uv, Node.js, tmux, and a supported coding-agent harness are already installed:
+In short, with uv, tmux, and Claude Code, Codex or opencode already installed:
 
     uv tool install woltspace
     woltspace start
 
-Optional terminal UI (the npm package is scoped):
-
-    npm install -g @woltspace/tui@latest
-    woltspace tui
-
-If the human asks you to install Woltspace on a Mac, follow:
-
-    https://woltspace.com/install-with-ai.txt
+From npm: `npx woltspace` opens the terminal UI, or shows what's missing and how to install. `npx skills add jerpint/woltspace` adds Onboardie, Woltspace's guide, as a skill in a coding agent.
 
 ## The gist
 

@@ -48,7 +48,7 @@ const nav = [['wolts', '/wolts'], ['rangers', '/rangers'], ['blog', '/blog'], ['
     flex: 1;
     justify-content: flex-end;
     gap: 1.1rem;
-    flex-wrap: wrap;
+    min-width: 0;
   }
   .site-nav a {
     font-family: var(--sl-font-mono, monospace);
@@ -58,6 +58,20 @@ const nav = [['wolts', '/wolts'], ['rangers', '/rangers'], ['blog', '/blog'], ['
     text-transform: uppercase;
     color: var(--sl-color-gray-2);
     text-decoration: none;
+    white-space: nowrap;
+  }
+  /* One line on a phone, like the search bar on every other page. */
+  @media (max-width: 30rem) {
+    .site-nav { gap: 0.75rem; }
+    .site-nav a { letter-spacing: 0.04em; }
+  }
+  @media (max-width: 23.5rem) {
+    .site-nav { gap: 0.6rem; }
+    .site-nav a { letter-spacing: 0; }
+  }
+  @media (max-width: 21rem) {
+    .site-nav { gap: 0.5rem; }
+    .site-nav a { font-size: 0.68rem; }
   }
   .site-nav a:hover { color: var(--sl-color-accent); }
   .right-group {
