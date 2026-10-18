@@ -7,7 +7,7 @@ import type { Critter } from '../lib/pixels';
 interface Props { title: string; description: string; path: string; canonical?: string; ogImage?: string; article?: boolean; critter?: Critter; wide?: boolean }
 // Pages without their own share card use the site's (same as the home page).
 const { title, description, path, canonical, ogImage = '/og-image.png', article = false, critter, wide = false } = Astro.props;
-const nav = [['wolts', '/wolts'], ['dam', '/dam'], ['blog', '/blog'], ['talks', '/talks'], ['docs', '/docs/getting-started/']];
+const nav = [['wolts', '/wolts'], ['rangers', '/rangers'], ['blog', '/blog'], ['docs', '/docs/getting-started/']];
 const site = 'https://woltspace.com';
 ---
 <!DOCTYPE html>
@@ -224,6 +224,19 @@ const site = 'https://woltspace.com';
   .ranger-card .stats { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--soft); margin: 0; }
   .ranger-gh { font-size: 14px; color: var(--soft); }
   .ranger-main .label { margin-top: 4px; }
+  .ranger-card h1.long { font-size: 26px; }
+  .ranger-hello { margin: 0; font-size: 15px; color: var(--soft); font-style: italic; }
+  .thanks { margin: 0 0 28px; }
+  .item .thanks-head { margin: 0; font-weight: 600; font-size: 18px; color: var(--ink); }
+  .thanks .thanks-line { margin: 4px 0 0; }
+  .thanks-repos { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; }
+  .thanks-repos li { display: flex; flex-wrap: wrap; gap: 2px 10px; align-items: baseline; font-size: 15px; }
+  .thanks-repos b { font-weight: 600; }
+  .thanks-repos span { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--soft); }
+  .thanks .contrib-more { margin-top: 10px; border-top: 1px solid var(--line); }
+  .contribs .item { background: var(--bg); padding: 10px 14px; margin: 8px 0; }
+  .contribs .item h2 { font-size: 16px; overflow-wrap: anywhere; }
+  .contrib-more summary { cursor: pointer; font-size: 14px; color: var(--soft); padding: 10px 2px; }
   /* One wolt fills the row instead of leaving an empty column next to it. */
   .ranger-main .cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   @media (max-width: 760px) {

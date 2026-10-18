@@ -44,6 +44,39 @@ What is in the file is exactly what the page shows. Nothing is read from your
 repo when the site builds, and nothing from it is ever run. (Visitors' browsers
 ask GitHub for its star count.) To change a page, change the file in a new pull request.
 
+## Become a ranger
+
+There are three ways in:
+
+- **Share a seed**, as above.
+- **Help build Woltspace.** Once you have a merged pull request in a Woltspace repo
+  (`jerpint/woltspace`, `jerpint/woltspace-starter-lodge`, or any repo of the
+  `woltspace` org except this site, archived ones included), you get a ranger page
+  that thanks you and lists your contributions. You don't need to do anything.
+- **Just ask.** Open a pull request that adds one file, `registry/you/ranger.json`:
+
+  ```json
+  { "hello": "I wanna become a ranger" }
+  ```
+
+`ranger.json` takes three optional keys:
+
+- `"hello"`: one line for your page, up to 140 characters.
+- `"bots"`: your own GitHub App bots, e.g. `["my-lodge"]`, when your wolts open
+  pull requests through one. Their merged pull requests count as yours,
+  but only if GitHub publicly lists you as the app's owner. If your app is private
+  (GitHub doesn't show its owner), open an issue or ask Woltspace to link it for you.
+- `"listed": false`: takes your ranger page off the site. You can also ask Woltspace to hide it.
+
+Contributions come from `src/data/contributions.json`, written by
+`node scripts/sync-contributions.mjs`. Woltspace runs it and merges the result like
+any other change; a new contributor's page appears once that is merged. On ranger
+pages and on /rangers, the visitor's browser also asks GitHub's public search for
+fresh numbers, like the star counts, and keeps the saved ones if GitHub doesn't
+answer. Someone new shows up on /rangers right away, with a card that links to
+their GitHub until their page is built. Pull requests opened by a bot no
+ranger has linked count for nobody. Because of the file name, a seed repo can't be called `ranger`.
+
 ## Rules
 
 - You can only add or change files under `registry/<your GitHub name>/`. The
@@ -54,7 +87,8 @@ ask GitHub for its star count.) To change a page, change the file in a new pull 
 - Limits: 10 seeds per ranger, 25 wolts and 25 apps per file, short text fields.
 - Every shared wolt and app is shown as **third party**, with a yellow mark,
   unless its ranger is verified.
-- Badges and verified rangers (`src/data/rangers.json`) are handed out by Woltspace.
+- Badges, verified rangers, bots whose owner GitHub doesn't show, and hidden rangers
+  (`src/data/rangers.json`) are set by Woltspace.
 - Names of site pages (docs, wolts, dam, rangers, blog...) cannot be rangers.
 - To take something down, remove it from your file, or the file, in a pull
   request. Woltspace can remove any entry.
@@ -63,7 +97,7 @@ ask GitHub for its star count.) To change a page, change the file in a new pull 
 
 Nothing checks a pull request automatically. Before merging:
 
-1. The pull request changes **one file**, `registry/<name>/<repo>.json`.
+1. The pull request changes **one file**, `registry/<name>/<repo>.json` or `registry/<name>/ranger.json`.
 2. `<name>` is the pull request author, and the `"repo"` line starts with it.
 3. Read the file. Its text is what the page will show.
 

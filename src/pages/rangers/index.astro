@@ -1,23 +1,89 @@
 ---
 import Page from '../../layouts/Page.astro';
 import { loadShare, rangerPath } from '../../lib/registry';
-const { rangers } = await loadShare();
+const { rangers, live } = await loadShare();
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 ---
-<Page title="Rangers" description="The people who share wolts and apps on Woltspace." path="/rangers" wide>
+<Page title="Rangers" description="The people who build Woltspace and share wolts and apps on it." path="/rangers" wide>
   <p class="back"><a href="/">woltspace</a> / rangers</p>
-  <div class="list-head"><h1>Rangers</h1><span class="count">{rangers.length}</span></div>
-  <p class="lead">The people who share wolts and apps. A ranger is a GitHub account.</p>
-  <ul class="cards">
+  <div class="list-head"><h1>Rangers</h1><span class="count" data-rangers-count>{rangers.length}</span></div>
+  <p class="lead">The people who help build Woltspace and share wolts and apps on it. A ranger is a GitHub account. <a href="https://github.com/woltspace/site/tree/main/registry#become-a-ranger">Become one</a>.</p>
+  <ul class="cards" data-rangers={JSON.stringify(live)}>
     {rangers.map((ranger) => (
-      <li><a class="card" href={rangerPath(ranger.login)}>
+      <li data-key={ranger.login.toLowerCase()} data-n={ranger.contributions.length}><a class="card" href={rangerPath(ranger.login)}>
         <img class="card-avatar" src={`https://github.com/${ranger.login}.png?size=96`} alt="" width="48" height="48">
         <div class="card-body">
           <p class="card-name"><b>{ranger.login}</b></p>
           <p class="card-line">{ranger.badge ? `🌲 ${ranger.badge}` : 'Ranger'}</p>
-          <p class="card-meta"><span>{plural(ranger.wolts.length, 'wolt')}</span><span>{plural(ranger.apps.length, 'app')}</span></p>
+          <p class="card-meta">{(ranger.wolts.length > 0 || !ranger.contributions.length) && <span data-no-wolts={ranger.wolts.length ? undefined : ''}>{plural(ranger.wolts.length, 'wolt')}</span>}{ranger.apps.length > 0 && <span>{plural(ranger.apps.length, 'app')}</span>}{ranger.contributions.length > 0 && <span data-contrib-count>{plural(ranger.contributions.length, 'contribution')}</span>}</p>
         </div>
       </a></li>
     ))}
   </ul>
 </Page>
+
+<script is:inline>
+  // Fresh counts, asked of GitHub's public search by this browser: one search for
+  // every merged pull request in the same repos as the saved list, credited the
+  // same way (other accounts, linked bots), kept for a minute. A card changes only
+  // when GitHub knows at least as many as the saved list. Someone new gets a card
+  // that links to their GitHub until the next sync builds their page.
+  (function () {
+    var list = document.querySelector('[data-rangers]');
+    if (!list) return;
+    var live = JSON.parse(list.dataset.rangers), key = 'rangers:' + live.search, loginRe = new RegExp(live.login);
+    // Own keys only: a login such as "constructor" must not find Object's.
+    var own = function (o, k) { return Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined; };
+    var plural = function (n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); };
+    var el = function (tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+    function show(counts) {
+      Object.keys(counts).forEach(function (k) {
+        var c = counts[k], li = list.querySelector('li[data-key="' + CSS.escape(k) + '"]');
+        if (!li) {
+          li = el('li'); li.dataset.key = k; li.dataset.n = 0;
+          var a = el('a', 'card'); a.href = 'https://github.com/' + encodeURIComponent(c.login);
+          var img = el('img', 'card-avatar'); img.src = 'https://github.com/' + encodeURIComponent(c.login) + '.png?size=96'; img.alt = ''; img.width = img.height = 48;
+          var body = el('div', 'card-body'), name = el('p', 'card-name'); name.append(el('b', null, c.login));
+          body.append(name, el('p', 'card-line', 'New ranger'), el('p', 'card-meta'));
+          a.append(img, body); li.append(a); list.append(li);
+        }
+        if (c.n < Number(li.dataset.n)) return;
+        var meta = li.querySelector('.card-meta'), span = meta.querySelector('[data-contrib-count]'), none = meta.querySelector('[data-no-wolts]');
+        if (none) none.remove();
+        if (!span) { span = el('span'); span.dataset.contribCount = ''; meta.append(span); }
+        span.textContent = plural(c.n, 'contribution');
+      });
+      Array.prototype.slice.call(list.children).sort(function (a, b) { return a.dataset.key < b.dataset.key ? -1 : 1; }).forEach(function (li) { list.append(li); });
+      document.querySelector('[data-rangers-count]').textContent = list.children.length;
+    }
+    var cached = null;
+    try { cached = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
+    if (cached && Date.now() - cached.at < 60000) return show(cached.counts);
+    var counts = Object.create(null), seen = Object.create(null), MAX = 10;
+    function page(n) {
+      return fetch('https://api.github.com/search/issues?per_page=100&sort=created&order=asc&page=' + n + '&q=' + encodeURIComponent(live.search), { headers: { accept: 'application/vnd.github+json' } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d || !Array.isArray(d.items) || d.incomplete_results) return null;
+          if (d.total_count > MAX * 100) return null;
+          d.items.forEach(function (i) {
+            var id = i.repository_url + '#' + i.number, u = i.user || {}, author = String(u.login || '').toLowerCase();
+            if (!(i.pull_request && i.pull_request.merged_at) || seen[id]) return;
+            seen[id] = true;
+            var bot = u.type === 'Bot', alias = own(live.alias, author), k = bot ? own(live.bots, author.replace(/\[bot\]$/, '')) : u.type === 'User' ? (alias || author) : null;
+            if (typeof k !== 'string' || live.skip.indexOf(k) >= 0) return;
+            // The same names the build gives a page to: a GitHub login that isn't a site page.
+            var login = bot || alias ? k : String(u.login);
+            if (!loginRe.test(login) || live.reserved.indexOf(login.toLowerCase()) >= 0) return;
+            (counts[k] = counts[k] || { login: login, n: 0 }).n++;
+          });
+          return d.total_count > n * 100 ? page(n + 1) : counts;
+        });
+    }
+    page(1).then(function (all) {
+      if (!all) return;
+      try { sessionStorage.setItem(key, JSON.stringify({ counts: all, at: Date.now() })); } catch (e) {}
+      show(all);
+    }).catch(function () {});
+  })();
+</script>

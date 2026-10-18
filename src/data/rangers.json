@@ -1,4 +1,4 @@
 {
-  "jerpint": { "badge": "Park ranger for life", "verified": true },
-  "woltspace": { "verified": true }
+  "jerpint": {"badge": "Park ranger for life", "verified": true, "bots": ["woltspace-jerpint", "woltspace"], "accounts": ["woltspace-dev"]},
+  "woltspace": {"verified": true}
 }
