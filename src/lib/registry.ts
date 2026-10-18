@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import rangerExtras from '../data/rangers.json';
 import contributionData from '../data/contributions.json';
-import { checkEntry, checkRanger, isReserved, LOGIN_RE, REPO_RE, NAME_RE, LIMITS, RANGER_FILE } from './profile.mjs';
+import { checkEntry, checkRanger, isReserved, LOGIN_RE, RESERVED, REPO_RE, NAME_RE, LIMITS, RANGER_FILE } from './profile.mjs';
 
 const REGISTRY_DIR = path.resolve(process.env.REGISTRY_DIR || 'registry');
 const EMOJI: Record<string, string> = { otter: '🦦', beaver: '🦫', raccoon: '🦝', wolf: '🐺', dog: '🐶' };
@@ -31,7 +31,7 @@ export interface App {
 export interface Share { rangers: Ranger[]; wolts: Wolt[]; apps: App[]; live: Live }
 // What /rangers needs to redo the credit in the visitor's browser: one search for
 // every merged pull request, and who gets each one (lowercase logins).
-export interface Live { search: string; alias: Record<string, string>; bots: Record<string, string>; skip: string[] }
+export interface Live { search: string; alias: Record<string, string>; bots: Record<string, string>; skip: string[]; reserved: string[]; login: string }
 
 // Set by Woltspace in src/data/rangers.json: badges, verified, bots whose owner
 // GitHub does not show (linked by hand), other accounts of the same person, hidden.
@@ -172,6 +172,7 @@ async function load(): Promise<Share> {
   const live: Live = {
     search: ['is:pr', 'is:merged', ...credit.repos.map((r) => `repo:${r}`)].join(' '),
     alias: Object.fromEntries(credit.alias), bots: Object.fromEntries(credit.botOwner),
+    reserved: RESERVED, login: LOGIN_RE.source,
     skip: [...new Set([...[...files].filter(([, f]) => !f.listed).map(([k]) => k), ...Object.entries(extras).filter(([, e]) => e.hidden).map(([k]) => k)])],
   };
   return { rangers: all, wolts, apps: all.flatMap((r) => r.apps), live };
