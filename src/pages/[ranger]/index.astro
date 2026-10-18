@@ -70,7 +70,7 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
 
 <script is:inline>
   // Fresh numbers, asked of GitHub's public search by this browser: the same
-  // repos, accounts and bots as the saved list, kept for 10 minutes. Swapped in
+  // repos, accounts and bots as the saved list, kept for a minute. Swapped in
   // only when every page came back complete and GitHub knows at least as many as
   // the saved list; otherwise the saved list stays. Everything from GitHub is set as text.
   (function () {
@@ -99,7 +99,7 @@ const month = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en',
     }
     var cached = null;
     try { cached = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
-    if (cached && Date.now() - cached.at < 600000) return show(cached.prs);
+    if (cached && Date.now() - cached.at < 60000) return show(cached.prs);
     var prs = [], seen = {}, MAX = 5;
     function page(n) {
       return fetch('https://api.github.com/search/issues?per_page=100&sort=updated&page=' + n + '&q=' + encodeURIComponent(q), { headers: { accept: 'application/vnd.github+json' } })

@@ -70,9 +70,11 @@ There are three ways in:
 
 Contributions come from `src/data/contributions.json`, written by
 `node scripts/sync-contributions.mjs`. Woltspace runs it and merges the result like
-any other change; a new contributor's page appears once that is merged. On an existing ranger page, the
-visitor's browser also asks GitHub's public search for fresh numbers, like the star
-counts, and keeps the saved ones if GitHub doesn't answer. Pull requests opened by a bot no
+any other change; a new contributor's page appears once that is merged. On ranger
+pages and on /rangers, the visitor's browser also asks GitHub's public search for
+fresh numbers, like the star counts, and keeps the saved ones if GitHub doesn't
+answer. Someone new shows up on /rangers right away, with a card that links to
+their GitHub until their page is built. Pull requests opened by a bot no
 ranger has linked count for nobody. Because of the file name, a seed repo can't be called `ranger`.
 
 ## Rules

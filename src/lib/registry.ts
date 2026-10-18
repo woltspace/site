@@ -28,7 +28,10 @@ export interface App {
   ranger: string; name: string; emoji: string; description: string; stack: string; start: string;
   keeper: string; distribution: string; sourceUrl: string; seed: Seed; verified: boolean;
 }
-export interface Share { rangers: Ranger[]; wolts: Wolt[]; apps: App[] }
+export interface Share { rangers: Ranger[]; wolts: Wolt[]; apps: App[]; live: Live }
+// What /rangers needs to redo the credit in the visitor's browser: one search for
+// every merged pull request, and who gets each one (lowercase logins).
+export interface Live { search: string; alias: Record<string, string>; bots: Record<string, string>; skip: string[] }
 
 // Set by Woltspace in src/data/rangers.json: badges, verified, bots whose owner
 // GitHub does not show (linked by hand), other accounts of the same person, hidden.
@@ -166,7 +169,12 @@ async function load(): Promise<Share> {
     .map(([, r]) => r)
     .sort((a, b) => a.login.toLowerCase().localeCompare(b.login.toLowerCase()));
   const wolts = all.flatMap((r) => r.wolts);
-  return { rangers: all, wolts, apps: all.flatMap((r) => r.apps) };
+  const live: Live = {
+    search: ['is:pr', 'is:merged', ...credit.repos.map((r) => `repo:${r}`)].join(' '),
+    alias: Object.fromEntries(credit.alias), bots: Object.fromEntries(credit.botOwner),
+    skip: [...new Set([...[...files].filter(([, f]) => !f.listed).map(([k]) => k), ...Object.entries(extras).filter(([, e]) => e.hidden).map(([k]) => k)])],
+  };
+  return { rangers: all, wolts, apps: all.flatMap((r) => r.apps), live };
 }
 
 // Who a GitHub name is here: badge, verified, and whether they have a ranger page.
