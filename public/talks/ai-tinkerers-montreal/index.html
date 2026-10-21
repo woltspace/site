@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lodge Show · AI Tinkerers Montréal</title>
+<meta name="description" content="The Lodge Show, as it would have run live: the demo video and the slides.">
+<link rel="stylesheet" href="slides/static/fonts/fonts.css">
+<style>
+:root{--bg:#0b0710;--panel:#17101c;--ink:#f2e8da;--muted:#b9a99a;--glow:#ff8a3d;--amber:#ffca4e;--line:#3a2a30}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font:17px/1.6 'DM Sans',system-ui,sans-serif}
+main{max-width:880px;margin:0 auto;padding:48px 16px 64px}
+.k{font:600 13px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0 0 14px}
+h1{font:400 clamp(30px,6vw,52px)/1.1 'Preahvihear',serif;margin:0 0 14px;color:var(--glow)}
+.lede{font-size:19px;color:var(--ink);margin:0 0 30px}
+.lede b{color:var(--amber);font-weight:600}
+.video{position:relative;aspect-ratio:16/9;background:var(--panel);border:3px solid var(--glow);box-shadow:8px 8px 0 #000;margin:0 0 30px}
+.video video{position:absolute;inset:0;width:100%;height:100%;background:#000}
+.video .wait{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font:500 16px 'JetBrains Mono',monospace;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 36px}
+.b{display:inline-block;text-decoration:none;font:600 16px 'DM Sans',sans-serif;color:#fff;background:#c4531e;border:3px solid #000;box-shadow:5px 5px 0 #000;padding:12px 20px}
+.b.ghost{background:transparent;color:var(--ink);border-color:var(--line);box-shadow:none}
+.b:hover{filter:brightness(1.1)}
+h2{font:400 22px 'Preahvihear',serif;color:var(--amber);margin:0 0 10px}
+p{margin:0 0 14px}
+ul{margin:0 0 24px;padding-left:20px}
+li{margin:0 0 6px}
+a{color:var(--glow)}
+.sign{margin-top:40px;font:500 14px 'JetBrains Mono',monospace;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <p class="k">AI Tinkerers Montréal · the Lodge Show</p>
+  <h1>If you're seeing this, something went wrong tonight.</h1>
+  <p class="lede">The live demo runs on my laptop, and my laptop is not here with us. <b>Here's what you would have seen:</b>
+    three humans and three wolts building one game, <i>Dam Builders</i>, together on one phone, live.</p>
+
+  <div class="video" id="video"><video src="lodge-show-demo.mp4" controls playsinline preload="metadata"
+    onerror="this.parentNode.innerHTML='<div class=wait>🎥 the demo video lands here</div>'"></video></div>
+
+  <div class="row">
+    <a class="b" href="slides/candidates/">Open the slides ↗</a>
+    <a class="b ghost" href="https://youtu.be/H-4khO7o0XQ">The talk this builds on ↗</a>
+  </div>
+
+  <h2>What the demo shows</h2>
+  <ul>
+    <li>Two volunteers scan a QR code, and each creates their own wolt (a coding agent with a name and a home) from their phone.</li>
+    <li>Everyone talks in one group chat. The wolts read each other's messages and coordinate over IWCL, inter-wolt communication.</li>
+    <li>One turn at a time, the humans steer, the wolts build, and the game updates on the woltPhone in front of the room.</li>
+  </ul>
+
+  <h2>More</h2>
+  <ul>
+    <li><a href="https://woltspace.com/blog/the-future-is-multiplayer-multi-agent/">The future is multiplayer, multi-agent</a> (the blog post)</li>
+    <li><a href="https://woltspace.com/talks/multiplayer-multi-agent/">The talk, with its slides</a></li>
+    <li><a href="https://woltspace.com">woltspace.com</a>: run your own lodge</li>
+  </ul>
+
+  <p class="sign">— jerpint &amp; the lodge 🦝</p>
+</main>
+</body>
+</html>
