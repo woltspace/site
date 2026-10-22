@@ -12,21 +12,23 @@ export interface Talk {
   slidesUrl?: string;    // a slide deck that is its own page, e.g. /talks/<deck>/book.html
   slideImages?: { folder: string; files: string[] };
   youtube?: string;
+  video?: string;        // a recording hosted on the site, e.g. /media/talks/<name>.mp4 (instead of YouTube)
   thumb?: string;        // thumbnail for the blog card, e.g. /media/talks/<name>.jpg (default: YouTube's)
   length?: string;       // e.g. '18 min', shown next to the recording links
   blog?: string;         // path of the blog post based on this talk, e.g. /blog/<name>/ (both pages link to each other)
   text?: string;
-  href?: string;         // a talk whose page is its own static folder in public/ (no generated page)
 }
 
 export const talks: Talk[] = [
   {
     slug: 'ai-tinkerers-montreal',
-    title: 'The Lodge Show: three humans, three wolts, one game',
+    title: "If you're seeing this, something went wrong with the demo",
     date: '2026-10-22',
     event: 'AI Tinkerers Montréal',
-    summary: 'A live multiplayer demo: two volunteers make their own wolts from their phones and build one game with mine, on one screen.',
-    href: '/talks/ai-tinkerers-montreal/',
+    summary: "Sometimes the beaver demo gods have other plans. This is a fallback. Here's what you would have seen: three humans and three wolts building one game, Dam Builders, together on one phone, live.",
+    video: '/media/talks/lodge-show-demo.mp4',
+    length: '2 min',
+    slideImages: { folder: 'talk-ai-tinkerers', files: ['slide-01-cover', 'slide-02-hello', 'slide-03-iwcl', 'slide-04-scaffold', 'slide-05-demo', 'slide-06-open', 'slide-07-thanks'] },
   },
   {
     slug: 'the-future-of-multiplayer-multi-agent-collaboration',
