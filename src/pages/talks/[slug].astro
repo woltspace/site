@@ -1,7 +1,7 @@
 ---
 import Page from '../../layouts/Page.astro';
 import { talks, talkDay } from '../../lib/talks';
-export function getStaticPaths() { return talks.map((t) => ({ params: { slug: t.slug }, props: { t } })); }
+export function getStaticPaths() { return talks.filter((t) => !t.href).map((t) => ({ params: { slug: t.slug }, props: { t } })); }
 const { t } = Astro.props;
 ---
 <Page title={t.title} description={t.summary} path="/talks">

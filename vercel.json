@@ -10,11 +10,6 @@
       "source": "/rangers/jerpint",
       "destination": "/jerpint",
       "permanent": true
-    },
-    {
-      "source": "/tinkerers",
-      "destination": "/talks/ai-tinkerers-montreal/",
-      "permanent": false
     }
   ]
 }

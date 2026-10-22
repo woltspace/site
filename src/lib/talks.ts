@@ -16,9 +16,18 @@ export interface Talk {
   length?: string;       // e.g. '18 min', shown next to the recording links
   blog?: string;         // path of the blog post based on this talk, e.g. /blog/<name>/ (both pages link to each other)
   text?: string;
+  href?: string;         // a talk whose page is its own static folder in public/ (no generated page)
 }
 
 export const talks: Talk[] = [
+  {
+    slug: 'ai-tinkerers-montreal',
+    title: 'The Lodge Show: three humans, three wolts, one game',
+    date: '2026-10-22',
+    event: 'AI Tinkerers Montréal',
+    summary: 'A live multiplayer demo: two volunteers make their own wolts from their phones and build one game with mine, on one screen.',
+    href: '/talks/ai-tinkerers-montreal/',
+  },
   {
     slug: 'the-future-of-multiplayer-multi-agent-collaboration',
     title: 'The future of multiplayer multi-agent collaboration',

@@ -8,7 +8,7 @@ import { talks, talkDay } from '../../lib/talks';
   <p class="lead">Slides, recordings, and the words behind them.</p>
   <ul class="list">
     {talks.map((t) => (
-      <li><a class="item" href={`/talks/${t.slug}`}>
+      <li><a class="item" href={t.href ?? `/talks/${t.slug}`}>
         <p class="stamp">{talkDay(t.date)}{t.event && ` · ${t.event}`}{t.upcoming && <span class="draft"> · upcoming</span>}</p>
         <h2>{t.title}</h2>
         <p>{t.summary}</p>
