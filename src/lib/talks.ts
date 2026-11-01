@@ -16,19 +16,21 @@ export interface Talk {
   thumb?: string;        // thumbnail for the blog card, e.g. /media/talks/<name>.jpg (default: YouTube's)
   length?: string;       // e.g. '18 min', shown next to the recording links
   blog?: string;         // path of the blog post based on this talk, e.g. /blog/<name>/ (both pages link to each other)
+  code?: string;         // the demo's source, e.g. a GitHub README
   text?: string;
 }
 
 export const talks: Talk[] = [
   {
     slug: 'ai-tinkerers-montreal',
-    title: "If you're seeing this, something went wrong with the demo",
+    title: 'Multiplayer coding agents, live on stage',
     date: '2026-10-22',
     event: 'AI Tinkerers Montréal',
-    summary: "Sometimes the beaver demo gods have other plans. This is a fallback. Here's what you would have seen: three humans and three wolts building one game, Dam Builders, together on one phone, live.",
-    video: '/media/talks/lodge-show-demo.mp4',
-    length: '2 min',
-    slideImages: { folder: 'talk-ai-tinkerers', files: ['slide-01-cover', 'slide-02-hello', 'slide-03-iwcl', 'slide-04-scaffold', 'slide-05-demo', 'slide-06-open', 'slide-07-thanks'] },
+    summary: "This was probably the most complex live demo I've ever done. 2 participants. 3 wolts. We took turns building a game that updated in real time on everyone's phone. All hosted entirely on my Mac.",
+    youtube: 's7RAzfEFY_0',
+    code: 'https://github.com/woltspace/multiplayer-demo#readme',
+    length: '8 min',
+    slideImages: { folder: 'talk-ai-tinkerers', files: ['slide-01-cover', 'slide-02-iwcl', 'slide-03-scaffold', 'slide-04-hello', 'slide-05-thanks'] },
   },
   {
     slug: 'the-future-of-multiplayer-multi-agent-collaboration',
