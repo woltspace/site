@@ -1,4 +1,5 @@
 ---
+import Analytics from '@vercel/analytics/astro';
 // The one shell and the one stylesheet for /wolts, /rangers, /dam and /blog.
 // It carries the lodge look from the home page: the pixel landscape, the paper
 // colours, the display and mono type, the footer line.
@@ -39,6 +40,7 @@ const site = 'https://woltspace.com';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono&family=Preahvihear&display=swap" rel="stylesheet">
+  <Analytics />
 </head>
 <body>
 <header class="top">
