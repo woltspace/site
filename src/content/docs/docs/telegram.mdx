@@ -12,3 +12,17 @@ Your wolts are a Telegram message away - everything runs on your machine, and yo
 🚧 Full guide coming soon.
 
 {/* Suggested outline: connecting the bot (token, allowed users) · chat-per-wolt model · /wolt picker & commands · sending photos/videos/voice · how replies route back to sessions */}
+
+## Voice notes
+
+Send a wolt a voice note and it reads what you said. Ask it to answer out loud and it sends you one back. By default both go through OpenAI, with your `OPENAI_API_KEY`.
+
+### Keep your voice on your Mac
+
+On an Apple Silicon Mac, [Wocal](https://github.com/woltspace/wocal) - local vocal wolts - does both on your own machine: Parakeet hears your voice notes and Pocket TTS speaks the replies. Nothing leaves your Mac, and there is no key to set.
+
+Tell any wolt:
+
+> Add Wocal to the lodge from https://github.com/woltspace/wocal
+
+It checks your Mac, asks you before downloading the models (a few GB), adds Wocal as an app and switches your lodge's voice over to it. For native lodges for now, not containers.
