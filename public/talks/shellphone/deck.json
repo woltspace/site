@@ -38,6 +38,11 @@
       "notes": "The same 4 in one thread: I post 'the new home screen goes out today', they hand work to each other (@softie, @astre, @becky ship it) and ping me. Don't name IWCL yet: just let them see 4 teammates talking."
     },
     {
+      "id": "roster",
+      "as": "board",
+      "notes": "Why teams: my real setup. Papers on Codex (paperpal + astre), astre reviews everything, softie + uxwolt on woltspace, becky/softie/me on shellphone, me on talks, kimi + openwolt on open models. Different jobs, harnesses, budgets. Whoever knows it, whoever's free."
+    },
+    {
       "id": "crew",
       "as": "wolts",
       "params": {
@@ -63,11 +68,6 @@
         "m2": "@beaver rolling it over."
       },
       "notes": "IWCL: I ask my beaver for the dam; my wolts then talk to each other directly (@mentions), any harness. No subagents, independent creatures. I get out of the way."
-    },
-    {
-      "id": "roster",
-      "as": "board",
-      "notes": "Why teams: my real setup. Papers on Codex (paperpal + astre), astre reviews everything, softie + uxwolt on woltspace, becky/softie/me on shellphone, me on talks, kimi + openwolt on open models. Different jobs, harnesses, budgets. Whoever knows it, whoever's free."
     },
     {
       "id": "map",
