@@ -34,7 +34,7 @@
   .goal{position:absolute;transform:translate(-50%,-55%);font-size:46px;line-height:1;color:var(--amber);-webkit-text-stroke:2px #18100a}
   .pin{position:absolute;transform:translate(-50%,-100%);margin-top:-10px;display:flex;flex-direction:column;align-items:center;gap:4px;z-index:2}
   .pin .sign{position:absolute;top:30px;left:100%;margin-left:6px;background:#c4531e;color:#fff6e4;border:3px solid var(--ink);box-shadow:4px 4px var(--ink);padding:5px 10px;font:800 15px 'JetBrains Mono',monospace;letter-spacing:.1em;white-space:nowrap}
-  .pin canvas{width:130px;height:130px;image-rendering:pixelated;animation:bob 1.6s ease-in-out infinite}
+  .pin canvas{width:104px;height:104px;image-rendering:pixelated;animation:bob 1.6s ease-in-out infinite}
   @keyframes bob{50%{transform:translateY(-7px)}}
   html.deck-paused .pin canvas{animation:none}
   .pin.flip .sign{left:auto;right:100%;margin:0 6px 0 0}
@@ -58,7 +58,7 @@
   <span class="stop" data-at="ms" style="left:29%;top:35%"></span>
   <span class="stop det" style="left:39%;top:74%"></span><span class="det dlab" style="left:39%;top:74%">what's a wolt?</span>
   <span class="goal" style="left:76%;top:37%">★</span>
-  <div class="pin" id="pin"><div class="sign">YOU ARE HERE</div><canvas id="walker" width="36" height="36"></canvas></div>
+  <div class="pin" id="pin"><div class="sign">YOU ARE HERE</div><canvas id="walker" width="28" height="28"></canvas></div>
 </div>
 <div class="wrap"><div class="axis x"><span>one</span>players →<span>many</span></div><div class="axis y"><span>one</span>agents →<span>many</span></div></div>
 <script>
@@ -78,7 +78,7 @@ if (det) {
   if (det === 'out') { pin.style.left = '20%'; pin.style.top = '87%'; pin.querySelector('.sign').textContent = 'BACK ON THE TRAIL'; pin.querySelector('.sign').style.top = '84px'; }
 }
 const L = n => new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = 'img/' + n + '.png'; });
-Promise.all([L('c-beaver'), L('h-beret')]).then(([b, h]) => { const c = document.getElementById('walker').getContext('2d'); const ox = Math.round(18 - b.width / 2), oy = 36 - b.height; c.drawImage(b, ox, oy); c.drawImage(h, Math.round(ox + 10 - h.width / 2), oy + 3 - h.height + 3); });
+L('c-beaver').then(b => { const c = document.getElementById('walker').getContext('2d'); c.drawImage(b, Math.round(14 - b.width / 2), 28 - b.height); });
 </script>
 
 <script src="../shared/kit.js"></script>
