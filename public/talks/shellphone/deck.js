@@ -37,10 +37,33 @@
     const direction = directionOf(key);
     if (direction && step(direction)) return;
     const k = key.length === 1 ? key.toLowerCase() : key;
-    const act = { ArrowRight: () => Reveal.right(), ArrowLeft: () => Reveal.left(), ArrowUp: () => Reveal.up(), ArrowDown: () => Reveal.down(), ' ': () => Reveal.next(), PageDown: () => Reveal.next(), Enter: () => Reveal.next(), PageUp: () => Reveal.prev(), o: () => Reveal.toggleOverview(), Escape: () => Reveal.toggleOverview(), b: () => Reveal.togglePause(), f: () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(), s: () => Reveal.getPlugin('notes')?.open() }[k];
+    const act = { ArrowRight: () => Reveal.right(), ArrowLeft: () => Reveal.left(), ArrowUp: () => Reveal.up(), ArrowDown: () => Reveal.down(), ' ': () => Reveal.next(), PageDown: () => Reveal.next(), Enter: () => Reveal.next(), PageUp: () => Reveal.prev(), o: () => Reveal.toggleOverview(), Escape: () => Reveal.toggleOverview(), b: () => Reveal.togglePause(), f: () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(), s: () => Reveal.getPlugin('notes')?.open(), l: () => laser.toggle() }[k];
     if (act) act();
     focus();
   };
+  // Laser pointer: L shows a red dot that follows the mouse, over the deck and inside every slide page.
+  const laser = (() => {
+    const dot = document.createElement('div');
+    dot.style.cssText = 'position:fixed;left:0;top:0;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:#ff2020;box-shadow:0 0 2px 1px #ff6060,0 0 6px 1px #ff202080;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99999;display:none';
+    document.body.appendChild(dot);
+    let on = false;
+    const css = 'html.laser-on, html.laser-on * { cursor: none !important; }';
+    let idle; // it shows while the mouse moves and fades after 1.5 s still, like Google Slides
+    const place = (x, y) => { dot.style.transform = `translate(${x}px, ${y}px)`; if (!on) return; dot.style.opacity = '1'; clearTimeout(idle); idle = setTimeout(() => { dot.style.opacity = '0'; }, 1500); };
+    const hook = frame => { try {
+      const doc = frame.contentDocument; if (!doc || doc.laserHooked) return; doc.laserHooked = true;
+      const st = doc.createElement('style'); st.textContent = css; doc.head.appendChild(st);
+      doc.documentElement.classList.toggle('laser-on', on);
+      doc.addEventListener('mousemove', e => { const r = frame.getBoundingClientRect(); place(r.left + e.clientX * r.width / frame.clientWidth, r.top + e.clientY * r.height / frame.clientHeight); });
+    } catch (_e) {} };
+    const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+    document.addEventListener('mousemove', e => place(e.clientX, e.clientY));
+    document.querySelectorAll('.slides iframe').forEach(f => { hook(f); f.addEventListener('load', () => { hook(f); f.contentDocument?.documentElement.classList.toggle('laser-on', on); }); });
+    const toggle = () => { on = !on; dot.style.display = on ? 'block' : 'none';
+      [document, ...[...document.querySelectorAll('.slides iframe')].map(f => { try { return f.contentDocument; } catch (_e) { return null; } })].forEach(d => d?.documentElement?.classList.toggle('laser-on', on)); };
+    addEventListener('keydown', e => { if (!e.altKey && !e.ctrlKey && !e.metaKey && (e.key === 'l' || e.key === 'L')) toggle(); });
+    return { toggle };
+  })();
   // The cover page turns through the deck.
   window.bookShell = { go: target => (new URL(target).searchParams.has('entered') ? Reveal.next() : Reveal.prev()), fullscreen() {} };
 
@@ -58,6 +81,7 @@
     width: 1305, height: 816, margin: 0, minScale: 0.1, maxScale: 4, center: false,
     hash: true, controls: true, progress: true, slideNumber: 'c', showSlideNumber: 'all', transition: 'fade', transitionSpeed: 'fast', backgroundTransition: 'none',
     viewDistance: 99, mobileViewDistance: 2, plugins: [RevealNotes],
+    keyboard: { 72: null, 74: null, 75: null, 76: null }, // h j k l: L is the laser, not "next"
   });
   Reveal.on('slidechanged', () => { sync(); focus(); });
   Reveal.on('overviewshown', sync);
