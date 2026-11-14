@@ -62,7 +62,7 @@ for (const [p, room, side] of E) {
 const node = (n, me) => `<g class="node ${me?'me':''}"><circle cx="${n.x}" cy="${n.y}" r="${me?62:nodeR}"${n.col?` style="fill:${n.col}"`:''}/>`+
   `<text class="who" x="${n.x}" y="${n.y+(me?100:78)}" text-anchor="middle">${n.who}</text><text class="ws" x="${n.x}" y="${n.y+(me?124:100)}" text-anchor="middle">${n.ws}</text></g>`;
 // each player gets their own circle colour (same muted tones as the crew cards)
-const COLS = ['#2f6fa3','#2f7d6d','#b0427a','#7a4fb0','#8a6a1e','#3d7a3a','#1f5f9e','#5b5f9e','#1f7480','#8f3b52'];
+const COLS = ['#2f6fa3','#2f7d6d','#b0427a','#7a4fb0','#8a6a1e','#3d7a3a','#8f3b52','#5b5f9e','#1f7480','#8f3b52'];
 Object.keys(P).forEach((k, i) => P[k].col = COLS[i % COLS.length]);
 // beyond my lodge: Ery runs 2 more rooms
 const FR = (a, b, label) => { const mx=(a.x+b.x)/2, my=(a.y+b.y)/2, w=label.length*8.5+40;
