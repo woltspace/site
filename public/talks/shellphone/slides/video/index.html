@@ -13,6 +13,7 @@
 const v=document.getElementById('v'); v.src=new URLSearchParams(location.search).get('src')||'';
 // restart from the top each time the slide is shown
 addEventListener('message',e=>{ if(e.data==='shown'){ v.currentTime=0; v.play().catch(()=>{}); } });
+addEventListener('book:show',()=>{ v.currentTime=0; v.play().catch(()=>{}); });
 v.play().catch(()=>{});
 </script>
 <script src="../shared/kit.js"></script>
