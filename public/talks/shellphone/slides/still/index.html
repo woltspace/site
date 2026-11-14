@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Still</title>
+<style>html,body{margin:0;height:100%;background:#18100a;overflow:hidden}img{width:100%;height:100%;object-fit:contain;display:block}</style>
+</head><body>
+<!-- ?src=img/x.png : one full-bleed picture -->
+<img id="i" alt="">
+<script>document.getElementById('i').src = new URLSearchParams(location.search).get('src') || 'img/tinkerers-thanks.png';</script>
+<script src="../shared/kit.js"></script>
+</body></html>

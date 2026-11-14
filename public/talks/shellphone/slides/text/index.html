@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Text slide</title>
+<link rel="stylesheet" href="../shared/fonts/fonts.css">
+<style>
+  html,body{margin:0;height:100%;background:#18100a;color:#f5f1e8;overflow:hidden}
+  main{position:absolute;inset:0;padding:9% 9%;display:flex;flex-direction:column;justify-content:center;gap:28px}
+  .k{color:#ffca4e;font:600 22px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+  h1{margin:0;font:400 84px/1.08 'Preahvihear',sans-serif;max-width:1200px}
+  ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:18px}
+  li{font:500 32px/1.4 'JetBrains Mono',monospace;color:#e8dcc4;padding-left:22px;border-left:5px solid #ffca4e}
+  li.q{color:#b9a98f;font-style:italic;border-left-color:#7d6e5c}
+  /* with ?img=: text left, picture right */
+  body.has-img main{right:46%}
+  body.has-img h1{font-size:72px}
+  .pic{position:absolute;right:6%;top:50%;transform:translateY(-50%);max-width:38%;max-height:80%;border-radius:14px;box-shadow:12px 12px #000a;display:none}
+  body.has-img .pic{display:block}
+</style></head><body>
+<!-- A plain text slide: ?k=kicker&t=title&l=line|line|"quote" (a line in quotes shows as a quote) -->
+<img class="pic" id="pic" alt=""><main><div class="k" id="k"></div><h1 id="t"></h1><ul id="l"></ul></main>
+<script>
+const q = new URLSearchParams(location.search);
+document.getElementById('k').textContent = q.get('k') || '';
+document.getElementById('t').textContent = q.get('t') || '';
+document.title = q.get('t') || 'Slide';
+if (q.get('img')) { document.body.classList.add('has-img'); document.getElementById('pic').src = q.get('img'); }
+const ul = document.getElementById('l');
+(q.get('l') || '').split('|').filter(Boolean).forEach(line => {
+  const li = document.createElement('li'); li.textContent = line;
+  if (/^[“"]/.test(line)) li.className = 'q';
+  ul.append(li);
+});
+</script>
+<script src="../shared/kit.js"></script>
+</body></html>

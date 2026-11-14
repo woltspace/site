@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teammates, not coding agents</title>
+<link rel="stylesheet" href="../shared/fonts/fonts.css">
+<style>
+  html,body{margin:0;height:100%;background:#18100a;color:#f5f1e8;overflow:hidden}
+  main{position:absolute;inset:0 50% 0 0;padding:9% 0 9% 9%;display:flex;flex-direction:column;justify-content:center;gap:28px}
+  .k{color:#ffca4e;font:600 22px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+  h1{margin:0;font:400 72px/1.08 'Preahvihear',sans-serif}
+  .crew{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:42%;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .card{background:color-mix(in srgb,var(--c) 22%,#18100a);border:3px solid var(--c);border-radius:16px;padding:18px 14px 16px;text-align:center;box-shadow:8px 8px #000a}
+  .card canvas{width:150px;height:150px;image-rendering:pixelated;display:block;margin:0 auto 8px;animation:hover 3.2s ease-in-out infinite;animation-delay:var(--d)}
+  @keyframes hover{50%{transform:translateY(-6px)}}
+  @media (prefers-reduced-motion:reduce){.card canvas{animation:none}}
+  .nm{font:700 30px 'JetBrains Mono',monospace}
+  .h{display:inline-block;margin-top:8px;font:600 18px 'JetBrains Mono',monospace;padding:4px 12px;border-radius:999px}
+  .m{margin-top:8px;font:500 18px 'JetBrains Mono',monospace;color:#b9a98f}
+  .claude{background:#d9775733;color:#f0a07e}.codex{background:#4d8a4a33;color:#9fd69a}
+</style></head><body>
+<!-- The 4 wolts of the trio room (becky + commie drawn as beavers to show different creatures), as they look today (Hat Shop looks), with name + harness -->
+<main><div class="k">The solution</div><h1 id="t">Teammates, not coding agents.</h1></main>
+<style>#t s{text-decoration:none;position:relative;opacity:.55}#t s::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:6px;background:#c4531e;transform:rotate(-3deg);border-radius:3px}#t em{font-style:normal;color:#ffca4e}</style>
+<script>if(new URLSearchParams(location.search).get("wolts")) document.getElementById("t").innerHTML="<s>Teammates</s> <em>Wolts</em>, not coding agents.";</script>
+<div class="crew" id="crew"></div>
+<script>
+const CREW=[
+ {name:'becky',col:'#2f6fa3',kind:'beaver',hat:'hard-hat',face:'',harness:'Claude',model:'Opus 5.5'},
+ {name:'softie',col:'#2f7d6d',kind:'raccoon',hat:'wizard-hat',face:'aviators',harness:'Claude',model:'Fable 5.2'},
+ {name:'commie',col:'#b0427a',kind:'beaver',hat:'beret',face:'',harness:'Claude',model:'Opus 5.5'},
+ {name:'astre',col:'#7a4fb0',kind:'raccoon',hat:'graduation-cap',face:'nerd',harness:'Codex',model:'GPT-6 Astra'}];
+// raccoon anchors from the Hat Shop
+const ANCH={raccoon:{hx:9.5,ht:2,gl:{L:[4,6],R:[11,13],y:[7,8]}},beaver:{hx:8.5,ht:1,gl:{L:[3,5],R:[8,11],y:[4,6]}}};let A=ANCH.raccoon;
+const G={aviators:{frame:'#c9a23a',lens:'#2d4a5c',glint:'#bfe6ff'},nerd:{frame:'#111',lens:null,glint:null}};
+const load=s=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.src='img/'+s+'.png';});
+function glasses(c,g,ox,oy){const px=(x,y,col)=>{c.fillStyle=col;c.fillRect(ox+x,oy+y,1,1)};const[y0,y1]=A.gl.y;
+ for(const[x0,x1]of[A.gl.L,A.gl.R]){for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){const e=g.lens===null&&(y===y0||y===y1||x===x0||x===x1);if(g.lens)px(x,y,y===y0?g.frame:g.lens);else if(e)px(x,y,g.frame);}if(g.glint)px(x0+1,y1,g.glint);}
+ for(let x=A.gl.L[1]+1;x<A.gl.R[0];x++)px(x,y0,g.frame);px(A.gl.L[0]-1,y0,g.frame);px(A.gl.R[1]+1,y0,g.frame);}
+(async()=>{const box=document.getElementById('crew');
+ const imgs={};await Promise.all([...new Set(CREW.flatMap(w=>['c-'+w.kind,'h-'+w.hat]))].map(async n=>imgs[n]=await load(n)));
+ const frag=document.createDocumentFragment();
+ CREW.forEach((w,i)=>{const body=imgs['c-'+w.kind],hat=imgs['h-'+w.hat];A=ANCH[w.kind];
+  const cv=document.createElement('canvas');cv.width=cv.height=40;const c=cv.getContext('2d');
+  const ox=Math.round(20-body.width/2),oy=38-body.height;c.drawImage(body,ox,oy);if(w.face)glasses(c,G[w.face],ox,oy);
+  c.drawImage(hat,Math.round(ox+A.hx-hat.width/2),oy+A.ht-hat.height+3);
+  const d=document.createElement('div');d.className='card';d.style.setProperty('--c',w.col);cv.style.setProperty('--d',(-i*0.8)+'s');d.append(cv);
+  d.insertAdjacentHTML('beforeend',`<div class="nm">${w.name}</div><span class="h ${w.harness.toLowerCase()}">${w.harness}</span><div class="m">${w.model}</div>`);frag.append(d);});
+ box.append(frag);})();
+</script>
+<script src="../shared/kit.js"></script>
+</body></html>

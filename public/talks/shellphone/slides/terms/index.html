@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Four tabs</title>
+<link rel="stylesheet" href="../shared/fonts/fonts.css">
+<style>
+  html,body{margin:0;height:100%;background:#18100a;overflow:hidden}
+  /* 3 Claudes + 1 Codex, side by side: the single-player problem */
+  .grid{position:absolute;inset:6% 5%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:26px}
+  .tw img{width:100%;height:100%;object-fit:contain;object-position:left top;display:block}
+  .tw{background:#141414;border:3px solid #2a1d12;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:8px 8px #000a}
+  header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#2a1d12;color:#f5f1e8;font:700 17px 'JetBrains Mono',monospace}
+  header i{width:12px;height:12px;border-radius:50%;background:#d2552b}header i:nth-child(2){background:#d9a33a}header i:nth-child(3){background:#4d8a4a;margin-right:6px}
+  header b{margin-left:auto;font:500 15px 'JetBrains Mono',monospace;color:#b9a98f}
+  pre{margin:0;padding:18px 20px;flex:1;font:500 20px/1.6 'JetBrains Mono',monospace;color:#e8dcc4;white-space:pre-wrap}
+  .u{color:#f5f1e8}.a{color:#d97757}.x{color:#8ed081}.w{color:#ffca4e}.g{color:#7d6e5c}
+  .cur{display:inline-block;width:11px;height:22px;background:#e8dcc4;vertical-align:-4px}
+  /* same left half as the map slide ("The problem"), terminals on the right */
+  .txt{position:absolute;left:5%;top:0;bottom:0;width:29%;display:flex;flex-direction:column;justify-content:center;gap:22px;color:#f5f1e8}
+  .k{color:#ffca4e;font:600 22px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+  h1{margin:0;font:400 50px/1.15 'Preahvihear',sans-serif}
+  .one{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:58%;border:3px solid #2a1d12;border-radius:10px;box-shadow:10px 10px #000a}
+</style></head><body>
+<!-- one real tmux screen, split 2x2: 3 vanilla Claude Code + 1 vanilla Codex (virtual read-only client, 2026-11-13) -->
+<div class="txt"><div class="k" id="k">The problem</div><h1 id="t">Single‑agent, single‑player</h1></div>
+<img class="one" src="img/tmux-2x2.png" alt="tmux split in four: three Claude Code panes and one Codex pane">
+<script>
+const q = new URLSearchParams(location.search);
+if (q.has('k')) document.getElementById('k').textContent = q.get('k');
+if (q.has('t')) document.getElementById('t').textContent = q.get('t');
+</script>
+<script src="../shared/kit.js"></script>
+</body></html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>shellphone</title>
+<link rel="stylesheet" href="../shared/fonts/fonts.css">
+<style>
+  /* The Shell Phone slide: real screenshots of the app (mock room: Maya, Sam and their wolts), the chat filling in message by message. */
+  html,body{margin:0;height:100%;background:#18100a;color:#f5f1e8;overflow:hidden}
+  main{position:absolute;left:7%;top:0;bottom:0;width:40%;display:flex;flex-direction:column;justify-content:center;gap:26px}
+  .k{color:#ffca4e;font:600 22px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+  h1{margin:0;font:400 80px/1.02 'Preahvihear',sans-serif}
+  p{margin:0;font:500 25px/1.45 'JetBrains Mono',monospace;color:#e8dcc4}
+  p b{color:#ff8a3d;font-weight:600}
+  .stage{position:absolute;right:4%;top:50%;width:48%;height:92%;transform:translateY(-50%)}
+  .phone{position:absolute;aspect-ratio:390/844;height:88%;border-radius:46px;background:#05060a;padding:11px;
+         box-shadow:0 0 0 2px #3a2c20,18px 22px 0 #000a}
+  .screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#0e1020}
+  .screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .28s ease}
+  .screen img.on{opacity:1}
+  .back{left:9%;top:10%;transform:rotate(-7deg);filter:brightness(.62) saturate(.9)}
+  .front{right:4%;top:4%}
+  .tag{position:absolute;font:600 17px 'JetBrains Mono',monospace;color:#b9a98f;letter-spacing:.06em}
+  .tag.t1{left:16%;bottom:0}
+  .tag.t2{right:9%;bottom:0}
+  html.deck-paused .screen img{transition:none}
+</style></head><body>
+<main>
+  <div class="k">The solution</div>
+  <h1>shellphone.</h1>
+  <p>Humans and their agents,<br><b>in one chat</b>. On your phone.</p>
+</main>
+<div class="stage">
+  <div class="phone back"><div class="screen"><img class="on" src="img/home.jpg" alt="shellphone home: your wolts, people and groups"></div></div>
+  <div class="phone front"><div class="screen" id="chat"></div></div>
+  <div class="tag t1">home</div>
+  <div class="tag t2">a group chat</div>
+</div>
+<script>
+// Six frames of one chat: each one adds a message. Plays when the slide is shown, holds the last frame, then loops.
+const chat = document.getElementById('chat');
+const imgs = ['f01','f02','f03','f04','f05','f06'].map((f, i) => {
+  const im = new Image(); im.src = `img/${f}.jpg`; im.alt = ''; if (i === 0) im.className = 'on'; chat.append(im); return im;
+});
+let i = 0, timer = null;
+const show = n => imgs.forEach((im, k) => im.classList.toggle('on', k === n));
+const tick = () => {
+  i = (i + 1) % imgs.length; show(i);
+  timer = setTimeout(tick, i === imgs.length - 1 ? 6000 : i === 0 ? 1600 : 1900);
+};
+const start = () => { clearTimeout(timer); i = 0; show(0); timer = setTimeout(tick, 1600); };
+window.addEventListener('book:show', start);
+start();
+</script>
+<script src="../shared/kit.js"></script>
+</body></html>

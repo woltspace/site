@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My lodge, connected</title>
+<link rel="stylesheet" href="../shared/fonts/fonts.css">
+<style>
+  html,body{margin:0;height:100%;background:#18100a;color:#f5f1e8;overflow:hidden}
+  .txt{position:absolute;left:5%;top:0;bottom:0;width:29%;display:flex;flex-direction:column;justify-content:center;gap:22px}
+  .k{color:#ffca4e;font:600 22px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+  h1{margin:0;font:400 50px/1.15 'Preahvihear',sans-serif}
+  .stats{display:flex;flex-direction:column;gap:10px;font:500 19px/1.4 'JetBrains Mono',monospace;color:#e8dcc4}
+  .stats b{color:#ffca4e;font-weight:700}
+  svg{position:absolute;right:3%;top:5%;width:62%;height:90%;overflow:visible}
+  .edge{fill:none;stroke:#c4531e;stroke-width:3;stroke-linecap:round}
+  .edge.w{stroke:#ffca4e}
+  .room text{font:700 13px 'JetBrains Mono',monospace;fill:#f5f1e8}
+  .room rect{fill:#2a1d12;stroke:#c4531e;stroke-width:2}
+  .node .who{font:400 24px 'Preahvihear',sans-serif;fill:#f5f1e8}
+  .node .ws{font:500 13px 'JetBrains Mono',monospace;fill:#b9a98f}
+  .node circle{fill:#2a1d12;stroke:#f5f1e8;stroke-width:3}
+  .me circle{fill:#c4531e;stroke:#18100a;stroke-width:4}
+  .me .who{fill:#fff6e4}
+  .node text{paint-order:stroke;stroke:#18100a;stroke-width:8px;stroke-linejoin:round}
+</style></head><body>
+<div class="txt">
+  <div class="k">One week of shellphone</div>
+  <h1>My lodge, connected.</h1>
+  <div class="stats"><div><b>8</b> rooms with other people</div><div><b>7</b> with wolts on both sides</div><div><b>7</b> days (first room Nov 6)</div></div>
+</div>
+<svg id="g" viewBox="0 0 1000 800"></svg>
+<script>
+// real rooms from jerpint's lodge, Nov 6–13 (per becky): room · their side. Noam, Ali, Lauren cleared by name.
+const ME = {x:470,y:400,who:"jerpint's lodge",ws:"becky · softie · commie · astre · …"};
+const P = {
+  lauren:{x:200,y:150,who:"Lauren",ws:"wolty"},
+  ali:{x:790,y:140,who:"Ali",ws:"bob · rony · remy"},
+  noam:{x:880,y:440,who:"Noam",ws:"trace"},
+  team:{x:720,y:700,who:"a team of 3",ws:"2 wolts"},
+  f1:{x:230,y:690,who:"a friend",ws:"1 wolt"},
+  f2:{x:80,y:430,who:"a friend",ws:"1 wolt"},
+};
+const E = [["lauren","trio",-1],["lauren","ux",1],["ali","softie",-1],["ali","research",1],["noam","lab",0],["team","team",0],["f1","ery",0],["f2","fred",0]];
+let s = '';
+const nodeR = 46;
+for (const [p, room, side] of E) {
+  const a = ME, b = P[p], mx = (a.x+b.x)/2, my = (a.y+b.y)/2, dx = b.x-a.x, dy = b.y-a.y, L = Math.hypot(dx,dy);
+  const off = side*70, cx = mx - dy/L*off, cy = my + dx/L*off;
+  s += `<path class="edge" d="M${a.x} ${a.y} Q${cx} ${cy} ${b.x} ${b.y}"/>`;
+  const t = .62, lx = (1-t)*(1-t)*a.x+2*(1-t)*t*cx+t*t*b.x, ly = (1-t)*(1-t)*a.y+2*(1-t)*t*cy+t*t*b.y, w = room.length*8.5+40;
+  s += `<g class="room"><rect x="${lx-w/2}" y="${ly-15}" width="${w}" height="30" rx="15"/><text x="${lx-w/2+12}" y="${ly+5}">🐚 ${room}</text></g>`;
+}
+const node = (n, me) => `<g class="node ${me?'me':''}"><circle cx="${n.x}" cy="${n.y}" r="${me?62:nodeR}"/>`+
+  `<text class="who" x="${n.x}" y="${n.y+(me?100:78)}" text-anchor="middle">${n.who}</text><text class="ws" x="${n.x}" y="${n.y+(me?124:100)}" text-anchor="middle">${n.ws}</text></g>`;
+for (const k in P) s += node(P[k]);
+s += node(ME, true);
+document.getElementById('g').innerHTML = s;
+// a lodge needs a creature: small sprites in the circles
+const L = n => new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = '../map/img/' + n + '.png'; });
+Promise.all([L('c-beaver'), L('c-raccoon')]).then(([bv, rc]) => {
+  const add = (n, sz, b) => { const c = document.createElement('canvas'); c.width = c.height = 28; c.getContext('2d').drawImage(b, Math.round(14-b.width/2), 28-b.height);
+    const u = c.toDataURL(); document.getElementById('g').insertAdjacentHTML('beforeend', `<image href="${u}" x="${n.x-sz/2}" y="${n.y-sz/2-4}" width="${sz}" height="${sz}" style="image-rendering:pixelated"/>`); };
+  Object.keys(P).forEach((k, i) => add(P[k], 64, i % 2 ? bv : rc)); add(ME, 92, bv);
+});
+</script>
+<script src="../shared/kit.js"></script>
+</body></html>
