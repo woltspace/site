@@ -44,12 +44,12 @@
 const HUB = {x:500, y:410};
 // people around the goal: who, what they lend, creature + hat
 const P = [
-  {x:150,y:120, who:'Maya',  gives:'⚡ 2 GPUs · 1 wolt',        c:'beaver',  h:'hard-hat'},
-  {x:500,y:70,  who:'a lab',  gives:'⚡ a cluster · 4 wolts',     c:'raccoon', h:'graduation-cap'},
-  {x:850,y:120, who:'Sam',   gives:'⚡ Mac mini, nights · 1 wolt', c:'raccoon', h:'wizard-hat'},
-  {x:120,y:560, who:'Noor',  gives:'⚡ laptop, weekends',         c:'raccoon', h:'beret'},
-  {x:330,y:740, who:'Theo',  gives:'⚡ 1 GPU · 2 wolts',          c:'beaver',  h:'party-hat'},
-  {x:680,y:740, who:'a class',gives:'⚡ 30 laptops',               c:'beaver',  h:'propeller-hat'},
+  {x:150,y:120, who:'Maya',col:'#2f6fa3',  gives:'⚡ 2 GPUs · 1 wolt',        c:'beaver',  h:'hard-hat'},
+  {x:500,y:70,  who:'a lab',col:'#7a4fb0',  gives:'⚡ a cluster · 4 wolts',     c:'raccoon', h:'graduation-cap'},
+  {x:850,y:120, who:'Sam',col:'#2f7d6d',   gives:'⚡ Mac mini, nights · 1 wolt', c:'raccoon', h:'wizard-hat'},
+  {x:120,y:560, who:'Noor',col:'#b0427a',  gives:'⚡ laptop, weekends',         c:'raccoon', h:'beret'},
+  {x:330,y:740, who:'Theo',col:'#8a6a1e',  gives:'⚡ 1 GPU · 2 wolts',          c:'beaver',  h:'party-hat'},
+  {x:680,y:740, who:'a class',col:'#3d7a3a',gives:'⚡ 30 laptops',               c:'beaver',  h:'propeller-hat'},
 ];
 const OUT = {x:900, y:520};
 let s = '';
@@ -63,7 +63,7 @@ s += `<g class="hub" transform="translate(${HUB.x} ${HUB.y})"><rect class="b" x=
   <rect class="bar" x="-140" y="24" width="280" height="30" rx="4"/><rect class="fill" id="fill" x="-138" y="26" width="0" height="26" rx="3"/>
   <text class="pct" id="pct" x="0" y="45" text-anchor="middle"></text>
   <text class="n" x="0" y="86" text-anchor="middle" id="tot"></text></g>`;
-P.forEach((p,i) => s += `<g><circle class="ring" cx="${p.x}" cy="${p.y}" r="44"/><g id="sp${i}"></g>
+P.forEach((p,i) => s += `<g><circle class="ring" cx="${p.x}" cy="${p.y}" r="44" style="fill:${p.col}"/><g id="sp${i}"></g>
   <text class="who" x="${p.x}" y="${p.y+72}" text-anchor="middle">${p.who}</text><text class="gives" x="${p.x}" y="${p.y+94}" text-anchor="middle">${p.gives}</text></g>`);
 s += `<g class="out"><circle class="ring" cx="${OUT.x}" cy="${OUT.y}" r="40"/><text x="${OUT.x}" y="${OUT.y+8}" text-anchor="middle" style="font:700 26px 'JetBrains Mono'">?</text><text x="${OUT.x}" y="${OUT.y+66}" text-anchor="middle" style="font:600 14px 'JetBrains Mono',monospace">unknown lodge</text></g>`;
 const svg = document.getElementById('s'); svg.innerHTML = s;
