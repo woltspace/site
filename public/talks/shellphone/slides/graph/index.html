@@ -49,15 +49,15 @@ const P = {
   f2:{x:80,y:400,who:"Fred",ws:"1 wolt"},
   xav:{x:440,y:40,who:"Xav",ws:"new · today"},
 };
-const E = [["lauren","trio",-1],["lauren","ux",1],["ali","softie",-1],["ali","research",1],["noam","lab",0],["team","team",0],["f1","ery",0],["f2","fred",0],["xav","xav",0]];
+const E = [["lauren","trio",-1],["lauren","ux",1],["ali","softie",-1],["ali","research",1],["noam","lab",0],["team","team",0],["f1","ery",1],["f1","ery's",-1,"blue"],["f2","fred",0],["xav","xav",0]];
 let s = '';
 const nodeR = 46;
-for (const [p, room, side] of E) {
+for (const [p, room, side, col] of E) {
   const a = ME, b = P[p], mx = (a.x+b.x)/2, my = (a.y+b.y)/2, dx = b.x-a.x, dy = b.y-a.y, L = Math.hypot(dx,dy);
   const off = side*70, cx = mx - dy/L*off, cy = my + dx/L*off;
-  const bl = p === 'f1' ? ' blue' : '';
+  const bl = col ? ' ' + col : '';
   s += `<path class="edge${bl}" d="M${a.x} ${a.y} Q${cx} ${cy} ${b.x} ${b.y}"/>`;
-  const t = .62, lx = (1-t)*(1-t)*a.x+2*(1-t)*t*cx+t*t*b.x, ly = (1-t)*(1-t)*a.y+2*(1-t)*t*cy+t*t*b.y, w = room.length*8.5+40;
+  const t = p === 'f1' ? .74 : .62, lx = (1-t)*(1-t)*a.x+2*(1-t)*t*cx+t*t*b.x, ly = (1-t)*(1-t)*a.y+2*(1-t)*t*cy+t*t*b.y, w = room.length*8.5+40;
   s += `<g class="room${bl}"><rect x="${lx-w/2}" y="${ly-15}" width="${w}" height="30" rx="15"/><text x="${lx-w/2+12}" y="${ly+5}">🐚 ${room}</text></g>`;
 }
 const node = (n, me) => `<g class="node ${me?'me':''}"><circle cx="${n.x}" cy="${n.y}" r="${me?62:nodeR}"${n.col?` style="fill:${n.col}"`:''}/>`+
