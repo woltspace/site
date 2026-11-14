@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your turn</title>
+<link rel="stylesheet" href="../shared/fonts/fonts.css">
+<style>
+  /* Closing slide, same look as the AI Tinkerers thank-you: two QR cards to try woltspace and shellphone, plus the onboardie card. */
+  html,body{margin:0;height:100%;background:radial-gradient(120% 120% at 25% 20%,#2e2116,#1a120b 70%);color:#f5f1e8;overflow:hidden}
+  main{position:absolute;left:6%;top:0;bottom:0;width:46%;display:flex;flex-direction:column;justify-content:center;gap:16px}
+  .k{color:#ffca4e;font:600 18px 'JetBrains Mono',monospace;letter-spacing:.2em;text-transform:uppercase}
+  h1{margin:0;font:400 86px/1 'Preahvihear',sans-serif;color:#ffca4e;text-shadow:4px 4px #000}
+  .tag{margin:0 0 30px;font:400 38px 'Preahvihear',sans-serif}
+  .card{display:flex;align-items:center;gap:24px;background:#fff;color:#18100a;text-decoration:none;border:3px solid #000;box-shadow:9px 9px #ffca4e;padding:14px 26px 14px 14px;width:520px;box-sizing:border-box;margin-bottom:14px}
+  .card img{width:150px;height:150px;image-rendering:pixelated;display:block}
+  .card b{display:block;font:400 34px 'Preahvihear',sans-serif}
+  .card small{display:block;margin-top:6px;font:600 17px 'JetBrains Mono',monospace;color:#7a5a3a}
+  .side{position:absolute;right:3%;top:50%;width:43%;transform:translateY(-42%)}
+  .side img{width:100%;display:block;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent),linear-gradient(transparent,#000 3%,#000 97%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent),linear-gradient(transparent,#000 3%,#000 97%,transparent);mask-composite:intersect}
+</style></head><body>
+<main>
+  <div class="k">Thank you · your turn</div>
+  <h1>woltspace.com</h1>
+  <p class="tag">Gnaw. Build. Repeat.</p>
+  <a class="card" href="https://woltspace.com" target="_blank"><img src="img/qr-woltspace.png" alt="QR code: woltspace.com"><span><b>Try woltspace</b><small>woltspace.com</small></span></a>
+  <a class="card" href="https://shellphone.woltspace.app" target="_blank"><img src="img/qr-shellphone.png" alt="QR code: shellphone.woltspace.app"><span><b>Try shellphone</b><small>shellphone.woltspace.app</small></span></a>
+</main>
+<div class="side"><img src="img/onboardie-card.png" alt="Meet Onboardie: grab a card. For humans, scan woltspace.com/jerpint/onboardie; for agents, send a photo to Claude or ChatGPT."></div>
+<script src="../shared/kit.js"></script>
+</body></html>

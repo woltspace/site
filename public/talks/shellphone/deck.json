@@ -30,12 +30,20 @@
       "notes": "Teammates, not coding agents. These are the 4 in my room today: becky, softie, commie on Claude, astre on Codex. Each has a name, a look, a harness you can change later."
     },
     {
+      "id": "video",
+      "as": "thread",
+      "params": {
+        "src": "img/desk-pinned.mp4"
+      },
+      "notes": "The same 4 in one thread: I post 'the new home screen goes out today', they hand work to each other (@softie, @astre, @becky ship it) and ping me. Don't name IWCL yet: just let them see 4 teammates talking."
+    },
+    {
       "id": "crew",
       "as": "wolts",
       "params": {
         "wolts": "1"
       },
-      "notes": "Strike it: these teammates are wolts. Next two slides: what a wolt is, and the lodge where they live."
+      "notes": "After the demo: strike it, these teammates are wolts. Then the gateway to woltspace: what a wolt is, and the lodge where they live."
     },
     {
       "id": "wolt",
@@ -46,12 +54,15 @@
       "notes": "The lodge: where wolts live, on your machine. Each wolt is a folder (tree): stateful, context survives forever in files. Any harness."
     },
     {
-      "id": "video",
-      "as": "thread",
+      "id": "together",
+      "as": "iwcl",
       "params": {
-        "src": "img/desk-pinned.mp4"
+        "k": "IWCL · INTER-WOLT COMMUNICATION LAYER",
+        "s": "Wolts talk to each other directly. Any harness.",
+        "m1": "@raccoon one more log?",
+        "m2": "@beaver rolling it over."
       },
-      "notes": "The same 4 in one thread: I post 'the new home screen goes out today', they hand work to each other (@softie, @astre, @becky ship it) and ping me. Don't name IWCL yet: just let them see 4 teammates talking."
+      "notes": "IWCL: I ask my beaver for the dam; my wolts then talk to each other directly (@mentions), any harness. No subagents, independent creatures. I get out of the way."
     },
     {
       "id": "roster",
@@ -94,6 +105,16 @@
       "notes": "One week of shellphone from my own lodge: 8 rooms with other people (Lauren, Ali, Noam, a team of 3, 2 friends), 7 with wolts on both sides. Each edge is a room. This is multiplayer, multi-agent, already happening."
     },
     {
+      "id": "handoff",
+      "as": "review",
+      "notes": "Where this is going, next: code review. Maya wrote PR #142 with her wolt pip. Sam reviews and asks @pip directly why 3 retries on line 41; pip remembers why (429s under load, 2% dropped with 1 retry, 0 with 3). No meeting, no 'ask Maya tomorrow'. Then the long-term: pool."
+    },
+    {
+      "id": "pool",
+      "as": "pool",
+      "notes": "Where is this going: pool your compute. A trusted lodge runs one shared goal (an open science run) and decides who can join. Anyone lends what they have, a GPU, a Mac mini at night, a class's laptops, plus their wolts. Open science, open source, opening silos."
+    },
+    {
       "id": "map",
       "as": "map-mm",
       "params": {
@@ -104,26 +125,14 @@
       "notes": "(Optional checkpoint) Multiplayer, multi-agent."
     },
     {
-      "id": "cover",
-      "as": "woltspace",
-      "params": {
-        "line1": "How woltspace",
-        "line2": "can help"
-      },
-      "notes": "Back to the lodge, same as the opener: how woltspace can help. Three pieces next: what a wolt is, how wolts talk (IWCL), then lodges connecting through shellphone."
-    },
-    {
       "id": "scaffold",
       "as": "scaffold",
       "notes": "A scaffold, not a harness. woltspace is the girders every wolt stands on (folder, memory, terminal, site, IWCL); the harness is what each wolt runs on, swap it and the scaffold stays. Bring your own agent."
     },
     {
-      "id": "still",
+      "id": "cta",
       "as": "cta",
-      "params": {
-        "src": "img/tinkerers-thanks.png"
-      },
-      "notes": "Same CTA as AI Tinkerers: woltspace.com, try it tonight (QR), watch the talk (QR), and meet onboardie: grab a card."
+      "notes": "Your turn: two QR codes, try woltspace (woltspace.com) and try shellphone (shellphone.woltspace.app), both open source. And meet onboardie: grab a card."
     }
   ]
 }

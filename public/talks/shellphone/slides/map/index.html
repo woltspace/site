@@ -36,12 +36,16 @@
   .pin .sign{position:absolute;top:30px;left:100%;margin-left:6px;background:#c4531e;color:#fff6e4;border:3px solid var(--ink);box-shadow:4px 4px var(--ink);padding:5px 10px;font:800 15px 'JetBrains Mono',monospace;letter-spacing:.1em;white-space:nowrap}
   .pin canvas{width:104px;height:104px;image-rendering:pixelated}
   .pin.flip .sign{left:auto;right:100%;margin:0 6px 0 0}
+  /* detour (?detour=in|out): a loop out of the main line to one extra dot, and back onto it */
+  .det{display:none} body.detour .det{display:block}
+  .dlab{position:absolute;margin:-12px 0 0 22px;font:700 12px 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#fff6e4;background:#18100acc;padding:3px 8px;white-space:nowrap}
+.sub{margin:0;color:#ffca4e;font:600 24px/1.35 'JetBrains Mono',monospace}
 </style></head><body>
 <!-- ?at=ss|sm|mm (where the "you are here" pin stands) &k=kicker &t=title -->
 <div class="txt"><div class="k" id="k">The problem</div><h1 id="t">Single‑agent, single‑player</h1></div>
 <div class="map">
   <div class="hills"></div><div class="div-v"></div><div class="div-h"></div>
-  <svg class="trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M20 87 C 26 70, 22 50, 24 42 C 26 34, 34 32, 46 33 C 60 34, 68 36, 76 37" fill="none" stroke="#fff" stroke-dasharray="2.2 1.6" vector-effect="non-scaling-stroke" style="stroke-width:4px"/></svg>
+  <svg class="trail" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M20 87 C 26 70, 22 50, 24 42 C 26 34, 34 32, 46 33 C 60 34, 68 36, 76 37" fill="none" stroke="#fff" stroke-dasharray="2.2 1.6" vector-effect="non-scaling-stroke" style="stroke-width:4px"/><path class="det" d="M22.3 76 C 27 82, 36 81, 39 74 C 41 67, 29 63, 22.6 67" fill="none" stroke="#fff" stroke-dasharray="2.2 1.6" vector-effect="non-scaling-stroke" style="stroke-width:4px"/></svg>
   <!-- same wording and axes as the blog post figure (single-to-multiplayer.svg): players across, agents up -->
   <div class="zone ss"><div><b>Single-agent, single-player</b><small>you talk to your agent, it does stuff</small><i>most of us today</i></div></div>
   <div class="zone ms"><div><b>Multi-agent, single-player</b><small>your own team of agents</small><i>Woltspace today</i></div></div>
@@ -50,6 +54,7 @@
   <!-- the only places you can land: one stop per checkpoint, the star at the end -->
   <span class="stop" data-at="ss" style="left:20%;top:87%"></span>
   <span class="stop" data-at="ms" style="left:29%;top:35%"></span>
+  <span class="stop det" style="left:39%;top:74%"></span><span class="det dlab" style="left:39%;top:74%">what's a wolt?</span>
   <span class="goal" style="left:76%;top:37%">★</span>
   <div class="pin" id="pin"><div class="sign">YOU ARE HERE</div><canvas id="walker" width="28" height="28"></canvas></div>
 </div>
@@ -58,10 +63,18 @@
 const q = new URLSearchParams(location.search);
 if (q.has('k')) document.getElementById('k').textContent = q.get('k');
 if (q.has('t')) document.getElementById('t').textContent = q.get('t');
+if (q.has('s')) { const p = document.createElement('p'); p.className = 'sub'; p.textContent = q.get('s'); document.getElementById('t').after(p); }
 const at = ['ss','ms','mm'].includes(q.get('at')) ? q.get('at') : (q.get('at')==='sm' ? 'ms' : 'ss');
 const POS = {ss:[20,87], ms:[29,35], mm:[76,37]}, order = ['ss','ms','mm'];
 const pin = document.getElementById('pin'); pin.style.left = POS[at][0]+'%'; pin.style.top = POS[at][1]+'%'; if (at === 'mm') pin.classList.add('flip');
 document.querySelectorAll('.stop').forEach(s => { const i = order.indexOf(s.dataset.at), j = order.indexOf(at); s.classList.add(i < j ? 'done' : i === j ? 'now' : 'next'); });
+
+const det = q.get('detour');
+if (det) {
+  document.body.classList.add('detour');
+  if (det === 'in') { pin.style.left = '39%'; pin.style.top = '74%'; pin.querySelector('.sign').textContent = 'DETOUR'; }
+  if (det === 'out') { pin.style.left = '20%'; pin.style.top = '87%'; pin.querySelector('.sign').textContent = 'BACK ON THE TRAIL'; pin.querySelector('.sign').style.top = '84px'; }
+}
 const L = n => new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = 'img/' + n + '.png'; });
 L('c-beaver').then(b => { const c = document.getElementById('walker').getContext('2d'); c.drawImage(b, Math.round(14 - b.width / 2), 28 - b.height); });
 </script>

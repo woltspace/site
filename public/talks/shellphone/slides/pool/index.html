@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pool your compute</title>
+<link rel="stylesheet" href="../shared/fonts/fonts.css">
+<style>
+  /* MOCK: "Across trusted boundaries", reworked: individuals lend their own machine and wolts to one shared goal, through a lodge they trust. */
+  :root{--ink:#18100a;--amber:#ffca4e;--terra:#c4531e;--cream:#fff8e6}
+  html,body{margin:0;height:100%;background:linear-gradient(#1d2a33,#101820);color:#f5f1e8;overflow:hidden}
+  .txt{position:absolute;left:5%;top:0;bottom:0;width:29%;display:flex;flex-direction:column;justify-content:center;gap:20px}
+  .k{color:var(--amber);font:600 22px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase}
+  h1{margin:0;font:400 58px/1.05 'Preahvihear',sans-serif}
+  .txt p{margin:0;font:500 22px/1.45 'JetBrains Mono',monospace;color:#e8dcc4}
+  .uses{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;padding:0;list-style:none}
+  .uses li{padding:8px 14px;background:var(--cream);border:4px solid var(--ink);box-shadow:5px 5px 0 var(--terra);color:var(--ink);font:700 17px 'JetBrains Mono',monospace}
+  svg{position:absolute;right:2%;top:4%;width:64%;height:92%;overflow:visible}
+  .ln{stroke:#ffca4e55;stroke-width:3;stroke-dasharray:8 8}
+  .blk{stroke:#e0442a;stroke-width:4;stroke-dasharray:6 8}
+  .pkt{fill:var(--amber);stroke:var(--ink);stroke-width:2}
+  .pkt.w{fill:#8ed081}
+  .hub rect.b{fill:#f5f1e8;stroke:var(--ink);stroke-width:5;filter:drop-shadow(8px 8px 0 #c4531e)}
+  .hub .t{fill:var(--terra);font:800 16px 'JetBrains Mono',monospace;letter-spacing:.14em}
+  .hub .g{fill:var(--ink);font:400 30px 'Preahvihear',sans-serif}
+  .hub .n{fill:#5c4d3c;font:500 14px 'JetBrains Mono',monospace}
+  .hub .bar{fill:#e5d5b0;stroke:var(--ink);stroke-width:3}
+  .hub .fill{fill:var(--amber)}
+  .hub .pct{fill:var(--ink);font:700 15px 'JetBrains Mono',monospace}
+  .who{fill:#f5f1e8;font:400 22px 'Preahvihear',sans-serif;paint-order:stroke;stroke:#101820;stroke-width:6px}
+  .gives{fill:var(--amber);font:600 14px 'JetBrains Mono',monospace;paint-order:stroke;stroke:#101820;stroke-width:5px}
+  .ring{fill:#22303b;stroke:#f5f1e8;stroke-width:3}
+  .out .ring{stroke:#6b7a87;stroke-dasharray:5 5;fill:#1a242c}
+  .out text{fill:#9aa7b2}
+  .x{fill:#e0442a;font:800 30px 'JetBrains Mono',monospace}
+</style></head><body>
+<div class="txt">
+  <div class="k">Where this is going · later</div>
+  <h1>Pool your compute.</h1>
+  <p>Anyone can lend their machine and their wolts to a shared goal, through a lodge they trust.</p>
+  <ul class="uses"><li>open science</li><li>open source</li><li>opening silos</li></ul>
+</div>
+<svg id="s" viewBox="0 0 1000 820"></svg>
+<script>
+const HUB = {x:500, y:410};
+// people around the goal: who, what they lend, creature + hat
+const P = [
+  {x:150,y:120, who:'Maya',  gives:'⚡ 2 GPUs · 1 wolt',        c:'beaver',  h:'hard-hat'},
+  {x:500,y:70,  who:'a lab',  gives:'⚡ a cluster · 4 wolts',     c:'raccoon', h:'graduation-cap'},
+  {x:850,y:120, who:'Sam',   gives:'⚡ Mac mini, nights · 1 wolt', c:'raccoon', h:'wizard-hat'},
+  {x:120,y:560, who:'Noor',  gives:'⚡ laptop, weekends',         c:'raccoon', h:'beret'},
+  {x:330,y:740, who:'Theo',  gives:'⚡ 1 GPU · 2 wolts',          c:'beaver',  h:'party-hat'},
+  {x:680,y:740, who:'a class',gives:'⚡ 30 laptops',               c:'beaver',  h:'propeller-hat'},
+];
+const OUT = {x:900, y:520};
+let s = '';
+P.forEach(p => s += `<line class="ln" x1="${p.x}" y1="${p.y}" x2="${HUB.x}" y2="${HUB.y}"/>`);
+s += `<line class="blk" x1="${HUB.x+170}" y1="${HUB.y+40}" x2="${OUT.x-56}" y2="${OUT.y-10}"/><text class="x" x="${(HUB.x+170+OUT.x-56)/2}" y="${(HUB.y+40+OUT.y-10)/2-8}" text-anchor="middle">✕</text>`;
+s += `<g id="pk"></g>`;
+s += `<g class="hub" transform="translate(${HUB.x} ${HUB.y})"><rect class="b" x="-175" y="-115" width="350" height="230" rx="6"/>
+  <text class="t" x="0" y="-78" text-anchor="middle">A TRUSTED LODGE</text>
+  <text class="g" x="0" y="-30" text-anchor="middle">🔬 open science run</text>
+  <text class="n" x="0" y="0" text-anchor="middle">decides who can join</text>
+  <rect class="bar" x="-140" y="24" width="280" height="30" rx="4"/><rect class="fill" id="fill" x="-138" y="26" width="0" height="26" rx="3"/>
+  <text class="pct" id="pct" x="0" y="45" text-anchor="middle"></text>
+  <text class="n" x="0" y="86" text-anchor="middle" id="tot"></text></g>`;
+P.forEach((p,i) => s += `<g><circle class="ring" cx="${p.x}" cy="${p.y}" r="44"/><g id="sp${i}"></g>
+  <text class="who" x="${p.x}" y="${p.y+72}" text-anchor="middle">${p.who}</text><text class="gives" x="${p.x}" y="${p.y+94}" text-anchor="middle">${p.gives}</text></g>`);
+s += `<g class="out"><circle class="ring" cx="${OUT.x}" cy="${OUT.y}" r="40"/><text x="${OUT.x}" y="${OUT.y+8}" text-anchor="middle" style="font:700 26px 'JetBrains Mono'">?</text><text x="${OUT.x}" y="${OUT.y+66}" text-anchor="middle" style="font:600 14px 'JetBrains Mono',monospace">unknown lodge</text></g>`;
+const svg = document.getElementById('s'); svg.innerHTML = s;
+// sprites with hats (same art as the crew slide)
+const L = n => new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = (/^h-(party|propeller)/.test(n) ? '../lodge/img/' : '../crew/img/') + n + '.png'; });
+const ANCH = {beaver:{hx:10, ht:3}, raccoon:{hx:12, ht:5}};
+P.forEach(async (p,i) => {
+  const [b,h] = await Promise.all([L('c-'+p.c), L('h-'+p.h)]);
+  const c = document.createElement('canvas'); c.width = c.height = 36; const x = c.getContext('2d');
+  const ox = Math.round(18-b.width/2), oy = 36-b.height; x.drawImage(b, ox, oy);
+  x.drawImage(h, Math.round(ox+ANCH[p.c].hx-h.width/2), oy+ANCH[p.c].ht-h.height+3);
+  document.getElementById('sp'+i).innerHTML = `<image href="${c.toDataURL()}" x="${p.x-40}" y="${p.y-46}" width="80" height="80" style="image-rendering:pixelated"/>`;
+});
+// compute packets flow in; the meter fills, then starts over
+const pk = document.getElementById('pk'), live = [];
+let filled = 0, units = 0;
+function spawn(){ const i = Math.floor(Math.random()*P.length), p = P[i];
+  const el = document.createElementNS('http://www.w3.org/2000/svg','circle'); el.setAttribute('r', 7); el.setAttribute('class', 'pkt' + (Math.random()<.35?' w':'')); pk.appendChild(el);
+  live.push({el, p, t:0}); }
+let last = performance.now(), acc = 0;
+function tick(now){ const dt = Math.min(50, now-last); last = now; acc += dt;
+  if (acc > 260) { acc = 0; spawn(); }
+  for (let k = live.length-1; k >= 0; k--) { const o = live[k]; o.t += dt/1400;
+    const t = Math.min(1,o.t), x = o.p.x+(HUB.x-o.p.x)*t, y = o.p.y+(HUB.y-o.p.y)*t;
+    o.el.setAttribute('cx', x); o.el.setAttribute('cy', y);
+    if (t >= .72) { o.el.remove(); live.splice(k,1); filled = Math.min(1, filled+.012); units++; } }
+  document.getElementById('fill').setAttribute('width', 276*filled);
+  document.getElementById('pct').textContent = filled >= 1 ? 'done ✓' : Math.round(filled*100)+'%';
+  document.getElementById('tot').textContent = `${6+units%7} people · ${12+Math.floor(units/3)%40} wolts lending`;
+  if (filled >= 1 && !tick.hold) { tick.hold = setTimeout(() => { filled = 0; tick.hold = null; }, 2500); }
+  requestAnimationFrame(tick); }
+requestAnimationFrame(tick);
+</script>
+<script src="../shared/kit.js"></script>
+</body></html>
