@@ -55,9 +55,10 @@ const nodeR = 46;
 for (const [p, room, side] of E) {
   const a = ME, b = P[p], mx = (a.x+b.x)/2, my = (a.y+b.y)/2, dx = b.x-a.x, dy = b.y-a.y, L = Math.hypot(dx,dy);
   const off = side*70, cx = mx - dy/L*off, cy = my + dx/L*off;
-  s += `<path class="edge" d="M${a.x} ${a.y} Q${cx} ${cy} ${b.x} ${b.y}"/>`;
+  const bl = p === 'f1' ? ' blue' : '';
+  s += `<path class="edge${bl}" d="M${a.x} ${a.y} Q${cx} ${cy} ${b.x} ${b.y}"/>`;
   const t = .62, lx = (1-t)*(1-t)*a.x+2*(1-t)*t*cx+t*t*b.x, ly = (1-t)*(1-t)*a.y+2*(1-t)*t*cy+t*t*b.y, w = room.length*8.5+40;
-  s += `<g class="room"><rect x="${lx-w/2}" y="${ly-15}" width="${w}" height="30" rx="15"/><text x="${lx-w/2+12}" y="${ly+5}">🐚 ${room}</text></g>`;
+  s += `<g class="room${bl}"><rect x="${lx-w/2}" y="${ly-15}" width="${w}" height="30" rx="15"/><text x="${lx-w/2+12}" y="${ly+5}">🐚 ${room}</text></g>`;
 }
 const node = (n, me) => `<g class="node ${me?'me':''}"><circle cx="${n.x}" cy="${n.y}" r="${me?62:nodeR}"${n.col?` style="fill:${n.col}"`:''}/>`+
   `<text class="who" x="${n.x}" y="${n.y+(me?100:78)}" text-anchor="middle">${n.who}</text><text class="ws" x="${n.x}" y="${n.y+(me?124:100)}" text-anchor="middle">${n.ws}</text></g>`;
