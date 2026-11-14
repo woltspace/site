@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ask the agent that wrote it</title>
+<link rel="stylesheet" href="../shared/fonts/fonts.css">
+<style>
+  /* Code review in shellphone's own desktop look (colors, fonts and bubbles from shellphone's web/src): a thread with
+     two humans and the wolt that wrote the change, the diff open in the side panel. */
+  :root{--paper:#f5f1e8;--panel:#fffdf6;--line:#d6ccba;--ink:#18100a;--dim:#8a7a68;--acc:#c4531e;--go:#2e9d57;
+        --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace}
+  html,body{margin:0;height:100%;background:#18100a;color:#f5f1e8;overflow:hidden}
+  .txt{position:absolute;left:4.5%;top:0;bottom:0;width:27%;display:flex;flex-direction:column;justify-content:center;gap:20px}
+  .k{color:#ffca4e;font:600 20px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+  h1{margin:0;font:400 54px/1.05 'Preahvihear',sans-serif}
+  h1 em{font-style:normal;color:#ffca4e}
+  .txt p{margin:0;font:500 20px/1.5 var(--mono);color:#e8dcc4}
+  /* the app window */
+  .win{position:absolute;left:34%;right:2.5%;top:7%;bottom:7%;background:var(--paper);color:var(--ink);border-radius:12px;overflow:hidden;
+       box-shadow:0 0 0 1px #0006,0 30px 60px #0008;display:grid;grid-template-rows:38px 1fr;font-family:var(--sans)}
+  .bar{display:flex;align-items:center;gap:8px;padding:0 14px;background:#efe8da;border-bottom:1px solid var(--line)}
+  .bar i{width:12px;height:12px;border-radius:50%;background:#ff5f57}.bar i:nth-child(2){background:#febc2e}.bar i:nth-child(3){background:#28c840}
+  .bar span{flex:1;text-align:center;font:600 13px var(--mono);color:var(--dim);margin-right:52px}
+  .body{display:grid;grid-template-columns:1fr 1.05fr;min-height:0}
+  /* thread column */
+  .thread{display:flex;flex-direction:column;min-height:0;border-right:1px solid var(--line)}
+  .th{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--panel);border-bottom:1px solid var(--line)}
+  .th b{display:block;font:700 15px var(--mono)} .th small{display:block;font:500 11px var(--mono);color:var(--dim)}
+  .th .ppl{margin-left:auto;display:flex}
+  .th .ppl img,.th .ppl canvas{width:26px;height:26px;border-radius:50%;border:2px solid var(--panel);margin-left:-6px;background:#efe8da;image-rendering:pixelated}
+  .feed{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:10px 0 12px;min-height:0}
+  .row{display:none;align-items:flex-end;gap:6px;padding:0 10px;margin-top:10px}
+  .row.on{display:flex;animation:step .35s ease-out}
+  @keyframes step{from{transform:translateY(6px);opacity:0}}
+  .row.mine{flex-direction:row-reverse}
+  .av{flex:none;width:28px;height:28px;border-radius:50%;overflow:hidden;image-rendering:pixelated}
+  .av canvas{width:28px;height:28px}
+  .person{display:grid;place-items:center;font:700 13px var(--mono);color:#fff}
+  .bub{max-width:80%;border:1px solid var(--line);border-radius:12px;padding:6px 10px;background:var(--panel)}
+  .mine .bub{background:#f6e2d6}
+  .who{font:500 11px var(--mono);color:var(--dim);margin-bottom:2px}
+  .say{font-size:15px;line-height:1.38}
+  .say b{color:var(--acc);font-weight:600}
+  .say code{font:13px var(--mono);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:0 4px}
+  .t{text-align:right;font:10px var(--mono);color:var(--dim);margin-top:2px}
+  .typing{display:none;align-self:flex-start;margin:8px 10px 0;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font:500 12px var(--mono);color:var(--dim)}
+  .typing.on{display:inline-block;animation:pulse 1.4s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.45}}
+  .comp{display:flex;align-items:center;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--panel)}
+  .comp div{flex:1;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font:14px var(--mono);color:#a89f92;background:var(--paper)}
+  .comp i{width:36px;height:36px;border-radius:50%;background:var(--acc);display:grid;place-items:center;color:#fff;font-style:normal;font-size:16px}
+  /* side panel: the diff */
+  .side{display:flex;flex-direction:column;min-height:0;background:var(--panel)}
+  .sh{padding:10px 14px;border-bottom:1px solid var(--line)}
+  .sh b{display:block;font:700 15px var(--mono)} .sh small{font:500 11px var(--mono);color:var(--dim)}
+  .sh .st{display:inline-block;margin-right:6px;padding:1px 7px;border-radius:999px;background:var(--go);color:#fff;font:700 10px var(--mono)}
+  .file{padding:6px 14px;font:600 12px var(--mono);color:var(--dim);background:#efe8da;border-bottom:1px solid var(--line)}
+  pre{margin:0;padding:6px 0;font:13px/1.75 var(--mono);white-space:pre;overflow:hidden}
+  .l{display:block;padding:0 12px;transition:background .3s,box-shadow .3s}
+  .n{display:inline-block;width:28px;color:#b5a894}
+  .add{background:#e3f1e3} .del{background:#f8e1dc;color:#7d3a2a}
+  .l.ask{background:#c4531e2e;box-shadow:inset 3px 0 var(--acc)}
+  .note{margin:auto 12px 12px;padding:8px 10px;border:1px dashed var(--line);border-radius:10px;font:12px/1.5 var(--mono);color:var(--dim)}
+</style></head><body>
+<div class="txt">
+  <div class="k">Where this is going · next</div>
+  <h1>Ask the agent<br><em>that wrote it.</em></h1>
+  <p>Reviewing a PR? Ask the wolt that wrote it why. It was there.</p>
+</div>
+<div class="win">
+  <div class="bar"><i></i><i></i><i></i><span>shellphone · ~/backend</span></div>
+  <div class="body">
+    <div class="thread">
+      <div class="th"><span>🧵</span><span><b>PR #142 · webhooks</b><small>thread · 3 replies</small></span><span class="ppl" id="ppl"></span></div>
+      <div class="feed">
+        <div class="row" data-k="0"><span class="av person" style="background:#2f6fa3">M</span><div class="bub"><div class="who">[maya]</div><div class="say">PR #142 is up, pip and I fixed the dropped webhooks. <b>@sam</b> can you take a look?</div><div class="t">2:14 PM</div></div></div>
+        <div class="row mine" data-k="1"><span class="av person" style="background:#7a4fb0">S</span><div class="bub"><div class="say">taking a look. <b>@pip</b> why 3 retries with backoff on line 41?</div><div class="t">2:31 PM</div></div></div>
+        <div class="typing" id="typing">pip: Gnawing on it…</div>
+        <div class="row" data-k="2"><span class="av" id="pipav"></span><div class="bub"><div class="who" style="color:#2f7d6d">[pip · maya's wolt]</div><div class="say">Stripe sends 429s under load. With 1 retry, Maya's load test still dropped 2% of events; with 3 and backoff, none. The log is linked in the PR.</div><div class="t">2:31 PM</div></div></div>
+      </div>
+      <div class="comp"><div>$ reply in thread</div><i>🎙</i></div>
+    </div>
+    <div class="side">
+      <div class="sh"><b>fix: webhooks dropped under load</b><small><span class="st">OPEN</span>#142 · maya + pip · +18 −3</small></div>
+      <div class="file">src/webhooks/stripe.ts</div>
+<pre><span class="l"><span class="n">38</span>export async function handle(evt) {</span><span class="l"><span class="n">39</span>  const body = await verify(evt)</span><span class="l del"><span class="n">40</span>- await save(body)</span><span class="l add" id="hot"><span class="n">41</span>+ return retry(() =&gt; save(body), {</span><span class="l add"><span class="n">42</span>+   tries: 3, backoff: 'expo',</span><span class="l add"><span class="n">43</span>+ })</span><span class="l"><span class="n">44</span>}</span></pre>
+      <div class="note">pip wrote this with maya on Nov 12, and remembers why.</div>
+    </div>
+  </div>
+</div>
+<script>
+const L = (d,n) => new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = '../' + d + '/img/' + n + '.png'; });
+const ANCH = {beaver:{hx:10, ht:3}};
+Promise.all([L('crew','c-beaver'), L('crew','h-hard-hat')]).then(([b,h]) => {
+  const mk = () => { const c = document.createElement('canvas'); c.width = c.height = 32; const x = c.getContext('2d'); x.fillStyle = '#efe8da'; x.fillRect(0,0,32,32);
+    const ox = Math.round(16-b.width/2), oy = 33-b.height; x.drawImage(b, ox, oy); x.drawImage(h, Math.round(ox+10-h.width/2), oy+3-h.height+3); return c; };
+  document.getElementById('pipav').appendChild(mk()); document.getElementById('ppl').appendChild(mk());
+});
+['#2f6fa3:M','#7a4fb0:S'].forEach(s => { const [c,l] = s.split(':'), e = document.createElement('span'); e.className = 'av person'; e.style.cssText = `background:${c};width:26px;height:26px;border:2px solid #fffdf6;margin-left:-6px;font-size:11px`; e.textContent = l; document.getElementById('ppl').prepend(e); });
+// maya posts the PR; sam asks pip about line 41 (it lights up); pip is typing; pip answers. Then it starts over.
+const rows = [...document.querySelectorAll('.row')], hot = document.getElementById('hot'), typing = document.getElementById('typing');
+let timer;
+const at = (ms, f) => setTimeout(f, ms);
+function start(){ clearTimeout(timer); rows.forEach(r => r.classList.remove('on')); hot.classList.remove('ask'); typing.classList.remove('on');
+  const T = [at(700, () => rows[0].classList.add('on')), at(2600, () => { rows[1].classList.add('on'); hot.classList.add('ask'); }),
+    at(3900, () => typing.classList.add('on')), at(6000, () => { typing.classList.remove('on'); rows[2].classList.add('on'); })];
+  timer = setTimeout(start, 13000); }
+window.addEventListener('book:show', start); start();
+</script>
+<script src="../shared/kit.js"></script>
+</body></html>

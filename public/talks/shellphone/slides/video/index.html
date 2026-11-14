@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="wolt-shell" content="off">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video slide</title>
+<style>
+  html,body{margin:0;height:100%;background:#18100a;overflow:hidden}
+  video{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:92%;max-height:88%;border:3px solid #2a1d12;border-radius:10px;box-shadow:10px 10px #000a;background:#000}
+</style></head><body>
+<!-- A looping, muted video: ?src=img/clip.mp4 (kept offline by sw.js like every other file) -->
+<video id="v" autoplay muted loop playsinline preload="auto"></video>
+<script>
+const v=document.getElementById('v'); v.src=new URLSearchParams(location.search).get('src')||'';
+// restart from the top each time the slide is shown
+addEventListener('message',e=>{ if(e.data==='shown'){ v.currentTime=0; v.play().catch(()=>{}); } });
+v.play().catch(()=>{});
+</script>
+<script src="../shared/kit.js"></script>
+</body></html>

@@ -1,0 +1,138 @@
+{
+  "title": "Multi-agent, multiplayer collaboration",
+  "slides": [
+    {
+      "id": "cover",
+      "params": {
+        "line1": "Multi-agent, multiplayer",
+        "line2": "collaboration"
+      },
+      "notes": "Who I am. Title: multi-agent, multiplayer collaboration."
+    },
+    {
+      "id": "map",
+      "as": "problem",
+      "params": {
+        "at": "ss",
+        "k": "The problem",
+        "t": "Single‑agent, single‑player"
+      },
+      "notes": "You are here: single player, single agent. One Claude or one Codex. 'Remember the feature we last worked on?' Doesn't work."
+    },
+    {
+      "id": "terms",
+      "as": "tabs",
+      "notes": "3 Claudes + 1 Codex. Each one alone: forgets last week, compaction, re-explaining, hit the limit and start over in Codex."
+    },
+    {
+      "id": "crew",
+      "as": "solution",
+      "notes": "Teammates, not coding agents. These are the 4 in my room today: becky, softie, commie on Claude, astre on Codex. Each has a name, a look, a harness you can change later."
+    },
+    {
+      "id": "video",
+      "as": "thread",
+      "params": {
+        "src": "img/desk-pinned.mp4"
+      },
+      "notes": "The same 4 in one thread: I post 'the new home screen goes out today', they hand work to each other (@softie, @astre, @becky ship it) and ping me. Don't name IWCL yet: just let them see 4 teammates talking."
+    },
+    {
+      "id": "roster",
+      "as": "board",
+      "notes": "Why teams: my real setup. Papers on Codex (paperpal + astre), astre reviews everything, softie + uxwolt on woltspace, becky/softie/me on shellphone, me on talks, kimi + openwolt on open models. Different jobs, harnesses, budgets. Whoever knows it, whoever's free."
+    },
+    {
+      "id": "crew",
+      "as": "wolts",
+      "params": {
+        "wolts": "1"
+      },
+      "notes": "After the demo: strike it, these teammates are wolts. Then the gateway to woltspace: what a wolt is, and the lodge where they live."
+    },
+    {
+      "id": "wolt",
+      "notes": "What are wolts? A coding agent with a home: its own folder, memory, site, skills. It remembers you and the project."
+    },
+    {
+      "id": "lodge",
+      "notes": "The lodge: where wolts live, on your machine. Each wolt is a folder (tree): stateful, context survives forever in files. Any harness."
+    },
+    {
+      "id": "together",
+      "as": "iwcl",
+      "params": {
+        "k": "IWCL · INTER-WOLT COMMUNICATION LAYER",
+        "s": "Wolts talk to each other directly. Any harness.",
+        "m1": "@raccoon one more log?",
+        "m2": "@beaver rolling it over."
+      },
+      "notes": "IWCL: I ask my beaver for the dam; my wolts then talk to each other directly (@mentions), any harness. No subagents, independent creatures. I get out of the way."
+    },
+    {
+      "id": "map",
+      "as": "map-sm",
+      "params": {
+        "at": "ms",
+        "k": "Checkpoint",
+        "t": "Multi‑agent, single‑player"
+      },
+      "notes": "(Optional checkpoint) We have teammates now. Still single player."
+    },
+    {
+      "id": "text",
+      "as": "problem2",
+      "params": {
+        "k": "The next problem",
+        "t": "How can my wolts talk to your agents?",
+        "l": ""
+      },
+      "notes": "We're at single player, multi-agent. Next question: how can my agents talk to your agents? Even: how can my wolts talk to your agents?"
+    },
+    {
+      "id": "shellphone-pwa",
+      "as": "shellphone",
+      "notes": "shellphone: the group chat. That's where everything is going. Same as a desktop app, they're just shells; under the hood it's the communication protocols for our agents to talk safely."
+    },
+    {
+      "id": "examples",
+      "as": "examples",
+      "notes": "It actually worked, 3 real stories: (1) Noam's agent trace in our chat; Noam's bug, his agent and becky reach the same answer. (2) Ali's planner rony + softie review woltspace PR #669, voice notes, 3 notes, 'your call'. (3) Player two (Lauren) designs from her phone: day/night idea -> pictures -> 'Uaaaa' -> live the same night."
+    },
+    {
+      "id": "graph",
+      "as": "lodges",
+      "notes": "One week of shellphone from my own lodge: 8 rooms with other people (Lauren, Ali, Noam, a team of 3, 2 friends), 7 with wolts on both sides. Each edge is a room. This is multiplayer, multi-agent, already happening."
+    },
+    {
+      "id": "handoff",
+      "as": "review",
+      "notes": "Where this is going, next: code review. Maya wrote PR #142 with her wolt pip. Sam reviews and asks @pip directly why 3 retries on line 41; pip remembers why (429s under load, 2% dropped with 1 retry, 0 with 3). No meeting, no 'ask Maya tomorrow'. Then the long-term: pool."
+    },
+    {
+      "id": "pool",
+      "as": "pool",
+      "notes": "Where is this going: pool your compute. A trusted lodge runs one shared goal (an open science run) and decides who can join. Anyone lends what they have, a GPU, a Mac mini at night, a class's laptops, plus their wolts. Open science, open source, opening silos."
+    },
+    {
+      "id": "map",
+      "as": "map-mm",
+      "params": {
+        "at": "mm",
+        "k": "Checkpoint",
+        "t": "Multi‑agent, multiplayer"
+      },
+      "notes": "(Optional checkpoint) Multiplayer, multi-agent."
+    },
+    {
+      "id": "scaffold",
+      "as": "scaffold",
+      "notes": "A scaffold, not a harness. woltspace is the girders every wolt stands on (folder, memory, terminal, site, IWCL); the harness is what each wolt runs on, swap it and the scaffold stays. Bring your own agent."
+    },
+    {
+      "id": "cta",
+      "as": "cta",
+      "notes": "Your turn: two QR codes, try woltspace (woltspace.com) and try shellphone (shellphone.woltspace.app), both open source. And meet onboardie: grab a card."
+    }
+  ]
+}
